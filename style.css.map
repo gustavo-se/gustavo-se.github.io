@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,CAAC,CAAA;EACG,OAAO,EAAE,CAAC;EACV,MAAM,EAAE,CAAC;EACT,UAAU,EAAE,UAAU;CACzB;;AAQD,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EIVnC,AAAA,MAAM,CAAA;IACF,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,KAAK;IACb,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,MAAM;GAiCzB;EArCD,AAKI,MALE,CAKF,aAAa,CAAA;IACT,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,GAAG;IACX,gBAAgB,EAVV,OAAO;GAWhB;EATL,AAUI,MAVE,CAUF,UAAU,CAAA;IACN,OAAO,EAAE,IAAI;IACb,eAAe,EAAE,aAAa;IAC9B,WAAW,EAAC,MAAM;IAClB,MAAM,EAAE,IAAI;GAsBf;EApCL,AAgBQ,MAhBF,CAUF,UAAU,CAMN,WAAW,CAAA;IACP,KAAK,EAAE,IAAI;IACX,MAAM,EAAE,OAAO;IACf,YAAY,EAAE,QAAQ;GACzB;EApBT,AAqBQ,MArBF,CAUF,UAAU,CAWN,KAAK,CAAA;IACD,KAAK,EAAE,OAAO;IACd,MAAM,EAAC,OAAO;GAEjB;EAzBT,AA2BQ,MA3BF,CAUF,UAAU,CAiBN,KAAK,CAAA;IACD,OAAO,EAAE,IAAI;IACb,eAAe,EAAE,QAAQ;IACzB,aAAa,EAAE,QAAQ;GAI1B;EAlCT,AA+BY,MA/BN,CAUF,UAAU,CAiBN,KAAK,CAID,EAAE,CAAA;IACF,OAAO,EAAC,IAAI;GACf",
+    "sources": [
+        "style.scss",
+        "desktop-styles/_desktop-style-header.scss",
+        "desktop-styles/_desktop-style-main.scss",
+        "desktop-styles/_desktop-style-footer.scss",
+        "mobile_styles/_mobile-style-header.scss",
+        "mobile_styles/_moblie-style-main.scss",
+        "mobile_styles/_mobile-style-footer.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
