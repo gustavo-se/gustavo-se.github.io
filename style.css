@@ -9,6 +9,11 @@
 }
 
 @media screen and (max-width: 767px) {
+  .espacio-azul {
+    width: 100%;
+    height: 5px;
+    background-color: #572EE5;
+  }
   header {
     width: 100%;
     height: 100px;
@@ -19,11 +24,6 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  header .espacio-azul {
-    width: 100%;
-    height: 5px;
-    background-color: #572EE5;
   }
   header .logo-menu {
     display: -webkit-box;
@@ -198,6 +198,46 @@
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+  }
+  footer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  footer p:first-child {
+    margin-top: 2.9375rem;
+    font-family: roboto;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  footer .redes-sociales {
+    width: 5.6875rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  footer .copyright {
+    margin-bottom: 1.4375rem;
+    font-family: roboto;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    line-height: 1.25rem;
+    font-weight: 400;
   }
 }
 /*# sourceMappingURL=style.css.map */
