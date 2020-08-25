@@ -1,15 +1,15 @@
 $espacio-azul:#572EE5;
-
+.espacio-azul{
+    width: 100%;
+    height: 5px;
+    background-color: $espacio-azul;
+}
 header{
     width: 100%;
     height: 100px;
     display: flex;
     flex-direction: column;
-    .espacio-azul{
-        width: 100%;
-        height: 5px;
-        background-color: $espacio-azul;
-    }
+    
     .logo-menu{
         display: flex;
         justify-content: space-between;
