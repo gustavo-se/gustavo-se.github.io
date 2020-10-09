@@ -1,0 +1,63 @@
+$espacio-azul:#572EE5;
+.espacio-azul{
+    width: 100%;
+    height: 5px;
+    background-color: $espacio-azul;
+}
+
+header{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    
+    .logo-menu{
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        height: 90px;
+        //logo GIFOS
+        .logo-gifos{
+            width: 30%;
+            height: 59.1px;
+            img{
+                padding-left: 12rem;
+            }
+        }
+        //Prueba de hndlers
+        .logo-gifo{
+            background-color: #572EE5;
+        }
+        
+        .burger{
+            display: none;
+        }
+        .botonmas:hover{
+            cursor: pointer;
+        }
+        .menu{
+            width: 70%;
+            display:flex;
+            flex-direction: row-reverse;
+            justify-content: space-evenly;
+            padding-right: 12rem;
+            ul{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                list-style: none;
+                li a{
+                    text-decoration: none;
+                    font-size: 13px;
+                    font-family: 'Monserrat';
+                    font-weight: bold;
+                    color: #572EE5;
+                    letter-spacing: 0;
+                }
+            
+            }
+        }
+       
+    }
+}

@@ -8,7 +8,89 @@
           box-sizing: border-box;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 901px) {
+  .espacio-azul {
+    width: 100%;
+    height: 5px;
+    background-color: #572EE5;
+  }
+  header {
+    width: 100%;
+    height: 90px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header .logo-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 90px;
+  }
+  header .logo-menu .logo-gifos {
+    width: 30%;
+    height: 59.1px;
+  }
+  header .logo-menu .logo-gifos img {
+    padding-left: 12rem;
+  }
+  header .logo-menu .logo-gifo {
+    background-color: #572EE5;
+  }
+  header .logo-menu .burger {
+    display: none;
+  }
+  header .logo-menu .botonmas:hover {
+    cursor: pointer;
+  }
+  header .logo-menu .menu {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    padding-right: 12rem;
+  }
+  header .logo-menu .menu ul {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    list-style: none;
+  }
+  header .logo-menu .menu ul li a {
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Monserrat';
+    font-weight: bold;
+    color: #572EE5;
+    letter-spacing: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
   .espacio-azul {
     width: 100%;
     height: 5px;
@@ -42,9 +124,8 @@
     height: 3,05rem;
     padding-left: 1.375rem;
   }
-  header .logo-menu .logo {
-    width: 3.05rem;
-    height: 3.05rem;
+  header .logo-menu .logo-gifo {
+    background-color: #572EE5;
   }
   header .logo-menu .menu {
     display: -webkit-box;
@@ -54,6 +135,9 @@
         -ms-flex-pack: end;
             justify-content: flex-end;
     padding-right: 1.625rem;
+  }
+  header .logo-menu .menu .botonmas {
+    display: none;
   }
   header .logo-menu .menu ul {
     display: none;

@@ -20,17 +20,20 @@ header{
             width: 6rem;
             height: 3,05rem;
             padding-left: 1.375rem;
-        }
-        .logo{
-            width: 3.05rem;
-            height:3.05rem;
             
         }
+        .logo-gifo{
+            background-color: #572EE5;
+        }
+        
         //menu hamburguesa sin funcionalidad
         .menu{
             display: flex;
             justify-content: flex-end;
             padding-right: 1.625rem;
+            .botonmas{
+                display: none;
+            }
             ul{
             display:none;
         }

@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-@media screen and(min-width: 768px){
+@media screen and(min-width: 901px){
     @import "./desktop-styles/desktop-style-header";
     @import "./desktop-styles/desktop-style-main";
     @import "./desktop-styles/desktop-style-footer";
 }
 
-@media screen and(max-width: 767px){
+@media screen and(max-width: 900px){
     @import "./mobile_styles/_mobile-style-header";
     @import "./mobile_styles/moblie-style-main";
     @import "./mobile_styles/mobile-style-footer";
