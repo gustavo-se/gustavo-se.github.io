@@ -1,10 +1,9 @@
 footer{
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     p:first-child{
-        margin-top: 2.9375rem;
+        padding-left: 100px;
         font-family: roboto;
         font-size: 15px;
         line-height: 18px;
@@ -14,16 +13,17 @@ footer{
     .redes-sociales{
         width: 5.6875rem;
         display: flex;
-        justify-content: space-between;
-        margin-top: 1.5rem;
-        margin-bottom: 3rem;
+        img{
+            padding: 0 10px ;
+        }
     }
     .copyright{
-        margin-bottom: 1.4375rem;
+        margin-left: auto;
         font-family: roboto;
         font-size: 0.875rem;
         letter-spacing: 0;
         line-height: 1.25rem;
         font-weight: 400;
+        padding-right: 100px;
     }
 }
