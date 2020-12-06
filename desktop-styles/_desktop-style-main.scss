@@ -65,11 +65,7 @@ section{
             font-size: 0.875rem;
             line-height: 25px;
             text-align: center;
-            font-weight: normal;
-            a{
-                text-decoration: none;
-                color: #572EE5;
-            }
+            font-weight: normal
         }
     }
 }
@@ -105,5 +101,9 @@ section{
         width: 100%;
         display:flex;
         justify-content: space-evenly;
+        &>img{
+            width: 357px;
+            height: 275;
+        }
     }
 }

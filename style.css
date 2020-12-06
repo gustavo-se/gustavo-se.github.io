@@ -192,10 +192,6 @@
     text-align: center;
     font-weight: normal;
   }
-  section .trending p a {
-    text-decoration: none;
-    color: #572EE5;
-  }
   .section2 {
     background-color: #F3F5F8;
   }
@@ -240,6 +236,10 @@
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+  }
+  .section2 .galeria > img {
+    width: 357px;
+    height: 275;
   }
   footer {
     width: 100%;
