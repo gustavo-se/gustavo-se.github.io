@@ -1,23 +1,19 @@
 let gifOfTrendings = document.getElementsByClassName('trending-gif')
 let sliders = document.getElementsByClassName('slider')
-let carrousel = document.querySelector('.carrousel') //xarrousel-slide
+let carrousel = document.querySelector('.carrousel') 
 
 window.addEventListener('load',() => {
-    fetch('https://api.giphy.com/v1/gifs/trending?api_key=bdrONB5N1ZSySk8VvFBXF18Yut13R6tX&limit=9&rating=g')
+    fetch('https://api.giphy.com/v1/gifs/trending?api_key=bdrONB5N1ZSySk8VvFBXF18Yut13R6tX&limit=11&rating=g')
     .then(res => res.json())
     .then(res => {
-        for(let i = 1; i< (gifOfTrendings.length - 1) ; i++){
+        for(let i = 0; i< gifOfTrendings.length; i++){
             gifOfTrendings[i].setAttribute('src', res.data[i].images.original.url)
         }
-        gifOfTrendings[0].setAttribute('src', res.data[9].images.original.url )
-        gifOfTrendings[10].setAttribute('src', res.data[0].images.original.url )
     })
     })
-
 
 let counter = 1
-const size = gifOfTrendings[0].clientWidth
-
+const size = 357
 
 carrousel.style.transform = 'translateX(' + (-size * counter) + 'px)'
 

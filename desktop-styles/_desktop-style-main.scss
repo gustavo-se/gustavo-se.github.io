@@ -34,15 +34,29 @@ section{
             align-items: center;
             input{
                 border: none;
-                width: 13.4375rem;
-                height: 1.375rem;
+                height: 45px;
+                width: 75%;
+                border-radius: 50px;
                 line-height: 19px;
                 padding-left: 1.5625rem;
                 font-size: 16px;
+                outline-width: 0;
             }
             img{
                 padding-right: 20px;
             }
+        }
+    }
+    .container-search{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 79px;
+        .search-gifs{
+            width: 260px;
+            height: 200px;
+            margin: 14.5px;
         }
     }
     .trending{

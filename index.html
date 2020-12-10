@@ -16,11 +16,11 @@
         <!-- Navbar -->
         <div class="logo-menu">
             <!-- Logo gifos -->
-            <div class="logo-gifos"><img src="img/logo-mobile.svg" alt="GIFOS" ></div>
+            <div class="logo-gifos"><img src="./img/logo-mobile.svg" alt="GIFOS" ></div>
             <!-- Menú hamburguesa/navegacion -->
             <div class="menu">
                 <img src="img/burger.svg" alt="menu" class="burger" id="hamburguesa">
-                <img src="/img/button-crear-gifo.svg" alt="agregar-gif" class= "botonmas">
+                <img src="./img/button-crear-gifo.svg" alt="agregar-gif" class= "botonmas">
                 <img src="./img/close.svg" alt="close" class="close burger-close">
                 <ul id="menu-desplegado">
                     <li><a href="#" class="links">Modo Nocturno</a></li>
@@ -31,16 +31,16 @@
         </div>
     </header>
     <main>
-        <section>
+        <section class="buscador-de-gifs">
             <!-- Buscador de gifos -->
             <div class="description">
                 <h2>Inspirate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
             </div>
             <div class="main-search">
-                <img src="img/ilustra_header.svg" alt="GIFOS" class="main-image">
+                <img src="./img/ilustra_header.svg" alt="GIFOS" class="main-image">
                 <div class="imput-search">
                     <input type="text" placeholder="Busca GIFOS y más">
-                    <img src="img/icon-search.svg" alt="search">
+                    <img src="./img/icon-search.svg" id="btn-search" alt="search">
                 </div>
             </div>
             <div class="trending">
@@ -59,17 +59,17 @@
             <img class='slider' id="slider-rigth" src="./img/Button-Slider-right.svg" alt="">
             <div class="galeria">
                  <div class="carrousel "> 
-                    <img class='trending-gif' src="./img/image01.svg" id="last-clone" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif 'src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" alt="GIFOS">
-                    <img class='trending-gif' src="./img/image01.svg" id="first-clone" alt="GIFOS">
+                    <img class='trending-gif'  src="./img/image01.svg" id="last-clone" alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  alt="GIFOS">
+                    <img class='trending-gif'  id="first-clone" alt="GIFOS">
                 </div>
             </div>
         </div>
@@ -87,6 +87,7 @@
     <div class="espacio-azul"></div>
     <script src="./scripts/script-header.js"></script>
     <script src="./scripts/scriptTrending.js"></script>
+    <script src="./scripts/scriptSearch.js"></script>
 </body>
 
 </html>
