@@ -30,20 +30,40 @@ section{
             border: 1px solid #572EE5;
             border-radius: 27px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             input{
+                padding-left: 10px;
                 border: none;
                 height: 45px;
                 width: 75%;
                 border-radius: 50px;
                 line-height: 19px;
-                padding-left: 1.5625rem;
                 font-size: 16px;
                 outline-width: 0;
             }
-            img{
+            #btn-search{
                 padding-right: 20px;
+                
+            }
+        }
+        .lista-sugerencias{
+            display: none;
+            width: 600px;
+            height: auto;
+            ul{
+                list-style: none;
+                li{
+                    width: 100%;
+                    margin: 5px 0;
+                    font-family: Roboto;
+                    font-size: 16px;
+                }
+            }
+            .fa-search{
+                font-size: 1.2rem;
+                color: #9CAFC3;
+                margin: 0 10px 0 40px;
             }
         }
     }

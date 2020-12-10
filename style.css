@@ -144,25 +144,44 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
   section .main-search .imput-search input {
+    padding-left: 10px;
     border: none;
     height: 45px;
     width: 75%;
     border-radius: 50px;
     line-height: 19px;
-    padding-left: 1.5625rem;
     font-size: 16px;
     outline-width: 0;
   }
-  section .main-search .imput-search img {
+  section .main-search .imput-search #btn-search {
     padding-right: 20px;
+  }
+  section .main-search .lista-sugerencias {
+    display: none;
+    width: 600px;
+    height: auto;
+  }
+  section .main-search .lista-sugerencias ul {
+    list-style: none;
+  }
+  section .main-search .lista-sugerencias ul li {
+    width: 100%;
+    margin: 5px 0;
+    font-family: Roboto;
+    font-size: 16px;
+  }
+  section .main-search .lista-sugerencias .fa-search {
+    font-size: 1.2rem;
+    color: #9CAFC3;
+    margin: 0 10px 0 40px;
   }
   section .container-search {
     width: 100%;
