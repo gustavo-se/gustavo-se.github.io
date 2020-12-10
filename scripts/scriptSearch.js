@@ -29,11 +29,6 @@ const buscador = (busqueda) => {
     })
 }
 
-
-btnSearch.addEventListener('click', () => {
-    buscador(input.value)
-})
-
 input.addEventListener('keydown', (event) => {
     if(input.value.length >= 2){
         btnSearch.setAttribute('src', './img/close.svg')
@@ -49,11 +44,12 @@ input.addEventListener('keydown', (event) => {
 const sugerencias = term =>{
     fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${term}&limit=4`)
     .then(res => res.json())
-    .then(res => 
-        console.log(res.data[0].name))
+    .then(res => {
+          for(let i = 0; i < 4; i++){
+              results[i].innerHTML = `<i class="fas fa-search"></i>${res.data[i].name}`       
+         }
+     })   
 }
-
-
 input.addEventListener('keyup', () => {
     if(input.value.length >= 1){
         sugestionsBox.style.display = 'block'
@@ -65,4 +61,3 @@ input.addEventListener('keyup', () => {
     }
     sugerencias(input.value)
 })
-console.log(results)
