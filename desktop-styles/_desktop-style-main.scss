@@ -42,8 +42,14 @@ section{
                 font-size: 16px;
                 outline-width: 0;
             }
+            .fa-search{
+                font-size: 1.2rem;
+                color: #9CAFC3;
+                visibility: hidden;
+            }
             #btn-search{
                 padding-right: 20px;
+                cursor: pointer;
                 
             }
         }
@@ -58,25 +64,14 @@ section{
                     margin: 5px 0;
                     font-family: Roboto;
                     font-size: 16px;
+                    cursor: pointer;
                 }
             }
             .fa-search{
                 font-size: 1.2rem;
                 color: #9CAFC3;
-                margin: 0 10px 0 40px;
+                margin: 0 10px 0 48px;
             }
-        }
-    }
-    .container-search{
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-bottom: 79px;
-        .search-gifs{
-            width: 260px;
-            height: 200px;
-            margin: 14.5px;
         }
     }
     .trending{
@@ -170,3 +165,30 @@ section{
     right: 5%;
     cursor: pointer;
 }
+.titulo-search{
+    display: none;
+    width: 550px;
+    height: 30;
+    margin: 50px 0;
+    h3{
+        font-family: Montserrat;
+        font-weight: bold;
+        font-size: 35px;
+        color: #572EE5;
+        text-align: center;
+        line-height: 30px;
+        text-transform: capitalize;
+    }
+}
+.container-search{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 79px;
+    }
+    .search-gifs{
+        width: 260px;
+        height: 200px;
+        margin: 14.5px;
+    }

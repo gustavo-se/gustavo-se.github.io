@@ -161,8 +161,14 @@
     font-size: 16px;
     outline-width: 0;
   }
+  section .main-search .imput-search .fa-search {
+    font-size: 1.2rem;
+    color: #9CAFC3;
+    visibility: hidden;
+  }
   section .main-search .imput-search #btn-search {
     padding-right: 20px;
+    cursor: pointer;
   }
   section .main-search .lista-sugerencias {
     display: none;
@@ -177,28 +183,12 @@
     margin: 5px 0;
     font-family: Roboto;
     font-size: 16px;
+    cursor: pointer;
   }
   section .main-search .lista-sugerencias .fa-search {
     font-size: 1.2rem;
     color: #9CAFC3;
-    margin: 0 10px 0 40px;
-  }
-  section .container-search {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding-bottom: 79px;
-  }
-  section .container-search .search-gifs {
-    width: 260px;
-    height: 200px;
-    margin: 14.5px;
+    margin: 0 10px 0 48px;
   }
   section .trending {
     width: 402px;
@@ -305,6 +295,38 @@
     z-index: 10;
     right: 5%;
     cursor: pointer;
+  }
+  .titulo-search {
+    display: none;
+    width: 550px;
+    height: 30;
+    margin: 50px 0;
+  }
+  .titulo-search h3 {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 35px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 30px;
+    text-transform: capitalize;
+  }
+  .container-search {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 79px;
+  }
+  .search-gifs {
+    width: 260px;
+    height: 200px;
+    margin: 14.5px;
   }
   footer {
     height: 116px;

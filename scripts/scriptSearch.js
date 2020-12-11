@@ -9,6 +9,8 @@ let input = document.querySelector('.imput-search input')
 let sugestionsBox = document.querySelector('.lista-sugerencias')
 let contentSearch = document.querySelector('.container-buscador')
 let results = document.getElementsByClassName('resultados')
+let btnLeft = document.querySelector('.imput-search i')
+let titleSearch = document.querySelector('.titulo-search')
 let containerSearch = document.createElement('div')
 containerSearch.classList.add('container-search')
 sectionSearch.appendChild(containerSearch)
@@ -16,7 +18,9 @@ containerSearch.before(mainSearch)
 
 const buscador = (busqueda) => {
     trendingGifos.style.display = "none"
-
+    while (containerSearch.firstChild) {
+        containerSearch.removeChild(containerSearch.firstChild);
+    }
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${busqueda}&limit=12&rating=g`)
     .then(res => res.json())
     .then(res => {
@@ -29,14 +33,16 @@ const buscador = (busqueda) => {
     })
 }
 
-input.addEventListener('keydown', (event) => {
-    if(input.value.length >= 2){
+input.addEventListener('keyup', (event) => {
+    if(input.value.length >= 1){
         btnSearch.setAttribute('src', './img/close.svg')
     }else{
         btnSearch.setAttribute('src', './img/icon-search.svg')
     }
     if(event.keyCode === 13){
         buscador(input.value)
+        titleSearch.style.display = 'block'
+        titleSearch.innerHTML= `<h3>${input.value}</h3>`
     }
 })
 
@@ -46,7 +52,7 @@ const sugerencias = term =>{
     .then(res => res.json())
     .then(res => {
           for(let i = 0; i < 4; i++){
-              results[i].innerHTML = `<i class="fas fa-search"></i>${res.data[i].name}`       
+              results[i].innerHTML = res.data[i].name 
          }
      })   
 }
@@ -56,8 +62,27 @@ input.addEventListener('keyup', () => {
         inputSearch.style.border = 'none'
         contentSearch.style.border = '1px solid #572EE5'
         contentSearch.style.borderRadius = '27px'
+        btnLeft.style.visibility = 'visible'
     }else{
         sugestionsBox.style.display = 'none'
+        btnLeft.style.visibility = 'hidden'
     }
     sugerencias(input.value)
+})
+
+for(let i = 0; i < 4; i++ ){
+    results[i].addEventListener('click', () =>{
+    buscador(results[i].innerHTML)
+    input.value = results[i].innerHTML
+    sugestionsBox.style.display = 'none'
+    titleSearch.style.display = 'block'
+    titleSearch.innerHTML= `<h3>${input.value}</h3>`
+    })
+}
+
+btnSearch.addEventListener('click', () => {
+    input.value = ''
+    sugestionsBox.style.display = 'none'
+    btnLeft.style.visibility = 'hidden'
+    btnSearch.setAttribute('src', './img/icon-search.svg')
 })
