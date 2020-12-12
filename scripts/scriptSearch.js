@@ -15,6 +15,12 @@ let containerSearch = document.createElement('div')
 containerSearch.classList.add('container-search')
 sectionSearch.appendChild(containerSearch)
 containerSearch.before(mainSearch)
+let searchGif = document.querySelector('.buscador-de-gifs')
+let btnVerMas = document.createElement('button')
+btnVerMas.classList.add('btn-ver-mas')
+btnVerMas.innerHTML = 'VER MÁS'
+searchGif.appendChild(btnVerMas)
+
 
 const buscador = (busqueda) => {
     trendingGifos.style.display = "none"
@@ -30,6 +36,7 @@ const buscador = (busqueda) => {
         containerSearch.appendChild(searchGifs)
         searchGifs.setAttribute('src', res.data[i].images.original.url)
         }
+        console.log(res)
     })
 }
 
@@ -43,6 +50,7 @@ input.addEventListener('keyup', (event) => {
         buscador(input.value)
         titleSearch.style.display = 'block'
         titleSearch.innerHTML= `<h3>${input.value}</h3>`
+        btnVerMas.style.display = 'block'
     }
 })
 
@@ -85,4 +93,17 @@ btnSearch.addEventListener('click', () => {
     sugestionsBox.style.display = 'none'
     btnLeft.style.visibility = 'hidden'
     btnSearch.setAttribute('src', './img/icon-search.svg')
+})
+
+btnVerMas.addEventListener('click',()=>{
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input.value}&limit=12&offset=12&rating=g`)
+    .then(res => res.json())
+    .then(res => {
+        for(let i = 0; i< res.data.length ; i++){
+            let searchGifs = document.createElement('img')
+            searchGifs.classList.add('search-gifs')
+            containerSearch.appendChild(searchGifs)
+            searchGifs.setAttribute('src', res.data[i].images.original.url)
+            }
+    })
 })
