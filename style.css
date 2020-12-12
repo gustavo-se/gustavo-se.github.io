@@ -14,6 +14,9 @@
     height: 5px;
     background-color: #572EE5;
   }
+  .pointer {
+    cursor: pointer;
+  }
   header {
     width: 100%;
     height: 90px;
@@ -344,6 +347,37 @@
     padding: 16px 31px;
     margin-bottom: 79px;
     cursor: pointer;
+  }
+  .gif-expandido {
+    width: 100%;
+  }
+  .gif-expandido .container-expand {
+    width: 830px;
+    height: 688px;
+  }
+  .gif-expandido .container-expand .cerrar {
+    width: 15px;
+    height: 15px;
+    margin-left: auto;
+  }
+  .gif-expandido .container-expand .sliders-gifmax {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .gif-expandido .container-expand .sliders-gifmax .gif-max {
+    margin: 25px;
+  }
+  .gif-expandido .container-expand .datos-gif {
+    display: inline-block;
+    width: 42%;
+    margin-left: 8%;
+  }
+  .gif-expandido .container-expand .acciones {
+    display: inline-block;
+    width: 41%;
+    text-align: end;
+    margin-right: 8%;
   }
   footer {
     height: 116px;

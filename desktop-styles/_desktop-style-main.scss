@@ -210,3 +210,33 @@ section{
     margin-bottom: 79px;
     cursor: pointer;
     }
+
+.gif-expandido{
+    width: 100%;
+    .container-expand{
+        width: 830px;
+        height: 688px;
+        .cerrar{
+            width: 15px;
+            height: 15px;
+            margin-left: auto;
+        }
+        .sliders-gifmax{
+            display: flex;
+            .gif-max{
+                margin: 25px;
+            }
+        }
+        .datos-gif{
+            display: inline-block;
+            width: 42%;
+            margin-left: 8%;
+        }
+        .acciones{
+            display: inline-block;
+            width: 41%;
+            text-align: end;
+            margin-right: 8%;
+        }
+    }
+}
