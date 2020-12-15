@@ -23,6 +23,7 @@ btnVerMas.innerHTML = 'VER MÁS'
 searchGif.appendChild(btnVerMas)
 
 
+
 const buscador = (busqueda) => {
     trendingGifos.style.display = "none"
     contador = 1
@@ -36,10 +37,23 @@ const buscador = (busqueda) => {
         let containerSearchGif = document.createElement('div')
         containerSearchGif.classList.add('search-gifs', 'gif-box')
         containerSearch.appendChild(containerSearchGif)
+
         let searchedGifs = document.createElement('img')
         searchedGifs.classList.add('searched-gifs', 'gif')
         containerSearchGif.appendChild(searchedGifs)
+
+        let hoverBox = document.createElement('div')
+        hoverBox.classList.add('hover-box')
+        containerSearchGif.appendChild(hoverBox)
+
         searchedGifs.setAttribute('src', res.data[i].images.original.url)
+
+        containerSearchGif.addEventListener('mouseover', () =>{
+            hoverBox.style.display = 'flex'
+        })
+        containerSearchGif.addEventListener('mouseout', () =>{
+            hoverBox.style.display = 'none'
+        })
         }
     })
 }
