@@ -296,6 +296,16 @@
             justify-content: space-between;
     background-color: rgba(87, 46, 229, 0.7);
   }
+  .info {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    margin-bottom: 51px;
+    margin-left: 18.5px;
+  }
+  .fav-icon, .download-icon, .expand-icon {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
   .carrousel-container {
     position: relative;
     width: 100%;
@@ -317,10 +327,10 @@
     height: 275px;
   }
   .galeria .carrousel .trendings-gif {
-    width: 357px;
     margin-left: 25px;
   }
   .galeria .carrousel .trendings-gif .trending-gif {
+    height: 275px;
     width: 357px;
   }
   .slider {

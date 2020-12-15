@@ -147,7 +147,6 @@ section{
 /*Hover de las cajas gif*/
 .gif-box{
     position: relative;
-   
 }
 .hover-box{
     position: absolute;
@@ -159,5 +158,13 @@ section{
     align-items: flex-end;
     justify-content: space-between;
     background-color: rgba(87,46,229, 0.7);
-
+}
+.info{
+    align-self: flex-start;
+    margin-bottom: 51px;
+    margin-left: 18.5px;
+}
+.fav-icon, .download-icon, .expand-icon{
+    margin-right: 10px;
+    margin-top: 10px;
 }
