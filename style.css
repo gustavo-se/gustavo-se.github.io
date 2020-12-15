@@ -257,48 +257,6 @@
     font-family: Roboto;
     font-weight: 400;
   }
-  .section2 .carrousel-container {
-    position: relative;
-    width: 100%;
-    margin-top: 56px;
-    margin-bottom: 182px;
-  }
-  .section2 .galeria {
-    margin-top: 2rem;
-    margin-bottom: 5.125rem;
-    overflow: hidden;
-    width: 80%;
-    margin: auto;
-  }
-  .section2 .galeria .carrousel {
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 275px;
-  }
-  .section2 .galeria .trending-gif {
-    width: 357px;
-    margin-left: 25px;
-  }
-  .slider {
-    width: 40px;
-    height: 40px;
-  }
-  #slider-left {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    left: 5%;
-    cursor: pointer;
-  }
-  #slider-rigth {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    right: 5%;
-    cursor: pointer;
-  }
   .titulo-search {
     display: none;
     width: 550px;
@@ -314,6 +272,75 @@
     line-height: 30px;
     text-transform: capitalize;
   }
+  /*Hover de las cajas gif*/
+  .gif-box {
+    position: relative;
+  }
+  .hover-box {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background-color: rgba(87, 46, 229, 0.7);
+  }
+  .carrousel-container {
+    position: relative;
+    width: 100%;
+    margin-top: 56px;
+    margin-bottom: 182px;
+  }
+  .galeria {
+    margin-top: 2rem;
+    margin-bottom: 5.125rem;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+  }
+  .galeria .carrousel {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 275px;
+  }
+  .galeria .carrousel .trendings-gif {
+    width: 357px;
+    margin-left: 25px;
+  }
+  .galeria .carrousel .trendings-gif .trending-gif {
+    width: 357px;
+  }
+  .slider {
+    width: 40px;
+    height: 40px;
+  }
+  #slider-left-carrousel {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 5%;
+    cursor: pointer;
+  }
+  #slider-rigth-carrousel {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 5%;
+    cursor: pointer;
+  }
   .container-search {
     width: 100%;
     display: -webkit-box;
@@ -325,6 +352,10 @@
         -ms-flex-pack: center;
             justify-content: center;
     padding-bottom: 79px;
+  }
+  .searched-gifs {
+    width: 260px;
+    height: 200px;
   }
   .search-gifs {
     width: 260px;
@@ -348,32 +379,36 @@
     margin-bottom: 79px;
     cursor: pointer;
   }
-  .gif-expandido {
+  .caja-expandido {
+    display: none;
     width: 100%;
   }
-  .gif-expandido .container-expand {
+  .caja-expandido .container-expand {
     width: 830px;
     height: 688px;
+    margin: auto;
   }
-  .gif-expandido .container-expand .cerrar {
+  .caja-expandido .container-expand .cerrar {
     width: 15px;
     height: 15px;
     margin-left: auto;
+    margin-top: 66px;
+    margin-bottom: 66px;
   }
-  .gif-expandido .container-expand .sliders-gifmax {
+  .caja-expandido .container-expand .sliders-gifmax {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .gif-expandido .container-expand .sliders-gifmax .gif-max {
+  .caja-expandido .container-expand .sliders-gifmax .gif-max {
     margin: 25px;
   }
-  .gif-expandido .container-expand .datos-gif {
+  .caja-expandido .container-expand .datos-gif {
     display: inline-block;
     width: 42%;
     margin-left: 8%;
   }
-  .gif-expandido .container-expand .acciones {
+  .caja-expandido .container-expand .acciones {
     display: inline-block;
     width: 41%;
     text-align: end;

@@ -33,10 +33,13 @@ const buscador = (busqueda) => {
     .then(res => res.json())
     .then(res => {
         for(let i = 0; i< res.data.length ; i++){
-        let searchGifs = document.createElement('img')
-        searchGifs.classList.add('search-gifs')
-        containerSearch.appendChild(searchGifs)
-        searchGifs.setAttribute('src', res.data[i].images.original.url)
+        let containerSearchGif = document.createElement('div')
+        containerSearchGif.classList.add('search-gifs', 'gif-box')
+        containerSearch.appendChild(containerSearchGif)
+        let searchedGifs = document.createElement('img')
+        searchedGifs.classList.add('searched-gifs', 'gif')
+        containerSearchGif.appendChild(searchedGifs)
+        searchedGifs.setAttribute('src', res.data[i].images.original.url)
         }
     })
 }
@@ -101,12 +104,14 @@ btnVerMas.addEventListener('click',()=>{
     .then(res => res.json())
     .then(res => {
         for(let i = 0; i< res.data.length ; i++){
-            let searchGifs = document.createElement('img')
-            searchGifs.classList.add('search-gifs')
-            containerSearch.appendChild(searchGifs)
-            searchGifs.setAttribute('src', res.data[i].images.original.url)
+            let containerSearchGif = document.createElement('div')
+            containerSearchGif.classList.add('search-gifs', 'gif-box')
+            containerSearch.appendChild(containerSearchGif)
+            let searchedGifs = document.createElement('img')
+            searchedGifs.classList.add('searched-gifs', 'gif')
+            containerSearchGif.appendChild(searchedGifs)
+            searchedGifs.setAttribute('src', res.data[i].images.original.url)
             }
-          
     })
     contador++
 })

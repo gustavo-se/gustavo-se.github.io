@@ -1,5 +1,6 @@
 let gifOfTrendings = document.getElementsByClassName('trending-gif')
-let sliders = document.getElementsByClassName('slider')
+let sliderLeftCarrousel = document.getElementById('slider-left-carrousel')
+let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel')
 let carrousel = document.querySelector('.carrousel') 
 
 window.addEventListener('load',() => {
@@ -17,14 +18,14 @@ const size = 357
 
 carrousel.style.transform = 'translateX(' + (-size * counter) + 'px)'
 
-sliders[1].addEventListener('click', () => {
+sliderRigthCarrousel.addEventListener('click', () => {
     if(counter >= gifOfTrendings.length - 1 ) return
     carrousel.style.transition = "transform 0.4s ease-in-out"
     counter++
     carrousel.style.transform = 'translateX(' + (-size * counter) + 'px)'
 })
 
-sliders[0].addEventListener('click', () => {
+sliderLeftCarrousel.addEventListener('click', () => {
     if(counter<=0) return
     carrousel.style.transition = "transform 0.4s ease-in-out"
     counter--
@@ -44,16 +45,6 @@ carrousel.addEventListener('transitionend', ()=>{
     }
 })
 
-sliders[0].addEventListener('mouseover',() => {
-     sliders[0].setAttribute('src', './img/button-slider-left-hover.svg')})
- sliders[0].addEventListener('mouseout', () => {
-     sliders[0].setAttribute('src', './img/button-slider-left.svg')
- })
 
- sliders[1].addEventListener('mouseover',() => {
-     sliders[1].setAttribute('src', './img/Button-Slider-right-hover.svg')})
- sliders[1].addEventListener('mouseout', () => {
-     sliders[1].setAttribute('src', './img/Button-Slider-right.svg')
- })
 
  

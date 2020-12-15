@@ -1,3 +1,4 @@
+let gifs = document.getElementsByClassName('gifs')
 let menu = document.querySelector('.burger');
 let ulDesplegado = document.getElementById('menu-desplegado');
 let close = document.querySelector('.close');
