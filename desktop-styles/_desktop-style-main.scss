@@ -165,6 +165,19 @@ section{
     align-self: flex-start;
     margin-bottom: 51px;
     margin-left: 18.5px;
+    .user{
+        font-family: Roboto;
+        font-size: 15px;
+        color: #FFFFFF;
+        margin-bottom: 6px;
+        text-transform: capitalize;
+    }
+    .titulo-gif{
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
 }
 .fav-icon, .download-icon, .expand-icon{
     margin-right: 10px;

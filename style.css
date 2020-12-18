@@ -300,6 +300,19 @@
     margin-bottom: 51px;
     margin-left: 18.5px;
   }
+  .info .user {
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+    text-transform: capitalize;
+  }
+  .info .titulo-gif {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
   .fav-icon, .download-icon, .expand-icon {
     margin-right: 10px;
     margin-top: 10px;

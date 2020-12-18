@@ -20,6 +20,8 @@ const buscador = (busqueda) => {
         hoverBox.classList.add('hover-box')
         containerSearchGif.appendChild(hoverBox)
 
+        templateHover.querySelector('.titulo-gif').textContent = res.data[i].title
+
         let clone = templateHover.cloneNode(true)
         fragment.appendChild(clone)
     
@@ -110,6 +112,7 @@ btnVerMas.addEventListener('click',()=>{
             hoverBox.classList.add('hover-box')
             containerSearchGif.appendChild(hoverBox)
 
+            templateHover.querySelector('.titulo-gif').textContent = res.data[i].title
             let clone = templateHover.cloneNode(true)
             fragment.appendChild(clone)
         

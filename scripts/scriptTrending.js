@@ -7,7 +7,8 @@ window.addEventListener('load',() => {
             let hoverBox = document.createElement('div')
             hoverBox.classList.add('hover-box')
             boxGifTrendings[i].appendChild(hoverBox)
-            
+
+            templateHover.querySelector('.titulo-gif').textContent = res.data[i].title
             let clone = templateHover.cloneNode(true)
             fragment.appendChild(clone)
             
@@ -23,6 +24,7 @@ window.addEventListener('load',() => {
                 hoverBox.style.display = 'none'
             })
         }
+        console.log(res)
     })
     })
 
