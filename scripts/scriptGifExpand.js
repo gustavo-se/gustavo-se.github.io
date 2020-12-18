@@ -1,11 +1,3 @@
-let header = document.querySelector('header')
-let main = document.querySelector('main')
-let footer = document.querySelector('footer')
-let boxExpand = document.querySelector('.caja-expandido')
-let btnExpand = document.querySelector('.btn-expand')
-let closeExpand = document.querySelector('.cerrar')
-let gifMax = document.querySelector('.gif-max')
-
 btnExpand.addEventListener('click', () => {
     header.style.display = 'none'
     main.style.display = 'none'

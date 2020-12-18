@@ -1,29 +1,3 @@
-let apiKey = 'bdrONB5N1ZSySk8VvFBXF18Yut13R6tX'
-
-let contador = 1
-let btnSearch = document.getElementById('btn-search')
-let trendingGifos = document.querySelector(".trending")
-let sectionSearch = document.querySelector(".buscador-de-gifs")
-let mainSearch = document.querySelector(".main-search")
-let inputSearch = document.querySelector(".imput-search")
-let input = document.querySelector('.imput-search input')
-let sugestionsBox = document.querySelector('.lista-sugerencias')
-let contentSearch = document.querySelector('.container-buscador')
-let results = document.getElementsByClassName('resultados')
-let btnLeft = document.querySelector('.imput-search i')
-let titleSearch = document.querySelector('.titulo-search')
-let containerSearch = document.createElement('div')
-containerSearch.classList.add('container-search')
-sectionSearch.appendChild(containerSearch)
-containerSearch.before(mainSearch)
-let searchGif = document.querySelector('.buscador-de-gifs')
-let btnVerMas = document.createElement('button')
-btnVerMas.classList.add('btn-ver-mas')
-btnVerMas.innerHTML = 'VER MÁS'
-searchGif.appendChild(btnVerMas)
-
-
-
 const buscador = (busqueda) => {
     trendingGifos.style.display = "none"
     contador = 1
@@ -46,14 +20,21 @@ const buscador = (busqueda) => {
         hoverBox.classList.add('hover-box')
         containerSearchGif.appendChild(hoverBox)
 
+        let clone = templateHover.cloneNode(true)
+        fragment.appendChild(clone)
+    
         searchedGifs.setAttribute('src', res.data[i].images.original.url)
+       
+        hoverBox.appendChild(fragment)
 
-        containerSearchGif.addEventListener('mouseover', () =>{
+        searchedGifs.addEventListener('mouseover', () => {
             hoverBox.style.display = 'flex'
         })
-        containerSearchGif.addEventListener('mouseout', () =>{
+
+        hoverBox.addEventListener('mouseout', () => {
             hoverBox.style.display = 'none'
         })
+       
         }
     })
 }
@@ -124,7 +105,27 @@ btnVerMas.addEventListener('click',()=>{
             let searchedGifs = document.createElement('img')
             searchedGifs.classList.add('searched-gifs', 'gif')
             containerSearchGif.appendChild(searchedGifs)
+            
+            let hoverBox = document.createElement('div')
+            hoverBox.classList.add('hover-box')
+            containerSearchGif.appendChild(hoverBox)
+
+            let clone = templateHover.cloneNode(true)
+            fragment.appendChild(clone)
+        
             searchedGifs.setAttribute('src', res.data[i].images.original.url)
+        
+            hoverBox.appendChild(fragment)
+
+            searchedGifs.addEventListener('mouseover', () => {
+                hoverBox.style.display = 'flex'
+            })
+
+            hoverBox.addEventListener('mouseout', () => {
+                hoverBox.style.display = 'none'
+            })
+        
+
             }
     })
     contador++

@@ -294,15 +294,16 @@
             justify-content: space-between;
     background-color: rgba(87, 46, 229, 0.7);
   }
-  /*.info{
-    align-self: flex-start;
+  .info {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
     margin-bottom: 51px;
     margin-left: 18.5px;
-}
-.fav-icon, .download-icon, .expand-icon{
+  }
+  .fav-icon, .download-icon, .expand-icon {
     margin-right: 10px;
     margin-top: 10px;
-}*/
+  }
   .carrousel-container {
     position: relative;
     width: 100%;

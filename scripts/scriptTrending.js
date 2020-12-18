@@ -1,14 +1,27 @@
-let gifOfTrendings = document.getElementsByClassName('trending-gif')
-let sliderLeftCarrousel = document.getElementById('slider-left-carrousel')
-let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel')
-let carrousel = document.querySelector('.carrousel') 
-
 window.addEventListener('load',() => {
     fetch('https://api.giphy.com/v1/gifs/trending?api_key=bdrONB5N1ZSySk8VvFBXF18Yut13R6tX&limit=11&rating=g')
     .then(res => res.json())
     .then(res => {
         for(let i = 0; i< gifOfTrendings.length; i++){
+            
+            let hoverBox = document.createElement('div')
+            hoverBox.classList.add('hover-box')
+            boxGifTrendings[i].appendChild(hoverBox)
+            
+            let clone = templateHover.cloneNode(true)
+            fragment.appendChild(clone)
+            
             gifOfTrendings[i].setAttribute('src', res.data[i].images.original.url)
+
+            hoverBox.appendChild(fragment)
+
+            gifOfTrendings[i].addEventListener('mouseover', () => {
+                hoverBox.style.display = 'flex'
+            })
+
+            hoverBox.addEventListener('mouseout', () => {
+                hoverBox.style.display = 'none'
+            })
         }
     })
     })
