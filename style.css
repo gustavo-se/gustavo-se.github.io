@@ -420,20 +420,27 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .caja-expandido .container-expand .sliders-gifmax .gif-max {
     margin: 25px;
   }
   .caja-expandido .container-expand .datos-gif {
     display: inline-block;
-    width: 42%;
-    margin-left: 8%;
+    width: 29%;
+    margin-left: 20%;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
   }
   .caja-expandido .container-expand .acciones {
     display: inline-block;
-    width: 41%;
+    width: 29%;
     text-align: end;
-    margin-right: 8%;
+    margin-right: 20%;
   }
   footer {
     height: 116px;

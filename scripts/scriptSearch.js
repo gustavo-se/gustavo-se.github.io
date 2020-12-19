@@ -36,6 +36,30 @@ const buscador = (busqueda) => {
         hoverBox.addEventListener('mouseout', () => {
             hoverBox.style.display = 'none'
         })
+        hoverBox.addEventListener('mouseover', e =>{
+            if(e.target.classList.contains('fav-icon')){
+                e.target.setAttribute('src', './img/icon-fav-hover.svg')
+            }
+            if(e.target.classList.contains('download-icon')){
+                e.target.setAttribute('src', './img/icon-download-hover.svg')
+            }
+            if(e.target.classList.contains('expand-icon')){
+                e.target.setAttribute('src', './img/icon-max-hover.svg')
+            }
+            e.stopPropagation()
+        })
+        hoverBox.addEventListener('mouseout', e =>{
+            if(e.target.classList.contains('fav-icon')){
+                e.target.setAttribute('src', './img/icon-fav.svg')
+            }
+            if(e.target.classList.contains('download-icon')){
+                e.target.setAttribute('src', './img/icon-download.svg')
+            }
+            if(e.target.classList.contains('expand-icon')){
+                e.target.setAttribute('src', './img/icon-max-normal.svg')
+            }
+            e.stopPropagation()
+        })
        
         }
     })
@@ -126,6 +150,31 @@ btnVerMas.addEventListener('click',()=>{
 
             hoverBox.addEventListener('mouseout', () => {
                 hoverBox.style.display = 'none'
+            })
+
+            hoverBox.addEventListener('mouseover', e =>{
+                if(e.target.classList.contains('fav-icon')){
+                    e.target.setAttribute('src', './img/icon-fav-hover.svg')
+                }
+                if(e.target.classList.contains('download-icon')){
+                    e.target.setAttribute('src', './img/icon-download-hover.svg')
+                }
+                if(e.target.classList.contains('expand-icon')){
+                    e.target.setAttribute('src', './img/icon-max-hover.svg')
+                }
+                e.stopPropagation()
+            })
+            hoverBox.addEventListener('mouseout', e =>{
+                if(e.target.classList.contains('fav-icon')){
+                    e.target.setAttribute('src', './img/icon-fav.svg')
+                }
+                if(e.target.classList.contains('download-icon')){
+                    e.target.setAttribute('src', './img/icon-download.svg')
+                }
+                if(e.target.classList.contains('expand-icon')){
+                    e.target.setAttribute('src', './img/icon-max-normal.svg')
+                }
+                e.stopPropagation()
             })
         
 

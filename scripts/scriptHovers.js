@@ -16,5 +16,3 @@ for(let i = 0; i < slidersRight.length; i++){
     })
 }
 
-//Hover cajas del trending de gif
-

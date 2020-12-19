@@ -1,15 +1,17 @@
-btnExpand.addEventListener('click', () => {
-    header.style.display = 'none'
-    main.style.display = 'none'
-    footer.style.display = 'none'
-    boxExpand.style.display = 'block'
+for(let i = 0; i < boxGifTrendings.length; i++){
+    boxGifTrendings[i].addEventListener('click', e =>{
+    if(e.target.classList.contains('expand-icon')){
+        header.style.display = 'none'
+        main.style.display = 'none'
+        footer.style.display = 'none'
+        boxExpand.style.display = 'block'
 
-    for(let i = 0; i < gifs.length; i++){
-        gifMax.innerHTML = `<img src=${gifs[i].src} alt="gif">`
-        //gifMax.setAttribute('src', gifs[i].src)
+        gifMax.innerHTML = `<img src=${gifOfTrendings[i].currentSrc} alt="gif">`
+        dataGif.innerHTML= `${boxGifTrendings[i].childNodes[3].childNodes[3].childNodes[3].innerHTML}`
     }
+    e.stopPropagation()
 })
-
+}
 closeExpand.addEventListener('click', () => {
     boxExpand.style.display = 'none'
     header.style.display = 'block'

@@ -13,15 +13,40 @@ window.addEventListener('load',() => {
             fragment.appendChild(clone)
             
             gifOfTrendings[i].setAttribute('src', res.data[i].images.original.url)
-
+            
             hoverBox.appendChild(fragment)
-
+            
             gifOfTrendings[i].addEventListener('mouseover', () => {
                 hoverBox.style.display = 'flex'
             })
-
+            
             hoverBox.addEventListener('mouseout', () => {
                 hoverBox.style.display = 'none'
+            })
+            
+            hoverBox.addEventListener('mouseover', e =>{
+                if(e.target.classList.contains('fav-icon')){
+                    e.target.setAttribute('src', './img/icon-fav-hover.svg')
+                }
+                if(e.target.classList.contains('download-icon')){
+                    e.target.setAttribute('src', './img/icon-download-hover.svg')
+                }
+                if(e.target.classList.contains('expand-icon')){
+                    e.target.setAttribute('src', './img/icon-max-hover.svg')
+                }
+                e.stopPropagation()
+            })
+            hoverBox.addEventListener('mouseout', e =>{
+                if(e.target.classList.contains('fav-icon')){
+                    e.target.setAttribute('src', './img/icon-fav.svg')
+                }
+                if(e.target.classList.contains('download-icon')){
+                    e.target.setAttribute('src', './img/icon-download.svg')
+                }
+                if(e.target.classList.contains('expand-icon')){
+                    e.target.setAttribute('src', './img/icon-max-normal.svg')
+                }
+                e.stopPropagation()
             })
         }
         console.log(res)

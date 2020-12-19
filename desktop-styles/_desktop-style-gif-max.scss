@@ -14,20 +14,26 @@
         }
         .sliders-gifmax{
             display: flex;
+            justify-content: center;
             .gif-max{
                 margin: 25px;
             }
         }
         .datos-gif{
             display: inline-block;
-            width: 42%;
-            margin-left: 8%;
+            width: 29%;
+            margin-left: 20%;
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 16px;
+            color: #000000
+            
         }
         .acciones{
             display: inline-block;
-            width: 41%;
+            width: 29%;
             text-align: end;
-            margin-right: 8%;
+            margin-right: 20%;
         }
     }
 }

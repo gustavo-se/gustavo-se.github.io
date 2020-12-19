@@ -49,6 +49,7 @@ let boxExpand = document.querySelector('.caja-expandido')
 let btnExpand = document.querySelector('.btn-expand')
 let closeExpand = document.querySelector('.cerrar')
 let gifMax = document.querySelector('.gif-max')
+let dataGif = document.querySelector('.datos-gif')
 
 //Carrousel
 let gifOfTrendings = document.getElementsByClassName('trending-gif')
