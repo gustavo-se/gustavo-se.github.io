@@ -9,6 +9,19 @@ for(let i = 0; i < boxGifTrendings.length; i++){
         gifMax.innerHTML = `<img src=${gifOfTrendings[i].currentSrc} alt="gif">`
         dataGif.innerHTML= `${boxGifTrendings[i].childNodes[3].childNodes[3].childNodes[3].innerHTML}`
     }
+    if(e.target.classList.contains('download-icon')){
+        return download(gifOfTrendings[i])
+    }
+    if(e.target.classList.contains('fav-icon')){
+        e.target.setAttribute('src', './img/icon-fav-active.svg')
+        e.target.className = 'fav-icon-active', 'pointer'
+        //insertar logica de agregar a favoritos
+    }
+    if(e.target.classList.contains('fav-icon-active')){
+        e.target.setAttribute('src', './img/icon-fav-hover.svg')
+        e.target.className = 'fav-icon', 'pointer'
+        //agregar logica de sacar de favoritos
+    }
     e.stopPropagation()
 })
 }

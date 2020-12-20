@@ -11,6 +11,15 @@ let templateHover = document.getElementById('caja-hover').content
 let slidersRight = document.getElementsByClassName('slider-rigth')
 let slidersLeft = document.getElementsByClassName('slider-left')
 
+//Botones
+let favButton = './img/icon-fav.svg'
+let favHoverButton = './img/icon-fav-hover.svg'
+let favActiveButton = './img/icon-fav-active.svg'
+let downloadButton = './img/icon-download.svg'
+let downloadHoverButton = './img/icon-download-hover.svg'
+let maxButton = './img/icon-max-normal.svg'
+let maxHoverButton = './img/icon-max-hover.svg'
+
 // Menu Hamburguesa
 let gifs = document.getElementsByClassName('gifs')
 let menu = document.querySelector('.burger');
@@ -46,7 +55,6 @@ let header = document.querySelector('header')
 let main = document.querySelector('main')
 let footer = document.querySelector('footer')
 let boxExpand = document.querySelector('.caja-expandido')
-let btnExpand = document.querySelector('.btn-expand')
 let closeExpand = document.querySelector('.cerrar')
 let gifMax = document.querySelector('.gif-max')
 let dataGif = document.querySelector('.datos-gif')
