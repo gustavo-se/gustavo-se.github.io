@@ -313,9 +313,33 @@
     font-size: 16px;
     color: #FFFFFF;
   }
-  .fav-icon, .download-icon, .expand-icon {
+  .icon-fav, .download-icon, .expand-icon {
     margin-right: 10px;
     margin-top: 10px;
+    width: 32px;
+    height: 32px;
+  }
+  .icon-fav {
+    background-color: #FFFFFF;
+    opacity: 0.7;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 6px;
+  }
+  .icon-fav:hover {
+    opacity: 1;
+  }
+  .icons-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .carrousel-container {
     position: relative;

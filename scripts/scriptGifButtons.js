@@ -13,13 +13,14 @@ for(let i = 0; i < boxGifTrendings.length; i++){
         return download(gifOfTrendings[i])
     }
     if(e.target.classList.contains('fav-icon')){
-        e.target.setAttribute('src', './img/icon-fav-active.svg')
-        e.target.className = 'fav-icon-active', 'pointer'
+        e.target.setAttribute('src', favActiveButton)
+        e.target.classList.add('fav-icon-active')
+        e.target.classList.remove('fav-icon')
         //insertar logica de agregar a favoritos
-    }
-    if(e.target.classList.contains('fav-icon-active')){
-        e.target.setAttribute('src', './img/icon-fav-hover.svg')
-        e.target.className = 'fav-icon', 'pointer'
+        console.log(e.target.classList.contains('fav-icon'))
+    }else{
+        e.target.classList.remove('fav-icon-active')
+        e.target.classList.add('fav-icon')  
         //agregar logica de sacar de favoritos
     }
     e.stopPropagation()

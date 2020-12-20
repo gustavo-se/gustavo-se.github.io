@@ -4,9 +4,11 @@ $espacio-azul:#572EE5;
     height: 5px;
     background-color: $espacio-azul;
 }
+
 .pointer{
     cursor: pointer;
 }
+
 header{
     width: 100%;
     height: 90px;
@@ -22,6 +24,7 @@ header{
         .logo-gifos{
             width: 30%;
             height: 59.1px;
+
             img{
                 padding-left: 12rem;
             }
@@ -38,19 +41,23 @@ header{
         .botonmas:hover{
             cursor: pointer;
         }
+
         .menu{
             width: 70%;
             display:flex;
             flex-direction: row-reverse;
             justify-content: space-evenly;
             padding-right: 12rem;
+
             .close{display: none;}
+
             ul{
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
                 list-style: none;
+                
                 li a{
                     text-decoration: none;
                     font-size: 13px;
