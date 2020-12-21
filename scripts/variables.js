@@ -30,7 +30,6 @@ let hamburguesa = document.getElementById('hamburguesa')
 //Buscador
 let contador = 1
 let btnSearch = document.getElementById('btn-search')
-let trendingGifos = document.querySelector(".trending")
 let sectionSearch = document.querySelector(".buscador-de-gifs")
 let mainSearch = document.querySelector(".main-search")
 let inputSearch = document.querySelector(".imput-search")
@@ -67,3 +66,4 @@ let boxGifTrendings = document.getElementsByClassName('trendings-gif')
 let sliderLeftCarrousel = document.getElementById('slider-left-carrousel')
 let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel')
 let carrousel = document.querySelector('.carrousel') 
+let trendingGifos = document.querySelector(".trending")

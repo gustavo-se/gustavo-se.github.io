@@ -36,10 +36,12 @@ const buscador = (busqueda) => {
         hoverBox.addEventListener('mouseout', () => {
             hoverBox.style.display = 'none'
         })
+        
         hoverFunction(hoverBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)
            
         hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
-       
+        
+        searchButtons(containerSearchGif, searchedGifs)
         }
     })
 }
@@ -134,7 +136,8 @@ btnVerMas.addEventListener('click',()=>{
             hoverFunction(hoverBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)
            
             hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
-        
+            
+            searchButtons(containerSearchGif, searchedGifs)
 
             }
     })

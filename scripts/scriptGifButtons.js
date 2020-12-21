@@ -1,3 +1,4 @@
+//Botones en trending
 for(let i = 0; i < boxGifTrendings.length; i++){
     boxGifTrendings[i].addEventListener('click', e =>{
     if(e.target.classList.contains('expand-icon')){
@@ -33,6 +34,36 @@ closeExpand.addEventListener('click', () => {
     footer.style.display = 'flex'
 })
 
+//Botones en search
+const searchButtons = (container, img) => {
+container.addEventListener('click', e =>{
+    if(e.target.classList.contains('expand-icon')){
+        header.style.display = 'none'
+        main.style.display = 'none'
+        footer.style.display = 'none'
+        boxExpand.style.display = 'block'
+
+        gifMax.innerHTML = `<img src=${img.currentSrc} alt="gif">`
+        dataGif.innerHTML= `${container.childNodes[1].childNodes[3].childNodes[3].innerHTML}`
+    }
+    if(e.target.classList.contains('download-icon')){
+        return download(container)
+    }
+    if(e.target.classList.contains('fav-icon')){
+        e.target.setAttribute('src', favActiveButton)
+        e.target.classList.add('fav-icon-active')
+        e.target.classList.remove('fav-icon')
+        //insertar logica de agregar a favoritos
+        console.log(e.target.classList.contains('fav-icon'))
+    }else{
+        e.target.classList.remove('fav-icon-active')
+        e.target.classList.add('fav-icon')  
+        //agregar logica de sacar de favoritos
+    }
+    e.stopPropagation()
+
+    })
+}
 maxButtomFav.addEventListener('click',()=>{
     if(maxButtomFav.getAttribute('src') === favButton){
     maxButtomFav.setAttribute('src', favActiveButton)

@@ -29,7 +29,6 @@ window.addEventListener('load',() => {
             hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
         
         }
-        console.log(res)
     })
     })
 

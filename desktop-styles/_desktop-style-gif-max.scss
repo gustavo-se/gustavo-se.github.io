@@ -1,10 +1,12 @@
 .caja-expandido{
-    display: block;
+    display: none;
     width: 100%;
+
     .container-expand{
         width: 830px;
         height: 688px;
         margin: auto;
+
         .cerrar{
             width: 15px;
             height: 15px;
@@ -15,6 +17,8 @@
         .sliders-gifmax{
             display: flex;
             justify-content: center;
+            align-items: center;
+            
             .gif-max{
                 margin: 25px;
             }
@@ -30,7 +34,8 @@
             
         }
         .acciones{
-            display: flex;
+            display: inline-flex;
+            width: 50%;
             justify-content: center;
             
             &-buttom-fav{
@@ -53,6 +58,10 @@
                 height: 36px;
             }
 
+        }
+
+        &-footer{
+            display: flex;
         }
     }
 }
