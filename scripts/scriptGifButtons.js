@@ -32,3 +32,17 @@ closeExpand.addEventListener('click', () => {
     main.style.display = 'block'
     footer.style.display = 'flex'
 })
+
+maxButtomFav.addEventListener('click',()=>{
+    if(maxButtomFav.getAttribute('src') === favButton){
+    maxButtomFav.setAttribute('src', favActiveButton)
+    maxButtomFav.classList.add('fav-icon-active')
+    }else{
+        maxButtomFav.setAttribute('src', favButton)
+        maxButtomFav.classList.remove('fav-icon-active')
+    }
+})
+
+maxButtomDownload.addEventListener('click', () => {
+    download(gifMax.firstElementChild)
+})

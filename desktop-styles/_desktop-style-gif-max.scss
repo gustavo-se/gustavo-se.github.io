@@ -1,5 +1,5 @@
 .caja-expandido{
-    display: none;
+    display: block;
     width: 100%;
     .container-expand{
         width: 830px;
@@ -30,10 +30,29 @@
             
         }
         .acciones{
-            display: inline-block;
-            width: 29%;
-            text-align: end;
-            margin-right: 20%;
+            display: flex;
+            justify-content: center;
+            
+            &-buttom-fav{
+                opacity: 0.5;
+                border: 1px solid #9CAFC3;
+                border-radius: 6px;
+                width: 36px;
+                height: 36px;
+                margin-right: 21px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &-buttom-download{
+                opacity: 0.5;
+                border: 1px solid #9CAFC3;
+                border-radius: 6px; 
+                width: 36px;
+                height: 36px;
+            }
+
         }
     }
 }
