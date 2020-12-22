@@ -7,8 +7,11 @@ for(let i = 0; i < boxGifTrendings.length; i++){
         footer.style.display = 'none'
         boxExpand.style.display = 'block'
 
-        gifMax.innerHTML = `<img src=${gifOfTrendings[i].currentSrc} alt="gif">`
+        gifMax.innerHTML = `<img src=${gifOfTrendings[i].currentSrc} alt="gif" data-id=${gifOfTrendings[i].dataset.id}>>`
         dataGif.innerHTML= `${boxGifTrendings[i].childNodes[3].childNodes[3].childNodes[3].innerHTML}`
+        // if(favorites[i].dataset.id === gifMax.childNodes[0].dataset.id){
+        //     maxButtomFav.setAttribute('src', favActiveButton)
+        // }
     }
     if(e.target.classList.contains('download-icon')){
         return download(gifOfTrendings[i])
@@ -17,8 +20,7 @@ for(let i = 0; i < boxGifTrendings.length; i++){
         e.target.setAttribute('src', favActiveButton)
         e.target.classList.add('fav-icon-active')
         e.target.classList.remove('fav-icon')
-        //insertar logica de agregar a favoritos
-        console.log(e.target.classList.contains('fav-icon'))
+        // addFavorites(gifOfTrendings[i])
     }else{
         e.target.classList.remove('fav-icon-active')
         e.target.classList.add('fav-icon')  
@@ -43,7 +45,7 @@ container.addEventListener('click', e =>{
         footer.style.display = 'none'
         boxExpand.style.display = 'block'
 
-        gifMax.innerHTML = `<img src=${img.currentSrc} alt="gif">`
+        gifMax.innerHTML = `<img src=${img.currentSrc} alt="gif" data-id=${img.dataset.id}>`
         dataGif.innerHTML= `${container.childNodes[1].childNodes[3].childNodes[3].innerHTML}`
     }
     if(e.target.classList.contains('download-icon')){
@@ -53,8 +55,8 @@ container.addEventListener('click', e =>{
         e.target.setAttribute('src', favActiveButton)
         e.target.classList.add('fav-icon-active')
         e.target.classList.remove('fav-icon')
-        //insertar logica de agregar a favoritos
-        console.log(e.target.classList.contains('fav-icon'))
+        // addFavorites(img)
+        
     }else{
         e.target.classList.remove('fav-icon-active')
         e.target.classList.add('fav-icon')  

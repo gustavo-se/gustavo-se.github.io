@@ -67,3 +67,6 @@ let sliderLeftCarrousel = document.getElementById('slider-left-carrousel')
 let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel')
 let carrousel = document.querySelector('.carrousel') 
 let trendingGifos = document.querySelector(".trending")
+
+//Favoritos
+let favorites = []
