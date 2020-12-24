@@ -26,7 +26,7 @@ const buscador = (busqueda) => {
         fragment.appendChild(clone)
     
         searchedGifs.setAttribute('src', res.data[i].images.original.url)
-        // searchedGifs.dataset.id = res.data[i].id
+        searchedGifs.dataset.id = res.data[i].id
        
         hoverBox.appendChild(fragment)
 
@@ -123,7 +123,7 @@ btnVerMas.addEventListener('click',()=>{
             fragment.appendChild(clone)
         
             searchedGifs.setAttribute('src', res.data[i].images.original.url)
-            // searchedGifs.dataset.id = res.data[i].id
+            searchedGifs.dataset.id = res.data[i].id
             
             hoverBox.appendChild(fragment)
 

@@ -13,7 +13,7 @@ window.addEventListener('load',() => {
             fragment.appendChild(clone)
             
             gifOfTrendings[i].setAttribute('src', res.data[i].images.original.url)
-            // gifOfTrendings[i].dataset.id = res.data[i].id
+            gifOfTrendings[i].dataset.id = res.data[i].id
             
             hoverBox.appendChild(fragment)
             
@@ -30,6 +30,7 @@ window.addEventListener('load',() => {
             hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
         
         }
+        console.log(res)
     })
     })
 
