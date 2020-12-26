@@ -537,6 +537,27 @@
     font-weight: 400;
     padding-right: 100px;
   }
+  .favoritos-box {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 79px;
+  }
+  .fav-gifs {
+    width: 260px;
+    height: 200px;
+    margin: 14.5px;
+  }
+  .gif {
+    width: 260px;
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 900px) {

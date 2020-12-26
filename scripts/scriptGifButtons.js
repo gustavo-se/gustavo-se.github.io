@@ -10,9 +10,9 @@ for(let i = 0; i < boxGifTrendings.length; i++){
         gifMax.innerHTML = `<img src=${gifOfTrendings[i].currentSrc} alt="gif" data-id=${gifOfTrendings[i].dataset.id}>>`
         dataGif.innerHTML= `${boxGifTrendings[i].childNodes[3].childNodes[3].childNodes[3].innerHTML}`
     }
-    if(favorites[i].dataset.id === gifMax.childNodes[0].dataset.id){
-         maxButtomFav.setAttribute('src', favActiveButton)
-     }
+    // if(favorites[i].dataset.id === gifMax.childNodes[0].dataset.id){
+    //      maxButtomFav.setAttribute('src', favActiveButton)
+    //  }
     if(e.target.classList.contains('download-icon')){
         return download(gifOfTrendings[i])
     }
@@ -22,6 +22,7 @@ for(let i = 0; i < boxGifTrendings.length; i++){
         e.target.classList.remove('fav-icon')
         addFavorites(gifOfTrendings[i])
     }else{
+        e.target.setAttribute('src', favButton)
         e.target.classList.remove('fav-icon-active')
         e.target.classList.add('fav-icon')  
         //agregar logica de sacar de favoritos

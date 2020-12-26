@@ -70,3 +70,6 @@ let trendingGifos = document.querySelector(".trending")
 
 //Favoritos
 let favorites = []
+let favoritosBox = document.querySelector('.favoritos-box')
+let links = document.getElementsByClassName('links')
+let saveFavorites = []
