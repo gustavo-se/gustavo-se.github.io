@@ -1,15 +1,14 @@
-const addFavorites = (gif) => {
-    favorites.push(gif.outerHTML)
-    let favoriteArray = JSON.stringify(favorites)
-    sessionStorage.setItem('favoritos', favoriteArray)
-}
-
 links[1].addEventListener('click', () => {
+
+    links[1].style.color = '#9CAFC3'
+    searchSection.replaceWith(favoritesSection)
+    favoritesSection.style.display = 'flex'
+
     saveFavorites = JSON.parse(sessionStorage['favoritos'])
 
     saveFavorites.forEach(item => {
         boxGif.querySelector('.gif').outerHTML = item
-        let gif = boxGif.querySelector('.fav-gifs').firstElementChild
+        boxGif.querySelector('.gif-box').classList.add('fav-gifs')
         
         let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)
@@ -20,16 +19,21 @@ links[1].addEventListener('click', () => {
 })
 
 favoritosBox.addEventListener('mouseover', e => {
-    if(e.target.classList.contains('gif')){
-        e.target.nextElementSibling.style.display = 'flex'
-    }
+    boxHoverFlex(e)
+    buttonHoverFav(e)
+    buttonHoverDownload(e)
+    buttonHoverMax(e)
 })
 
 favoritosBox.addEventListener('mouseout', e => {
-    if(e.target.classList.contains('hover-box')){
-        e.target.style.display = 'none'
-    }
+    boxHoverNone(e)
+    buttonNormalFav(e)
+    buttonNormalDownload(e)
+    buttonNormalMax(e)
 })
 
-hoverFunction(favoritosBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton) 
-hoverFunction(favoritosBox, 'mouseout', favButton, downloadButton, maxButton)      
+favoritosBox.addEventListener('click', (e)=>{
+    maxGif(e)
+    downloadFunction(e)
+    favActive(e)
+})

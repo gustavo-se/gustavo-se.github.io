@@ -2,37 +2,39 @@ window.addEventListener('load',() => {
     fetch('https://api.giphy.com/v1/gifs/trending?api_key=bdrONB5N1ZSySk8VvFBXF18Yut13R6tX&limit=11&rating=g')
     .then(res => res.json())
     .then(res => {
-        for(let i = 0; i< gifOfTrendings.length; i++){
-            
-            let hoverBox = document.createElement('div')
-            hoverBox.classList.add('hover-box')
-            boxGifTrendings[i].appendChild(hoverBox)
 
-            templateHover.querySelector('.titulo-gif').textContent = res.data[i].title
-            let clone = templateHover.cloneNode(true)
+        res.data.forEach(item =>{
+
+            boxGif.querySelector('.gif').setAttribute('src', item.images.original.url)
+            boxGif.querySelector('.gif').dataset.id =  item.id
+            boxGif.querySelector('.gif-box').classList.add('trendings-gif')
+            boxGif.querySelector('.gif').classList.add('trending-gif')
+            boxGif.querySelector('.titulo-gif').textContent = item.title
+
+            let clone = boxGif.cloneNode(true)
             fragment.appendChild(clone)
-            
-            gifOfTrendings[i].setAttribute('src', res.data[i].images.original.url)
-            gifOfTrendings[i].dataset.id = res.data[i].id
-            
-            hoverBox.appendChild(fragment)
-            
-            gifOfTrendings[i].addEventListener('mouseover', () => {
-                hoverBox.style.display = 'flex'
-            })
-            
-            hoverBox.addEventListener('mouseout', () => {
-                hoverBox.style.display = 'none'
-            })
-            
-            hoverFunction(hoverBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)
-           
-            hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
-        
-        }
-        console.log(res)
+        })
+        carrousel.appendChild(fragment)
     })
     })
+
+carrousel.addEventListener('mouseover', (e) =>{
+    boxHoverFlex(e)
+    buttonHoverDownload(e)
+    buttonHoverMax(e)
+})
+
+carrousel.addEventListener('mouseout', (e) =>{
+    boxHoverNone(e)
+    buttonNormalDownload(e)
+    buttonNormalMax(e)
+})
+
+carrousel.addEventListener('click', (e) =>{
+    maxGif(e)
+    downloadFunction(e)
+    favActive(e)
+})
 
 let counter = 1
 const size = 357

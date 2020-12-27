@@ -1,40 +1,50 @@
-const buscador = (busqueda) => {
+const buscador = () => {
     trendingGifos.style.display = "none"
-    contador = 1
+    contador = 0
     while (containerSearch.firstChild) {
         containerSearch.removeChild(containerSearch.firstChild);
     }
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${busqueda}&limit=12&rating=g`)
+    callGif(0)
+}
+
+//Funcion llamar gifs
+const callGif = (offset) => {
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input.value}&limit=12&offset=${offset}&rating=g`)
     .then(res => res.json())
     .then(res => {
         res.data.forEach(item => {
 
-        boxGif.querySelector('.gif').setAttribute('src', item.images.original.url)
-        boxGif.querySelector('.gif').dataset.id = item.id
-        boxGif.querySelector('.titulo-gif').textContent = item.title
-        
-        let clone = boxGif.cloneNode(true)
-        fragment.appendChild(clone)
-
-        })
-        containerSearch.appendChild(fragment)
-    })
-}
+            boxGif.querySelector('.gif').setAttribute('src', item.images.original.url)
+            boxGif.querySelector('.gif').dataset.id = item.id
+            boxGif.querySelector('.gif-box').classList.add('search-gifs')
+            boxGif.querySelector('.titulo-gif').textContent = item.title
+    
+            let clone = boxGif.cloneNode(true)
+            fragment.appendChild(clone)
+            
+            })
+            containerSearch.appendChild(fragment)
+        })}
 
 containerSearch.addEventListener('mouseover', e => {
-    if(e.target.classList.contains('gif')){
-        e.target.nextElementSibling.style.display = 'flex'
-    }
+    boxHoverFlex(e)
+    buttonHoverFav(e)
+    buttonHoverDownload(e)
+    buttonHoverMax(e)
 })
 
 containerSearch.addEventListener('mouseout', e => {
-    if(e.target.classList.contains('hover-box')){
-        e.target.style.display = 'none'
-    }
+    boxHoverNone(e)
+    buttonNormalFav(e)
+    buttonNormalDownload(e)
+    buttonNormalMax(e)
 })
 
-hoverFunction(containerSearch, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)    
-hoverFunction(containerSearch, 'mouseout', favButton, downloadButton, maxButton)
+containerSearch.addEventListener('click', e => {
+    maxGif(e)
+    downloadFunction(e)
+    favActive(e)
+})
 
 input.addEventListener('keyup', (event) => {
     if(input.value.length >= 1){
@@ -47,9 +57,7 @@ input.addEventListener('keyup', (event) => {
         titleSearch.style.display = 'block'
         titleSearch.innerHTML= `<h3>${input.value}</h3>`
         btnVerMas.style.display = 'block'
-    }
-})
-
+    }})
 
 const sugerencias = term =>{
     fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${term}&limit=4`)
@@ -57,9 +65,9 @@ const sugerencias = term =>{
     .then(res => {
           for(let i = 0; i < 4; i++){
               results[i].innerHTML = res.data[i].name 
-         }
-     })   
-}
+    }}
+)}
+
 input.addEventListener('keyup', () => {
     if(input.value.length >= 1){
         sugestionsBox.style.display = 'block'
@@ -80,9 +88,9 @@ for(let i = 0; i < 4; i++ ){
     input.value = results[i].innerHTML
     sugestionsBox.style.display = 'none'
     titleSearch.style.display = 'block'
+    btnVerMas.style.display = 'block'
     titleSearch.innerHTML= `<h3>${input.value}</h3>`
-    })
-}
+    })}
 
 btnSearch.addEventListener('click', () => {
     input.value = ''
@@ -91,46 +99,7 @@ btnSearch.addEventListener('click', () => {
     btnSearch.setAttribute('src', './img/icon-search.svg')
 })
 
-btnVerMas.addEventListener('click',()=>{
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input.value}&limit=12&offset=${ 12 * contador}&rating=g`)
-    .then(res => res.json())
-    .then(res => {
-        for(let i = 0; i< res.data.length ; i++){
-            let containerSearchGif = document.createElement('div')
-            containerSearchGif.classList.add('search-gifs', 'gif-box')
-            containerSearch.appendChild(containerSearchGif)
-            let searchedGifs = document.createElement('img')
-            searchedGifs.classList.add('searched-gifs', 'gif')
-            containerSearchGif.appendChild(searchedGifs)
-            
-            let hoverBox = document.createElement('div')
-            hoverBox.classList.add('hover-box')
-            containerSearchGif.appendChild(hoverBox)
-
-            templateHover.querySelector('.titulo-gif').textContent = res.data[i].title
-            let clone = templateHover.cloneNode(true)
-            fragment.appendChild(clone)
-        
-            searchedGifs.setAttribute('src', res.data[i].images.original.url)
-            searchedGifs.dataset.id = res.data[i].id
-            
-            hoverBox.appendChild(fragment)
-
-            searchedGifs.addEventListener('mouseover', () => {
-                hoverBox.style.display = 'flex'
-            })
-
-            hoverBox.addEventListener('mouseout', () => {
-                hoverBox.style.display = 'none'
-            })
-
-            hoverFunction(hoverBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)
-           
-            hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
-            
-            searchButtons(containerSearchGif, searchedGifs)
-
-            }
-    })
-    contador++
+btnVerMas.addEventListener('click',() =>{
+    contador= contador + 12
+    callGif(contador)
 })
