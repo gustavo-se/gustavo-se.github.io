@@ -6,38 +6,30 @@ const addFavorites = (gif) => {
 
 links[1].addEventListener('click', () => {
     saveFavorites = JSON.parse(sessionStorage['favoritos'])
-    
+
     saveFavorites.forEach(item => {
-        let containerFavGif = document.createElement('div')
-        containerFavGif.classList.add('fav-gifs', 'gif-box')
-        favoritosBox.appendChild(containerFavGif)
+        boxGif.querySelector('.gif').outerHTML = item
+        let gif = boxGif.querySelector('.fav-gifs').firstElementChild
         
-        containerFavGif.innerHTML =  item
-
-        let hoverBox = document.createElement('div')
-        hoverBox.classList.add('hover-box')
-        containerFavGif.appendChild(hoverBox)
-
-        templateHover.querySelector('.titulo-gif').textContent = "Titulo"
-        let clone = templateHover.cloneNode(true)
+        let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)
-       
-        hoverBox.appendChild(fragment)
-        containerFavGif.addEventListener('mouseover', () => {
-            hoverBox.style.display = 'flex'
-        })
-
-        hoverBox.addEventListener('mouseout', () => {
-            hoverBox.style.display = 'none'
-        })
-
-        hoverFunction(hoverBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)
-       
-        hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
         
-        searchButtons(containerFavGif, containerFavGif.firstElementChild )
     })
-
-   
-    //con favorites.children[i] podemos recorrer el id
+    favoritosBox.appendChild(fragment)
+    
 })
+
+favoritosBox.addEventListener('mouseover', e => {
+    if(e.target.classList.contains('gif')){
+        e.target.nextElementSibling.style.display = 'flex'
+    }
+})
+
+favoritosBox.addEventListener('mouseout', e => {
+    if(e.target.classList.contains('hover-box')){
+        e.target.style.display = 'none'
+    }
+})
+
+hoverFunction(favoritosBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton) 
+hoverFunction(favoritosBox, 'mouseout', favButton, downloadButton, maxButton)      

@@ -46,7 +46,7 @@ container.addEventListener('click', e =>{
         footer.style.display = 'none'
         boxExpand.style.display = 'block'
 
-        gifMax.innerHTML = `<img src=${img.currentSrc} alt="gif" data-id=${img.dataset.id}>`
+        gifMax.innerHTML = `<img src=${img.getAttribute('src')} alt="gif" data-id=${img.dataset.id}>`
         dataGif.innerHTML= `${container.childNodes[1].childNodes[3].childNodes[3].innerHTML}`
     }
     if(e.target.classList.contains('download-icon')){
@@ -59,6 +59,7 @@ container.addEventListener('click', e =>{
         addFavorites(img)
         
     }else{
+        e.target.setAttribute('src', favButton)
         e.target.classList.remove('fav-icon-active')
         e.target.classList.add('fav-icon')  
         //agregar logica de sacar de favoritos

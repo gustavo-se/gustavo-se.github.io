@@ -7,45 +7,34 @@ const buscador = (busqueda) => {
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${busqueda}&limit=12&rating=g`)
     .then(res => res.json())
     .then(res => {
-        for(let i = 0; i< res.data.length ; i++){
-        let containerSearchGif = document.createElement('div')
-        containerSearchGif.classList.add('search-gifs', 'gif-box')
-        containerSearch.appendChild(containerSearchGif)
+        res.data.forEach(item => {
 
-        let searchedGifs = document.createElement('img')
-        searchedGifs.classList.add('searched-gifs', 'gif')
-        containerSearchGif.appendChild(searchedGifs)
-
-        let hoverBox = document.createElement('div')
-        hoverBox.classList.add('hover-box')
-        containerSearchGif.appendChild(hoverBox)
-
-        templateHover.querySelector('.titulo-gif').textContent = res.data[i].title
-
-        let clone = templateHover.cloneNode(true)
+        boxGif.querySelector('.gif').setAttribute('src', item.images.original.url)
+        boxGif.querySelector('.gif').dataset.id = item.id
+        boxGif.querySelector('.titulo-gif').textContent = item.title
+        
+        let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)
-    
-        searchedGifs.setAttribute('src', res.data[i].images.original.url)
-        searchedGifs.dataset.id = res.data[i].id
-       
-        hoverBox.appendChild(fragment)
 
-        searchedGifs.addEventListener('mouseover', () => {
-            hoverBox.style.display = 'flex'
         })
-
-        hoverBox.addEventListener('mouseout', () => {
-            hoverBox.style.display = 'none'
-        })
-        
-        hoverFunction(hoverBox, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)
-           
-        hoverFunction(hoverBox, 'mouseout', favButton, downloadButton, maxButton)
-        
-        searchButtons(containerSearchGif, searchedGifs)
-        }
+        containerSearch.appendChild(fragment)
     })
 }
+
+containerSearch.addEventListener('mouseover', e => {
+    if(e.target.classList.contains('gif')){
+        e.target.nextElementSibling.style.display = 'flex'
+    }
+})
+
+containerSearch.addEventListener('mouseout', e => {
+    if(e.target.classList.contains('hover-box')){
+        e.target.style.display = 'none'
+    }
+})
+
+hoverFunction(containerSearch, 'mouseover', favHoverButton, downloadHoverButton, maxHoverButton)    
+hoverFunction(containerSearch, 'mouseout', favButton, downloadButton, maxButton)
 
 input.addEventListener('keyup', (event) => {
     if(input.value.length >= 1){

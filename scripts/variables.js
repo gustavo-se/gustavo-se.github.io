@@ -6,6 +6,7 @@ let fragment = document.createDocumentFragment()
 
 //Templates
 let templateHover = document.getElementById('caja-hover').content
+let boxGif = document.getElementById('box-gifs').content
 
 //Sliders
 let slidersRight = document.getElementsByClassName('slider-rigth')
