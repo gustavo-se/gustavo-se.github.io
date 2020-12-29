@@ -124,4 +124,31 @@ const addFavorites = (gif) => {
     favorites.push(gif.outerHTML)
     let favoriteArray = JSON.stringify(favorites)
     sessionStorage.setItem('favoritos', favoriteArray)
+
+    
 }
+
+//Funcion llamar a favoritos
+const callFavorites = () =>{
+    saveFavorites = JSON.parse(sessionStorage['favoritos'])
+
+    let save = saveFavorites.filter(onlyUnique)
+    
+    save.forEach(item => {
+        boxGif.querySelector('.gif').outerHTML = item
+        boxGif.querySelector('.gif-box').classList.add('fav-gifs')
+        
+        let clone = boxGif.cloneNode(true)
+        fragment.appendChild(clone)
+        
+    })
+
+    favoritosBox.appendChild(fragment)
+}
+
+//Funcion evitar repetidos
+const onlyUnique = (value, index, self) =>{
+    return self.indexOf(value) === index
+}
+
+

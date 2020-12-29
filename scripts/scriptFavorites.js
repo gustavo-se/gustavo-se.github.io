@@ -4,18 +4,11 @@ links[1].addEventListener('click', () => {
     searchSection.replaceWith(favoritesSection)
     favoritesSection.style.display = 'flex'
 
-    saveFavorites = JSON.parse(sessionStorage['favoritos'])
+    while(favoritosBox.firstChild){
+        favoritosBox.removeChild(favoritosBox.firstChild)
+    }
 
-    saveFavorites.forEach(item => {
-        boxGif.querySelector('.gif').outerHTML = item
-        boxGif.querySelector('.gif-box').classList.add('fav-gifs')
-        
-        let clone = boxGif.cloneNode(true)
-        fragment.appendChild(clone)
-        
-    })
-    favoritosBox.appendChild(fragment)
-    
+    callFavorites()
 })
 
 favoritosBox.addEventListener('mouseover', e => {
