@@ -25,6 +25,15 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+
+        h2{
+            font-family: Montserrat;
+            font-weight: bold;
+            font-size: 22px;
+            color: #50E3C2;
+            text-align: center;
+            line-height: 33px;
+        }
     }
 }
 

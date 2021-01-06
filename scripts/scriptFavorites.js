@@ -4,11 +4,18 @@ links[1].addEventListener('click', () => {
     searchSection.replaceWith(favoritesSection)
     favoritesSection.style.display = 'flex'
 
+    if(sessionStorage.getItem('favoritos') === null){
+
+        sinFavoritos()
+
+    }else{
+
     while(favoritosBox.firstChild){
         favoritosBox.removeChild(favoritosBox.firstChild)
     }
-
+    
     callFavorites()
+    }
 })
 
 favoritosBox.addEventListener('mouseover', e => {

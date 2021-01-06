@@ -151,4 +151,17 @@ const onlyUnique = (value, index, self) =>{
     return self.indexOf(value) === index
 }
 
+//Funcion sin favoritos aun
+const sinFavoritos = () =>{
+    let iconFavSinContenido = document.createElement('img')
+   iconFavSinContenido.setAttribute('src', './img/icon-fav-sin-contenido.svg')
+
+    let mensaje = document.createElement('h2')
+    mensaje.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!'
+
+    favoritosBox.style.flexDirection = 'column'
+    favoritosBox.appendChild(iconFavSinContenido)
+    favoritosBox.appendChild(mensaje)
+
+}
 

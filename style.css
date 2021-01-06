@@ -574,6 +574,14 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .favoritos-box h2 {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 22px;
+    color: #50E3C2;
+    text-align: center;
+    line-height: 33px;
+  }
   .fav-gifs {
     width: 260px;
     height: 200px;
