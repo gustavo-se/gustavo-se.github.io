@@ -7,6 +7,9 @@ let fragment = document.createDocumentFragment()
 //Templates
 let boxGif = document.getElementById('box-gifs').content
 
+//Logo gifos
+let logoGifos = document.querySelector('.logo-gifos img')
+
 //Seccion buscador de gif
 let searchSection = document.querySelector('.buscador-de-gifs')
 
@@ -70,9 +73,11 @@ let sliderLeftCarrousel = document.getElementById('slider-left-carrousel')
 let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel')
 let carrousel = document.querySelector('.carrousel') 
 let trendingGifos = document.querySelector(".trending")
+let trendingSection = document.getElementById('seccion-trending')
 
 //Favoritos
 let favoritesSection = document.getElementById('favoritos-section')
 let favoritosBox = document.querySelector('.favoritos-box')
 let links = document.getElementsByClassName('links')
+let favorites = []
 

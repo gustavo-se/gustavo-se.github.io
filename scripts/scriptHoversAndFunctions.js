@@ -121,20 +121,17 @@ const favActive = (e) => {
 }}
 
 //Funcion agregar favoritos
-let favorites = []
 const addFavorites = (gif) => {
-    favorites.push(gif)
+    favorites.push(gif.outerHTML)
     console.log(favorites)
     let favoriteArray = JSON.stringify(favorites)
     sessionStorage.setItem('favoritos', favoriteArray)
 }
-addFavorites('kevin')
-addFavorites('<img src="./img/icon-fav.svg" class="gifo">')
-
 
 //Funcion llamar a favoritos
 const callFavorites = () =>{
     let saveFavorites = JSON.parse(sessionStorage['favoritos'])
+    favoritosBox.style.flexDirection = 'row'
 
     let save = saveFavorites.filter(onlyUnique)
     
@@ -176,12 +173,12 @@ const quitFavorites = (gif) =>{
 
     let save = saveFavorites.filter(onlyUnique)
 
-    if(save.indexOf(gif) >= 0){
-        let i = save.indexOf(gif)
+    if(save.indexOf(gif.outerHTML) >= 0){
+        let i = save.indexOf(gif.outerHTML)
         save.splice(i,1)
     }
     if(favorites.indexOf(gif) >= 0){
-        let i = favorites.indexOf(gif)
+        let i = favorites.indexOf(gif.outerHTML)
         favorites.splice(i,1)
     }
 
@@ -190,9 +187,20 @@ const quitFavorites = (gif) =>{
     console.log(favorites)
 
 }
-quitFavorites('kevin')
-//  img = document.createElement('img')
-//  favoritesSection.appendChild(img)
-//  saveFavorites = JSON.parse(sessionStorage['favoritos'])
-//  img.outerHTML = saveFavorites[2]
-//  gifo = document.getElementsByClassName('gifo')
+
+//Funcion volver a pagina principal
+const principalPage = () =>{
+        favoritesSection.style.display = 'none'
+        main.appendChild(searchSection)
+        searchSection.after(trendingSection)
+        linksColorBlue()
+}
+
+//Funcion cambiar el color de los links
+const linksColorBlue = () => {
+    for(let i = 0; i< links.length ; i++){
+        if(links[i].className === 'links link-active'){
+            links[i].style.color = '#572EE5'
+        }
+    }
+}

@@ -1,6 +1,8 @@
 links[1].addEventListener('click', () => {
 
     links[1].style.color = '#9CAFC3'
+    links[1].classList.add('link-active')
+
     searchSection.replaceWith(favoritesSection)
     favoritesSection.style.display = 'flex'
 

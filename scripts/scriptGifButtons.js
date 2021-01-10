@@ -19,3 +19,8 @@ maxButtomDownload.addEventListener('click', () => {
 closeExpand.addEventListener('click', () => {
     maxGifClose()
 })
+
+//Pagina principal al hacer click al logo gifos
+logoGifos.addEventListener('click', () => {
+    principalPage()
+})
