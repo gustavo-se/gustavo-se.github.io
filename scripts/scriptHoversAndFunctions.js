@@ -104,7 +104,7 @@ const downloadFunction = (e) =>{
         return download(img)
 }}
 
-//Funcion favorito activado
+//Funcion favorito activado/desactivado
 const favActive = (e) => {
     if(e.target.classList.contains('fav-icon')){
         e.target.setAttribute('src', favActiveButton)
@@ -116,27 +116,33 @@ const favActive = (e) => {
         e.target.setAttribute('src', favButton)
         e.target.classList.remove('fav-icon-active')
         e.target.classList.add('fav-icon')  
-        //agregar logica de sacar de favoritos
+        let img = e.target.parentElement.parentElement.parentElement.previousElementSibling
+        quitFavorites(img)
 }}
 
 //Funcion agregar favoritos
+let favorites = []
 const addFavorites = (gif) => {
-    favorites.push(gif.outerHTML)
+    favorites.push(gif)
+    console.log(favorites)
     let favoriteArray = JSON.stringify(favorites)
     sessionStorage.setItem('favoritos', favoriteArray)
-
-    
 }
+addFavorites('kevin')
+addFavorites('<img src="./img/icon-fav.svg" class="gifo">')
+
 
 //Funcion llamar a favoritos
 const callFavorites = () =>{
-    saveFavorites = JSON.parse(sessionStorage['favoritos'])
+    let saveFavorites = JSON.parse(sessionStorage['favoritos'])
 
     let save = saveFavorites.filter(onlyUnique)
     
     save.forEach(item => {
         boxGif.querySelector('.gif').outerHTML = item
         boxGif.querySelector('.gif-box').classList.add('fav-gifs')
+        boxGif.querySelector('.icon-fav img').setAttribute('src', favActiveButton)
+        boxGif.querySelector('.icon-fav img').className = 'fav-icon-active pointer'
         
         let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)
@@ -162,6 +168,31 @@ const sinFavoritos = () =>{
     favoritosBox.style.flexDirection = 'column'
     favoritosBox.appendChild(iconFavSinContenido)
     favoritosBox.appendChild(mensaje)
-
 }
 
+//Funcion quitar de favoritos
+const quitFavorites = (gif) =>{
+    let saveFavorites = JSON.parse(sessionStorage['favoritos'])
+
+    let save = saveFavorites.filter(onlyUnique)
+
+    if(save.indexOf(gif) >= 0){
+        let i = save.indexOf(gif)
+        save.splice(i,1)
+    }
+    if(favorites.indexOf(gif) >= 0){
+        let i = favorites.indexOf(gif)
+        favorites.splice(i,1)
+    }
+
+    let favoriteArray = JSON.stringify(save)
+    sessionStorage.setItem('favoritos', favoriteArray)
+    console.log(favorites)
+
+}
+quitFavorites('kevin')
+//  img = document.createElement('img')
+//  favoritesSection.appendChild(img)
+//  saveFavorites = JSON.parse(sessionStorage['favoritos'])
+//  img.outerHTML = saveFavorites[2]
+//  gifo = document.getElementsByClassName('gifo')

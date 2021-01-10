@@ -72,8 +72,7 @@ let carrousel = document.querySelector('.carrousel')
 let trendingGifos = document.querySelector(".trending")
 
 //Favoritos
-let favorites = []
 let favoritesSection = document.getElementById('favoritos-section')
 let favoritosBox = document.querySelector('.favoritos-box')
 let links = document.getElementsByClassName('links')
-let saveFavorites = []
+

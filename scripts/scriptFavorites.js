@@ -5,15 +5,12 @@ links[1].addEventListener('click', () => {
     favoritesSection.style.display = 'flex'
 
     if(sessionStorage.getItem('favoritos') === null){
-
         sinFavoritos()
-
     }else{
 
     while(favoritosBox.firstChild){
         favoritosBox.removeChild(favoritosBox.firstChild)
     }
-    
     callFavorites()
     }
 })
