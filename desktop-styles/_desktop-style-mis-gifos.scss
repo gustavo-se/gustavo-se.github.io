@@ -1,0 +1,38 @@
+.mis-gifos{
+    width: 100%;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 79px;
+    flex-direction: column;
+
+    &-titulo{
+        margin-top: 8px;
+        margin-bottom: 36px;
+    }
+
+    &-titulo h3{
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 30px;
+    }
+    
+    &-box{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        h2{
+            font-family: Montserrat;
+            font-weight: bold;
+            font-size: 22px;
+            color: #50E3C2;
+            text-align: center;
+            line-height: 33px;
+        }
+    }
+}

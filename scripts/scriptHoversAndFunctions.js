@@ -156,10 +156,8 @@ const onlyUnique = (value, index, self) =>{
 
 //Funcion sin favoritos aun
 const sinFavoritos = () =>{
-    let iconFavSinContenido = document.createElement('img')
-   iconFavSinContenido.setAttribute('src', './img/icon-fav-sin-contenido.svg')
-
-    let mensaje = document.createElement('h2')
+    
+    iconFavSinContenido.setAttribute('src', './img/icon-fav-sin-contenido.svg')
     mensaje.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!'
 
     favoritosBox.style.flexDirection = 'column'
@@ -191,8 +189,8 @@ const quitFavorites = (gif) =>{
 //Funcion volver a pagina principal
 const principalPage = () =>{
         favoritesSection.style.display = 'none'
-        main.appendChild(searchSection)
-        searchSection.after(trendingSection)
+        misGifosSection.style.display = 'none'
+        searchSection.style.display = 'flex'
         linksColorBlue()
 }
 
@@ -201,6 +199,23 @@ const linksColorBlue = () => {
     for(let i = 0; i< links.length ; i++){
         if(links[i].className === 'links link-active'){
             links[i].style.color = '#572EE5'
+            links[i].className = 'links'
         }
     }
+}
+
+//Funcion mostrar las secciones fav y mis gifos
+const displaySections = (section, otherSection) =>{
+    searchSection.style.display = 'none'
+    otherSection.style.display = 'none'
+    main.appendChild(section)
+    section.after(trendingSection)
+    section.style.display = 'flex'
+}
+
+//Funcion de los links activados (color)
+const activeSection = (link) => {
+    link.style.color = '#9CAFC3'
+    linksColorBlue()
+    link.classList.add('link-active')
 }

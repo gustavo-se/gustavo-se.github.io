@@ -80,4 +80,11 @@ let favoritesSection = document.getElementById('favoritos-section')
 let favoritosBox = document.querySelector('.favoritos-box')
 let links = document.getElementsByClassName('links')
 let favorites = []
+let iconFavSinContenido = document.createElement('img')
+let mensaje = document.createElement('h2')
+
+//Mis Gifos
+let misGifosSection = document.createElement('div')
+let iconMisGifosSinContenido = document.createElement('img')
+//let mensaje = document.createElement('h2')
 

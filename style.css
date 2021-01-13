@@ -591,6 +591,51 @@
     width: 260px;
     height: 200px;
   }
+  .mis-gifos {
+    width: 100%;
+    display: none;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-bottom: 79px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mis-gifos-titulo {
+    margin-top: 8px;
+    margin-bottom: 36px;
+  }
+  .mis-gifos-titulo h3 {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 30px;
+  }
+  .mis-gifos-box {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .mis-gifos-box h2 {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 22px;
+    color: #50E3C2;
+    text-align: center;
+    line-height: 33px;
+  }
 }
 
 @media screen and (max-width: 900px) {

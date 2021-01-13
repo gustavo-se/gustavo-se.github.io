@@ -1,10 +1,8 @@
 links[1].addEventListener('click', () => {
 
-    links[1].style.color = '#9CAFC3'
-    links[1].classList.add('link-active')
+    activeSection(links[1])
 
-    searchSection.replaceWith(favoritesSection)
-    favoritesSection.style.display = 'flex'
+    displaySections(favoritesSection, misGifosSection)
 
     if(sessionStorage.getItem('favoritos') === null){
         sinFavoritos()
