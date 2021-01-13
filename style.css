@@ -636,6 +636,92 @@
     text-align: center;
     line-height: 33px;
   }
+  .crear-gifo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .crear-gifo-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 688px;
+    height: 390px;
+    border: 1px solid #572EE5;
+  }
+  .crear-gifo-container h3 {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 35px;
+  }
+  .crear-gifo-container h3 span {
+    color: #50E3C2;
+  }
+  .crear-gifo-container p {
+    font-family: Roboto;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    line-height: 29px;
+  }
+  .crear-gifo-pasos {
+    margin-top: 24px;
+  }
+  .crear-gifo-pasos div {
+    display: inline-block;
+    border: 1px solid #572EE5;
+    border-radius: 50%;
+    font-family: Roboto;
+    font-size: 18px;
+    color: #572EE5;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    padding-top: 5px;
+  }
+  .crear-gifo-espacio-azul {
+    margin-top: 19px;
+    width: 796px;
+    height: 7px;
+    background-color: #572EE5;
+  }
+  .crear-gifo-button {
+    border: 1px solid #572EE5;
+    border-radius: 25px;
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 13px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: center;
+    width: 127px;
+    height: 50px;
+    padding-top: 18px;
+    margin-top: 20px;
+  }
 }
 
 @media screen and (max-width: 900px) {

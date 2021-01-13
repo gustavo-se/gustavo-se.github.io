@@ -88,3 +88,7 @@ let misGifosSection = document.createElement('div')
 let iconMisGifosSinContenido = document.createElement('img')
 //let mensaje = document.createElement('h2')
 
+//Crear Gifos
+let crearGifosSection = document.createElement('div')
+let crearGifo = document.getElementById('boton-crear-gifo')
+

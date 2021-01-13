@@ -15,6 +15,15 @@ for(let i = 0; i < slidersRight.length; i++){
     })
 }
 
+//Hover boton crear gifos
+crearGifo.addEventListener('mouseover', () =>{
+    crearGifo.setAttribute('src', './img/CTA-crear-gifo-hover.svg')
+})
+
+crearGifo.addEventListener('mouseout', () =>{
+    crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+})
+
 //Funcion de display flex a la caja hover de los gifs
 const boxHoverFlex = (e) => {
     if(e.target.classList.contains('gif')){
