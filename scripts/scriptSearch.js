@@ -28,16 +28,16 @@ const callGif = (offset) => {
 
 containerSearch.addEventListener('mouseover', e => {
     boxHoverFlex(e)
-    buttonHoverFav(e)
-    buttonHoverDownload(e)
-    buttonHoverMax(e)
+    btnHover(e, 'fav-icon', favHoverButton)
+    btnHover(e, 'download-icon', downloadHoverButton)
+    btnHover(e, 'expand-icon', maxHoverButton)
 })
 
 containerSearch.addEventListener('mouseout', e => {
     boxHoverNone(e)
-    buttonNormalFav(e)
-    buttonNormalDownload(e)
-    buttonNormalMax(e)
+    quitBtnHover(e, 'fav-icon', favButton)
+    quitBtnHover(e, 'download-icon', downloadButton)
+    quitBtnHover(e, 'expand-icon', maxButton)
 })
 
 containerSearch.addEventListener('click', e => {

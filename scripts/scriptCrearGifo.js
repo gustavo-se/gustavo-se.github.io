@@ -43,12 +43,12 @@ crearGifosSection.addEventListener('click', (e) => {
 })
 
 crearGifosSection.addEventListener('mouseover', (e) =>{
-    buttonHoverDownload(e)
-    buttonHoverLink(e)
+    btnHover(e, 'download-icon', downloadHoverButton)
+    btnHover(e, 'link-icon', linkHoverButton)
 })
 crearGifosSection.addEventListener('mouseout', (e) =>{
-    buttonNormalDownload(e)
-    buttonNormalLink(e)
+    quitBtnHover(e, 'download-icon', downloadButton)
+    quitBtnHover(e, 'link-icon', linkButton)
 })
 
 const camaraAccess = (container, pasos, btn) => {

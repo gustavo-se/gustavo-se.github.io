@@ -20,14 +20,14 @@ window.addEventListener('load',() => {
 
 carrousel.addEventListener('mouseover', (e) =>{
     boxHoverFlex(e)
-    buttonHoverDownload(e)
-    buttonHoverMax(e)
+    btnHover(e, 'download-icon', downloadHoverButton)
+    btnHover(e, 'expand-icon', maxHoverButton)
 })
 
 carrousel.addEventListener('mouseout', (e) =>{
     boxHoverNone(e)
-    buttonNormalDownload(e)
-    buttonNormalMax(e)
+    quitBtnHover(e, 'download-icon', downloadButton)
+    quitBtnHover(e, 'expand-icon', maxButton)
 })
 
 carrousel.addEventListener('click', (e) =>{

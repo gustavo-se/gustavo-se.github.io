@@ -45,53 +45,18 @@ const boxHoverNone = (e) => {
 }}
 
 //Funcion hover de los botones de los Gif
-//Hover en el boton Fav
-const buttonHoverFav = (e) =>{
-    if(e.target.classList.contains('fav-icon')){
-        e.target.setAttribute('src', favHoverButton)
-}}
-
-//Hover en el boton Download
-const buttonHoverDownload = (e) =>{
-    if(e.target.classList.contains('download-icon')){
-        e.target.setAttribute('src',downloadHoverButton)
-}}
-
-//Hover en el boton max
-const buttonHoverMax = (e) =>{
-    if(e.target.classList.contains('expand-icon')){
-        e.target.setAttribute('src', maxHoverButton)
-}}
-
-//Hover en el boton link
-const buttonHoverLink = (e) =>{
-    if(e.target.classList.contains('link-icon')){
-        e.target.setAttribute('src', linkHoverButton)
+const btnHover = (e, clase, btn) => {
+    if(e.target.classList.contains(clase)){
+        e.target.setAttribute('src', btn)
     }
 }
 
-//Mouseout en el boton fav
-const buttonNormalFav = (e) =>{
-    if(e.target.classList.contains('fav-icon')){
-        e.target.setAttribute('src', favButton)
-}}
-
-//Mouseout en el boton Download
-const buttonNormalDownload = (e) =>{
-    if(e.target.classList.contains('download-icon')){
-        e.target.setAttribute('src', downloadButton)
-}}
-
-//Mouseout en el boton Max
-const buttonNormalMax = (e) =>{
-    if(e.target.classList.contains('expand-icon')){
-        e.target.setAttribute('src', maxButton)
-}}
-//Mouseout en el boton Link
-const buttonNormalLink = (e) =>{
-    if(e.target.classList.contains('link-icon')){
-        e.target.setAttribute('src', linkButton)
-}}
+//Funcion quitar hover
+const quitBtnHover = (e, clase, btn) =>{
+    if(e.target.classList.contains(clase)){
+        e.target.setAttribute('src', btn)
+    }
+}
 
 //Funcion de boton expandir gif
 const maxGif = (e) => {
