@@ -17,11 +17,19 @@ for(let i = 0; i < slidersRight.length; i++){
 
 //Hover boton crear gifos
 crearGifo.addEventListener('mouseover', () =>{
-    crearGifo.setAttribute('src', './img/CTA-crear-gifo-hover.svg')
+    if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active.svg'){
+        crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
+    }else{
+        crearGifo.setAttribute('src', './img/CTA-crear-gifo-hover.svg')
+    }
 })
 
 crearGifo.addEventListener('mouseout', () =>{
-    crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+    if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active.svg'){
+        crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
+    }else{
+        crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+    }
 })
 
 //Funcion de display flex a la caja hover de los gifs
@@ -55,6 +63,13 @@ const buttonHoverMax = (e) =>{
         e.target.setAttribute('src', maxHoverButton)
 }}
 
+//Hover en el boton link
+const buttonHoverLink = (e) =>{
+    if(e.target.classList.contains('link-icon')){
+        e.target.setAttribute('src', linkHoverButton)
+    }
+}
+
 //Mouseout en el boton fav
 const buttonNormalFav = (e) =>{
     if(e.target.classList.contains('fav-icon')){
@@ -71,6 +86,11 @@ const buttonNormalDownload = (e) =>{
 const buttonNormalMax = (e) =>{
     if(e.target.classList.contains('expand-icon')){
         e.target.setAttribute('src', maxButton)
+}}
+//Mouseout en el boton Link
+const buttonNormalLink = (e) =>{
+    if(e.target.classList.contains('link-icon')){
+        e.target.setAttribute('src', linkButton)
 }}
 
 //Funcion de boton expandir gif
@@ -200,6 +220,7 @@ const principalPage = () =>{
         favoritesSection.style.display = 'none'
         misGifosSection.style.display = 'none'
         searchSection.style.display = 'flex'
+        crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
         linksColorBlue()
 }
 

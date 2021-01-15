@@ -668,6 +668,7 @@
     width: 688px;
     height: 390px;
     border: 1px solid #572EE5;
+    position: relative;
   }
   .crear-gifo-container h3 {
     font-family: Montserrat;
@@ -687,8 +688,57 @@
     text-align: center;
     line-height: 29px;
   }
+  .crear-gifo-container-hover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-color: #572EE5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .crear-gifo-container-hover-icons {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-right: 32px;
+    visibility: hidden;
+  }
+  .crear-gifo-container-hover-descripcion {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 84px;
+  }
+  .crear-gifo-container-hover-descripcion p {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 10px;
+  }
   .crear-gifo-pasos {
     margin-top: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
   }
   .crear-gifo-pasos div {
     display: inline-block;
@@ -701,6 +751,25 @@
     width: 32px;
     height: 32px;
     padding-top: 5px;
+    margin-right: 25px;
+  }
+  .crear-gifo-pasos div:first-child {
+    margin-left: 39.3%;
+  }
+  .crear-gifo-pasos .temporizador {
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 15px;
+    color: #572EE5;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 22px;
+    padding-top: 5px;
+    margin-left: auto;
+  }
+  .crear-gifo-pasos .fondo-azul {
+    background-color: #572EE5;
+    color: white;
   }
   .crear-gifo-espacio-azul {
     margin-top: 19px;
@@ -721,6 +790,10 @@
     height: 50px;
     padding-top: 18px;
     margin-top: 20px;
+  }
+  .crear-gifo-button:hover {
+    background-color: #572EE5;
+    color: white;
   }
 }
 

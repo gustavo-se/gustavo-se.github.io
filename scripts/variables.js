@@ -25,8 +25,10 @@ let downloadButton = './img/icon-download.svg'
 let downloadHoverButton = './img/icon-download-hover.svg'
 let maxButton = './img/icon-max-normal.svg'
 let maxHoverButton = './img/icon-max-hover.svg'
+let linkButton = './img/icon-link-normal.svg'
+let linkHoverButton = './img/icon-link-hover.svg'
 
-// Menu Hamburguesa
+//Menu Hamburguesa
 let gifs = document.getElementsByClassName('gifs')
 let menu = document.querySelector('.burger');
 let ulDesplegado = document.getElementById('menu-desplegado');
