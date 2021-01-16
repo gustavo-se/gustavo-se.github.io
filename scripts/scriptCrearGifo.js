@@ -18,11 +18,11 @@ crearGifo.addEventListener('click', () =>{
         <div>3</div>
     </div>
     <div class="crear-gifo-espacio-azul"></div>
-    <div class="crear-gifo-button pointer comenzar">Comenzar</div>`
+    <div class="crear-gifo-button pointer comenzar">COMENZAR</div>`
 
     main.appendChild(crearGifosSection)
 })
-
+let prueba
 crearGifosSection.addEventListener('click', (e) => {
     crearGifoContainer = document.querySelector('.crear-gifo-container')
     crearGifoPasos = document.querySelector('.crear-gifo-pasos')
@@ -32,7 +32,7 @@ crearGifosSection.addEventListener('click', (e) => {
         camaraAccess(crearGifoContainer, crearGifoPasos, crearGifoBtn)
     }
     if(e.target.classList.contains('grabar')){
-        startRecord(crearGifoPasos, crearGifoBtn)
+        startRecord(crearGifoContainer, crearGifoPasos, crearGifoBtn)
     }
     if(e.target.classList.contains('finalizar')){
         endRecord(crearGifoBtn)
@@ -62,35 +62,32 @@ const camaraAccess = (container, pasos, btn) => {
     <div>3</div>`
 
     btn.style.visibility = 'hidden'
-    okCamera(container, pasos, btn)
+    captureCamera(container, pasos, btn)
 }
 
-const okCamera = (container, pasos, btn) =>{
-    container.innerHTML = `<video src=""></video>`
-    pasos.innerHTML =`<div>1</div>
-    <div class="fondo-azul">2</div>
-    <div>3</div>`
-
-    btn.innerHTML = `GRABAR`
-    btn.style.visibility = 'visible'
-    btn.classList = 'crear-gifo-button pointer grabar'
-}
-
-const startRecord = (pasos,btn) =>{
-    btn.classList = 'crear-gifo-button pointer finalizar'
+const startRecord = (container, pasos,btn) =>{
     pasos.innerHTML = `<div>1</div>
     <div class="fondo-azul">2</div>
     <div>3</div>
     <span class="temporizador">00:00:00</span>`
+
+    record(prueba, container)
+    console.log(prueba)
+    btn.innerHTML = 'FINALIZAR'
+    setTimeout(() => {
+        btn.classList = 'crear-gifo-button pointer finalizar'
+    }, 1000);
 }
 
 const endRecord = (btn) =>{
     let temporizador = document.querySelector('.temporizador')
-    btn.classList = 'crear-gifo-button pointer subir-gifo'
     btn.innerHTML = 'SUBIR GIFO'
     temporizador.innerHTML = 'REPETIR CAPTURA'
     temporizador.style.fontSize = '13px'
     temporizador.style.borderBottom = '2px solid #5ED7C6'
+    setTimeout(() => {
+        btn.classList = 'crear-gifo-button pointer subir-gifo'
+    }, 1000);
 }
 
 const uploadGif = (container, pasos, btn) =>{
@@ -121,4 +118,49 @@ const finUpload = (container)=>{
     container.firstChild.nextElementSibling.firstElementChild.style.visibility = 'visible'
     container.firstChild.nextElementSibling.firstElementChild.nextElementSibling.lastElementChild.innerText = 'GIFO subido con éxito'
     container.firstChild.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.setAttribute('src', './img/check.svg')
+}
+
+
+
+const captureCamera = (container, pasos, btn) => {
+    navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: false 
+        })
+        .then(async(stream) => {
+            container.innerHTML = `<video id="video"playsinline autoplay muted></video>`
+            container.style.width = 'auto'
+            container.style.height = 'auto'
+            pasos.innerHTML =`<div>1</div>
+            <div class="fondo-azul">2</div>
+            <div>3</div>`
+
+            btn.innerHTML = `GRABAR`
+            btn.style.visibility = 'visible'
+            btn.classList ='crear-gifo-button pointer grabar'
+            
+            document.getElementById('video').srcObject = stream
+            console.log(stream)
+            prueba = stream
+
+
+    }).catch(error => {
+        alert('No podemos grabar');
+        console.error(error);
+    });
+}
+
+const record = (stream, container) =>{
+    let recorder = RecordRTC(stream,{
+        type: 'video'
+    })
+    recorder.startRecording()
+
+    setTimeout(() => {
+        recorder.stopRecording(()=> {
+            let blob = recorder.blob
+            let url = URL.createObjectURL(blob)
+            container.innerHTML  = `<video src="${url}" playsinline autoplay muted loop></video>`
+        })
+    }, 5 * 1000);
 }
