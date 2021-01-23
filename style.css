@@ -691,6 +691,9 @@
   .crear-gifo-container video {
     height: 390px;
   }
+  .crear-gifo-container-gif {
+    height: 390px;
+  }
   .crear-gifo-container-hover {
     position: absolute;
     top: 0;

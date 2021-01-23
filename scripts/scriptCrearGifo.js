@@ -106,7 +106,7 @@ const endRecord = (btn, container, pasos) =>{
 }
 
 const uploadGif = (container, pasos, btn, url ) =>{
-    container.innerHTML = `<video src="${ url }" playsinline autoplay muted loop></video>
+    container.innerHTML = `<img class="crear-gifo-container-gif" src="${ url }">
     <div class="crear-gifo-container-hover">
     <div class="crear-gifo-container-hover-icons">
         <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
@@ -124,9 +124,8 @@ const uploadGif = (container, pasos, btn, url ) =>{
 
     btn.style.visibility = 'hidden'
 
-    setTimeout(() => {
-        finUpload(container)
-    }, 3000);
+    subirGif(recorder)
+
 }
 
 const finUpload = (container)=>{
@@ -166,15 +165,34 @@ const captureCamera = (container, pasos, btn) => {
 
 const record = (stream) =>{
     recorder = RecordRTC(stream,{
-        type: 'video'
+        type: 'gif'
     })
     recorder.startRecording()
+    recorder.stream = stream
 }
 
 const recordStop = (container) => {
     recorder.stopRecording(()=> {
         let blob = recorder.blob
         url = URL.createObjectURL(blob)
-        container.innerHTML  = `<video src="${url}" playsinline autoplay muted loop></video>`
+        container.innerHTML  = `<img class="crear-gifo-container-gif" src="${url}">`
+
+        recorder.stream.stop()
     })
+}
+
+const subirGif = recorder => {
+    console.log(recorder)
+    let form = new FormData();
+    form.set('file', recorder.getBlob(), 'myGif.gif');
+    
+        fetch(`https://upload.giphy.com/v1/gifs?api_key=${apiKey}`, {
+            method: "POST",
+            body: form
+        })
+        .then(res => {
+            return res.json()
+        }).then(data => {
+            dataId = data.data.id;
+        });
 }
