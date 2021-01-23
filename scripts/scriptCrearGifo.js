@@ -22,7 +22,7 @@ crearGifo.addEventListener('click', () =>{
 
     main.appendChild(crearGifosSection)
 })
-let prueba
+
 crearGifosSection.addEventListener('click', (e) => {
     crearGifoContainer = document.querySelector('.crear-gifo-container')
     crearGifoPasos = document.querySelector('.crear-gifo-pasos')
@@ -32,13 +32,14 @@ crearGifosSection.addEventListener('click', (e) => {
         camaraAccess(crearGifoContainer, crearGifoPasos, crearGifoBtn)
     }
     if(e.target.classList.contains('grabar')){
-        startRecord(crearGifoContainer, crearGifoPasos, crearGifoBtn)
+        startRecord(crearGifoPasos, crearGifoBtn)
+        record(streamGlobal)
     }
     if(e.target.classList.contains('finalizar')){
-        endRecord(crearGifoBtn)
+        endRecord(crearGifoBtn, crearGifoContainer, crearGifoPasos)
     }
     if(e.target.classList.contains('subir-gifo')){
-        uploadGif(crearGifoContainer, crearGifoPasos, crearGifoBtn)
+        uploadGif(crearGifoContainer, crearGifoPasos, crearGifoBtn, url)
     }
 })
 
@@ -65,33 +66,47 @@ const camaraAccess = (container, pasos, btn) => {
     captureCamera(container, pasos, btn)
 }
 
-const startRecord = (container, pasos,btn) =>{
-    pasos.innerHTML = `<div>1</div>
-    <div class="fondo-azul">2</div>
-    <div>3</div>
-    <span class="temporizador">00:00:00</span>`
+const startRecord = (pasos, btn) =>{
+    let seg = 0
+    cronometro = setInterval(() => {
+        seg++ 
+        pasos.innerHTML = `<div>1</div>
+        <div class="fondo-azul">2</div>
+        <div>3</div>
+        <span class="temporizador">00:00:0${ seg }</span>`
+    }, 1000);
 
-    record(prueba, container)
-    console.log(prueba)
+
     btn.innerHTML = 'FINALIZAR'
     setTimeout(() => {
         btn.classList = 'crear-gifo-button pointer finalizar'
     }, 1000);
+    
 }
 
-const endRecord = (btn) =>{
+const endRecord = (btn, container, pasos) =>{
     let temporizador = document.querySelector('.temporizador')
     btn.innerHTML = 'SUBIR GIFO'
     temporizador.innerHTML = 'REPETIR CAPTURA'
     temporizador.style.fontSize = '13px'
     temporizador.style.borderBottom = '2px solid #5ED7C6'
+    temporizador.classList.add('pointer')
+
     setTimeout(() => {
         btn.classList = 'crear-gifo-button pointer subir-gifo'
     }, 1000);
+
+    recordStop(container)
+
+    temporizador.addEventListener('click', () => {
+        captureCamera(container, pasos, btn)
+    })
+
+    clearInterval(cronometro)
 }
 
-const uploadGif = (container, pasos, btn) =>{
-    container.innerHTML = `<video src=""></video>
+const uploadGif = (container, pasos, btn, url ) =>{
+    container.innerHTML = `<video src="${ url }" playsinline autoplay muted loop></video>
     <div class="crear-gifo-container-hover">
     <div class="crear-gifo-container-hover-icons">
         <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
@@ -140,8 +155,7 @@ const captureCamera = (container, pasos, btn) => {
             btn.classList ='crear-gifo-button pointer grabar'
             
             document.getElementById('video').srcObject = stream
-            console.log(stream)
-            prueba = stream
+            streamGlobal = stream
 
 
     }).catch(error => {
@@ -150,17 +164,17 @@ const captureCamera = (container, pasos, btn) => {
     });
 }
 
-const record = (stream, container) =>{
-    let recorder = RecordRTC(stream,{
+const record = (stream) =>{
+    recorder = RecordRTC(stream,{
         type: 'video'
     })
     recorder.startRecording()
+}
 
-    setTimeout(() => {
-        recorder.stopRecording(()=> {
-            let blob = recorder.blob
-            let url = URL.createObjectURL(blob)
-            container.innerHTML  = `<video src="${url}" playsinline autoplay muted loop></video>`
-        })
-    }, 5 * 1000);
+const recordStop = (container) => {
+    recorder.stopRecording(()=> {
+        let blob = recorder.blob
+        url = URL.createObjectURL(blob)
+        container.innerHTML  = `<video src="${url}" playsinline autoplay muted loop></video>`
+    })
 }

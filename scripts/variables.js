@@ -93,4 +93,7 @@ let iconMisGifosSinContenido = document.createElement('img')
 //Crear Gifos
 let crearGifosSection = document.createElement('div')
 let crearGifo = document.getElementById('boton-crear-gifo')
-
+let streamGlobal
+let recorder
+let url
+let cronometro
