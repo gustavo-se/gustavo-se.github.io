@@ -1,15 +1,15 @@
-const buscador = () => {
+const buscador = (key) => {
     trendingGifos.style.display = "none"
     contador = 0
     while (containerSearch.firstChild) {
         containerSearch.removeChild(containerSearch.firstChild);
     }
-    callGif(0)
+    callGif(0, key)
 }
 
 //Funcion llamar gifs
-const callGif = (offset) => {
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input.value}&limit=12&offset=${offset}&rating=g`)
+const callGif = (offset, key) => {
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`)
     .then(res => res.json())
     .then(res => {
         res.data.forEach(item => {
@@ -101,5 +101,5 @@ btnSearch.addEventListener('click', () => {
 
 btnVerMas.addEventListener('click',() =>{
     contador= contador + 12
-    callGif(contador)
+    callGif(contador, input.value)
 })

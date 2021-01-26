@@ -27,6 +27,8 @@ let maxButton = './img/icon-max-normal.svg'
 let maxHoverButton = './img/icon-max-hover.svg'
 let linkButton = './img/icon-link-normal.svg'
 let linkHoverButton = './img/icon-link-hover.svg'
+let trashButton = './img/icon-trash-normal.svg'
+let trashHoverButton = './img/icon-trash-hover.svg'
 
 //Menu Hamburguesa
 let gifs = document.getElementsByClassName('gifs')
@@ -68,7 +70,7 @@ let dataGif = document.querySelector('.datos-gif')
 let maxButtomFav = document.querySelector('.acciones img')
 let maxButtomDownload = document.querySelector('.acciones-buttom-download')
 
-//Carrousel
+//Trending
 let gifOfTrendings = document.getElementsByClassName('trending-gif')
 let boxGifTrendings = document.getElementsByClassName('trendings-gif')
 let sliderLeftCarrousel = document.getElementById('slider-left-carrousel')
@@ -76,6 +78,11 @@ let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel')
 let carrousel = document.querySelector('.carrousel') 
 let trendingGifos = document.querySelector(".trending")
 let trendingSection = document.getElementById('seccion-trending')
+let reactions = document.getElementById('reactions')
+let entertainment = document.getElementById('entertainment')
+let sports = document.getElementById('sports')
+let stickers = document.getElementById('stickers')
+let artists = document.getElementById('artists')
 
 //Favoritos
 let favoritesSection = document.getElementById('favoritos-section')
@@ -87,8 +94,6 @@ let mensaje = document.createElement('h2')
 
 //Mis Gifos
 let misGifosSection = document.createElement('div')
-let iconMisGifosSinContenido = document.createElement('img')
-//let mensaje = document.createElement('h2')
 
 //Crear Gifos
 let crearGifosSection = document.createElement('div')
@@ -97,3 +102,4 @@ let streamGlobal
 let recorder
 let url
 let cronometro
+let misGifosUrl = []

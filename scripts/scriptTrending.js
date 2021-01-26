@@ -68,6 +68,11 @@ carrousel.addEventListener('transitionend', ()=>{
     }
 })
 
+callTrendings(reactions)
+callTrendings(entertainment)
+callTrendings(sports)
+callTrendings(stickers)
+callTrendings(artists)
 
 
  

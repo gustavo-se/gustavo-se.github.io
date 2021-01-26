@@ -117,7 +117,6 @@ const favActive = (e) => {
 //Funcion agregar favoritos
 const addFavorites = (gif) => {
     favorites.push(gif.outerHTML)
-    console.log(favorites)
     let favoriteArray = JSON.stringify(favorites)
     sessionStorage.setItem('favoritos', favoriteArray)
 }
@@ -213,4 +212,11 @@ const activeSection = (link) => {
     link.style.color = '#9CAFC3'
     linksColorBlue()
     link.classList.add('link-active')
+}
+
+//Funcion llamar a los trendings
+const callTrendings = wordKey =>{
+    wordKey.addEventListener('click', () => {
+        buscador(wordKey.textContent)
+    })
 }

@@ -25,6 +25,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        flex-direction: column;
 
         h2{
             font-family: Montserrat;
@@ -32,7 +33,7 @@
             font-size: 22px;
             color: #50E3C2;
             text-align: center;
-            line-height: 33px;
+            line-height: 25px;
         }
     }
 }

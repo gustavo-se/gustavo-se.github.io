@@ -128,10 +128,10 @@ const uploadGif = (container, pasos, btn, url ) =>{
 
 }
 
-const finUpload = (container)=>{
-    container.firstChild.nextElementSibling.firstElementChild.style.visibility = 'visible'
-    container.firstChild.nextElementSibling.firstElementChild.nextElementSibling.lastElementChild.innerText = 'GIFO subido con éxito'
-    container.firstChild.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.setAttribute('src', './img/check.svg')
+const finUpload = ()=>{
+    document.querySelector('.crear-gifo-container-hover-icons').style.visibility = 'visible'
+    document.querySelector('.crear-gifo-container-hover-descripcion descripcion').innerText = 'GIFO subido con éxito'
+    decument.querySelector('.crear-gifo-container-hover-descripcion img').setAttribute('src', './img/check.svg')
 }
 
 
@@ -182,7 +182,6 @@ const recordStop = (container) => {
 }
 
 const subirGif = recorder => {
-    console.log(recorder)
     let form = new FormData();
     form.set('file', recorder.getBlob(), 'myGif.gif');
     
@@ -194,5 +193,20 @@ const subirGif = recorder => {
             return res.json()
         }).then(data => {
             dataId = data.data.id;
+            crearGifLocalStorage(dataId)
         });
+}
+
+const crearGifLocalStorage = dataId => {
+    fetch(`https://api.giphy.com/v1/gifs/${dataId}?api_key=${apiKey}`)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        misGifosUrl.push(data.data.url)
+        let misGifosUrlArray = JSON.stringify(misGifosUrl)
+        sessionStorage.setItem('misGifos', misGifosUrlArray)
+
+        finUpload()
+    })
+
 }

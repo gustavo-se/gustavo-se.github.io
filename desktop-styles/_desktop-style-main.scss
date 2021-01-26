@@ -4,9 +4,11 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
     .description{
         width: 600px;
         margin-top: 7px;
+
         h2{
             font-family: Montserrat;
             color:#572EE5;
@@ -18,12 +20,14 @@ section{
             }
         }
     }
+
     .main-search{
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 31px;
+
         .imput-search{
             width: 600px;
             height: 50px;
@@ -42,17 +46,20 @@ section{
                 font-size: 16px;
                 outline-width: 0;
             }
+
             .fa-search{
                 font-size: 1.2rem;
                 color: #9CAFC3;
                 visibility: hidden;
             }
+
             #btn-search{
                 padding-right: 20px;
                 cursor: pointer;
                 
             }
         }
+
         .lista-sugerencias{
             display: none;
             width: 600px;
@@ -67,6 +74,7 @@ section{
                     cursor: pointer;
                 }
             }
+
             .fa-search{
                 font-size: 1.2rem;
                 color: #9CAFC3;
@@ -74,6 +82,7 @@ section{
             }
         }
     }
+
     .trending{
         width: 402px;
         margin-top: 31px;
@@ -88,6 +97,7 @@ section{
             color:  #572EE5;
             line-height: 25px;
         }
+
         p{
             font-family: montserrat;
             color:#572EE5;
@@ -95,16 +105,24 @@ section{
             line-height: 25px;
             text-align: center;
             font-weight: normal
+
+            a{
+                text-decoration: none;
+                color: #572EE5;
+            }
         }
     }
 }
+
 .section2{
     background-color: #F3F5F8;
+
     .trending-gifos{
         width:100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+
         h2{
             font-family: montserrat;
             color:#572EE5;
@@ -115,6 +133,7 @@ section{
             padding-top: 46px;
             margin-bottom: 7px;
         }
+
         h4{
             width: 20.8125rem;
             text-align: center;
@@ -132,6 +151,7 @@ section{
     width: 550px;
     height: 30;
     margin: 50px 0;
+
     h3{
         font-family: Montserrat;
         font-weight: bold;
@@ -148,6 +168,7 @@ section{
 .gif-box{
     position: relative;
 }
+
 .hover-box{
     position: absolute;
     top: 0;
@@ -165,6 +186,7 @@ section{
     align-self: flex-start;
     margin-bottom: 51px;
     margin-left: 18.5px;
+
     .user{
         font-family: Roboto;
         font-size: 15px;
@@ -172,6 +194,7 @@ section{
         margin-bottom: 6px;
         text-transform: capitalize;
     }
+
     .titulo-gif{
         font-family: Roboto;
         font-weight: bold;
@@ -194,6 +217,7 @@ section{
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    
     &:hover{
         opacity: 1;
     }
