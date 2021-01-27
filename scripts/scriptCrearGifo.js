@@ -1,6 +1,15 @@
 crearGifo.addEventListener('click', () =>{
     crearGifosSection.classList.add('crear-gifo')
-    crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
+
+    switch (crearGifo.getAttribute('src')) {
+        case './img/CTA-crear-gifo-hover.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
+            break;
+    
+        case './img/CTA-crear-gifo-hover-modo-noc.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-active-modo-noc.svg')
+            break
+    }
 
     searchGif.style.display = 'none'
     trendingSection.style.display = 'none'

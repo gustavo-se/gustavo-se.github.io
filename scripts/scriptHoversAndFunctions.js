@@ -17,18 +17,42 @@ for(let i = 0; i < slidersRight.length; i++){
 
 //Hover boton crear gifos
 crearGifo.addEventListener('mouseover', () =>{
-    if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active.svg'){
-        crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
-    }else{
-        crearGifo.setAttribute('src', './img/CTA-crear-gifo-hover.svg')
+    switch (crearGifo.getAttribute('src')) {
+        case './img/button-crear-gifo.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-hover.svg')
+            break;
+    
+        case './img/CTA-crar-gifo-modo-noc.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-hover-modo-noc.svg')
+            break
+        
+        case './img/CTA-crear-gifo-active.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
+            break
+
+        case './img/CTA-crear-gifo-active-modo-noc.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-active-modo-noc.svg')
+            break
     }
 })
 
 crearGifo.addEventListener('mouseout', () =>{
-    if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active.svg'){
-        crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
-    }else{
-        crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+    switch (crearGifo.getAttribute('src')) {
+        case './img/CTA-crear-gifo-hover.svg':
+            crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+            break;
+    
+        case './img/CTA-crear-gifo-hover-modo-noc.svg':
+            crearGifo.setAttribute('src', './img/CTA-crar-gifo-modo-noc.svg')
+            break
+        
+        case './img/CTA-crear-gifo-active.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
+            break
+
+        case './img/CTA-crear-gifo-active-modo-noc.svg':
+            crearGifo.setAttribute('src', './img/CTA-crear-gifo-active-modo-noc.svg')
+            break
     }
 })
 
@@ -184,7 +208,17 @@ const principalPage = () =>{
         favoritesSection.style.display = 'none'
         misGifosSection.style.display = 'none'
         searchSection.style.display = 'flex'
-        crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+
+        switch (crearGifo.getAttribute('src')) {
+            case './img/CTA-crear-gifo-active.svg':
+                crearGifo.setAttribute('src', './img/button-crear-gifo.svg')
+                break;
+        
+            case './img/CTA-crear-gifo-active-modo-noc.svg':
+                crearGifo.setAttribute('src', './img/CTA-crar-gifo-modo-noc.svg')
+                break
+        }
+
         linksColorBlue()
 }
 
@@ -220,3 +254,31 @@ const callTrendings = wordKey =>{
         buscador(wordKey.textContent)
     })
 }
+
+//Cambiar el logo
+window.addEventListener('load', () =>{
+    if(window.innerWidth > 901 ){
+        logoGifos.setAttribute('src', './img/logo-desktop.svg')
+     }else{
+         logoGifos.setAttribute('src', './img/logo-mobile.svg')
+    }
+})
+window.addEventListener('resize', ()=>{
+    if(window.innerWidth > 901 && logoGifos.getAttribute('src') === './img/logo-desktop.svg'){
+        logoGifos.setAttribute('src', './img/logo-desktop.svg')
+    }else if(window.innerWidth > 901 && logoGifos.getAttribute('src') === './img/Logo-modo-noc.svg'){
+        logoGifos.setAttribute('src', './img/Logo-modo-noc.svg')
+    }else if(window.innerWidth > 901 && logoGifos.getAttribute('src') === './img/logo-mobile.svg'){
+        logoGifos.setAttribute('src', './img/logo-desktop.svg')
+    }else if(window.innerWidth > 901 && logoGifos.getAttribute('src') === './img/logo-mobile-modo-noct.svg'){
+        logoGifos.setAttribute('src', './img/Logo-modo-noc.svg')
+    }else if(window.innerWidth < 901 && logoGifos.getAttribute('src') === './img/logo-desktop.svg'){
+        logoGifos.setAttribute('src', './img/logo-mobile.svg')
+    }else if(window.innerWidth < 901 && logoGifos.getAttribute('src') === './img/logo-mobile.svg'){
+        logoGifos.setAttribute('src', './img/logo-mobile.svg')
+    }else if(window.innerWidth < 901 && logoGifos.getAttribute('src') === './img/logo-mobile-modo-noct.svg'){
+        logoGifos.setAttribute('src', './img/logo-mobile-modo-noct.svg')
+    }else if(window.innerWidth < 901 && logoGifos.getAttribute('src') === './img/Logo-modo-noc.svg'){
+        logoGifos.setAttribute('src', './img/logo-mobile-modo-noct.svg')
+    }
+})
