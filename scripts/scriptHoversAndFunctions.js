@@ -3,7 +3,11 @@ for(let i = 0; i < slidersLeft.length; i++ ){
     slidersLeft[i].addEventListener('mouseover',() => {
         slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg')})
     slidersLeft[i].addEventListener('mouseout', () => {
-        slidersLeft[i].setAttribute('src', './img/button-slider-left.svg')
+        if(slidersLeft[i].classList.contains('mod-noc')){
+            slidersLeft[i].setAttribute('src', './img/button-slider-left-md-noct.svg')
+        }else{
+            slidersLeft[i].setAttribute('src', './img/button-slider-left.svg')
+        }
     })
 }
 
@@ -11,7 +15,11 @@ for(let i = 0; i < slidersRight.length; i++){
     slidersRight[i].addEventListener('mouseover',() => {
         slidersRight[i].setAttribute('src', './img/Button-Slider-right-hover.svg')})
     slidersRight[i].addEventListener('mouseout', () => {
-        slidersRight[i].setAttribute('src', './img/Button-Slider-right.svg')
+        if(slidersRight[i].classList.contains('mod-noc')){
+            slidersRight[i].setAttribute('src', './img/button-slider-right-md-noct.svg')
+        }else{
+            slidersRight[i].setAttribute('src', './img/Button-Slider-right.svg')     
+        }
     })
 }
 
@@ -207,7 +215,9 @@ const quitFavorites = (gif) =>{
 const principalPage = () =>{
         favoritesSection.style.display = 'none'
         misGifosSection.style.display = 'none'
+        crearGifosSection.style.display = 'none'
         searchSection.style.display = 'flex'
+        trendingSection.style.display = 'flex'
 
         switch (crearGifo.getAttribute('src')) {
             case './img/CTA-crear-gifo-active.svg':
@@ -235,6 +245,7 @@ const linksColorBlue = () => {
 //Funcion mostrar las secciones fav y mis gifos
 const displaySections = (section, otherSection) =>{
     searchSection.style.display = 'none'
+    crearGifosSection.style.display = 'none'
     otherSection.style.display = 'none'
     main.appendChild(section)
     section.after(trendingSection)

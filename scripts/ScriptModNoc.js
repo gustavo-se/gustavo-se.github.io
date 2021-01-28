@@ -5,8 +5,14 @@ links[0].addEventListener('click', () =>{
     footer.classList.toggle('fondo-noc-first')
     trendingSection.classList.toggle('fondo-noc-second')
 
+    for (let i = 0; i < espacioAzul.length; i++) {
+         espacioAzul[i].classList.toggle('espacio-negro')   
+    }
+    
+
     modoNocHeader()
     modoNocMain()
+    modoNocTrending()
 })
 
 const modoNocHeader = () =>{
@@ -52,7 +58,7 @@ const modoNocHeader = () =>{
 }
 
 const modoNocMain = () => {
-    tittle.classList.toggle('words-noc-first')
+    tittleBuscador.classList.toggle('words-noc-first')
     input.classList.toggle('fondo-noc-first')
     input.classList.toggle('words-noc-second')
     inputSearch.classList.toggle('border-noc')
@@ -70,5 +76,41 @@ const modoNocMain = () => {
 
     for(let i = 0; i < trendingGifos.lastElementChild.children.length; i++){
         trendingGifos.lastElementChild.children[i].classList.toggle('words-noc-first')
+    }
+
+    footer.firstElementChild.classList.toggle('words-noc-first')
+    footer.lastElementChild.classList.toggle('words-noc-first')
+}
+
+const modoNocTrending = () =>{
+    for (let i = 0; i < tittleTrending.children.length; i++) {
+        tittleTrending.children[i].classList.toggle('words-noc-first')    
+    }
+
+    for (let i = 0; i < slidersLeft.length; i++) {
+        switch (slidersLeft[i].getAttribute('src')) {
+            case './img/button-slider-left.svg':
+                slidersLeft[i].setAttribute('src', './img/button-slider-left-md-noct.svg')
+                slidersLeft[i].classList.add('mod-noc')
+                break
+            
+            case './img/button-slider-left-md-noct.svg':
+                slidersLeft[i].setAttribute('src', './img/button-slider-left.svg')
+                slidersLeft[i].classList.remove('mod-noc')
+        }   
+    } 
+
+    for (let i = 0; i < slidersRight.length; i++) {
+        switch (slidersRight[i].getAttribute('src')) {
+            case './img/Button-Slider-right.svg':
+                slidersRight[i].setAttribute('src', './img/Button-Slider-right-md-noct.svg')
+                slidersRight[i].classList.add('mod-noc')
+                break
+            
+            case './img/Button-Slider-right-md-noct.svg':
+                slidersRight[i].setAttribute('src', './img/Button-Slider-right.svg')
+                slidersRight[i].classList.remove('mod-noc')
+        } 
+        
     }
 }

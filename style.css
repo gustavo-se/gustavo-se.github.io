@@ -824,6 +824,9 @@
   .border-noc {
     border: 1px solid #FFFFFF !important;
   }
+  .espacio-negro {
+    background-color: #000000 !important;
+  }
 }
 
 @media screen and (max-width: 900px) {

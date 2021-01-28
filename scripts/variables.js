@@ -58,7 +58,7 @@ let btnVerMas = document.createElement('button')
 btnVerMas.classList.add('btn-ver-mas')
 btnVerMas.innerHTML = 'VER MÁS'
 searchGif.appendChild(btnVerMas)
-let tittle = document.querySelector('.description h2')
+let tittleBuscador = document.querySelector('.description h2')
 
 //Gif Max
 let header = document.querySelector('header')
@@ -84,6 +84,7 @@ let entertainment = document.getElementById('entertainment')
 let sports = document.getElementById('sports')
 let stickers = document.getElementById('stickers')
 let artists = document.getElementById('artists')
+let tittleTrending = document.querySelector('.trending-gifos')
 
 //Favoritos
 let favoritesSection = document.getElementById('favoritos-section')
@@ -104,3 +105,6 @@ let recorder
 let url
 let cronometro
 let misGifosUrl = []
+
+//otros
+let espacioAzul = document.getElementsByClassName('espacio-azul')

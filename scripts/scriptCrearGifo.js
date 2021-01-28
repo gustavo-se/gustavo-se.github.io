@@ -15,6 +15,7 @@ crearGifo.addEventListener('click', () =>{
     trendingSection.style.display = 'none'
     favoritesSection.style.display = 'none'
     misGifosSection.style.display = 'none'
+    crearGifosSection.style.display = 'flex'
 
     crearGifosSection.innerHTML = `<div class="crear-gifo-container">
     <h3>Aqui podras crear tus propios <span>GIFOS</span></h3>
