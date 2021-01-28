@@ -15,6 +15,7 @@ section{
             font-size: 35px;
             text-align: center;
             line-height: 50px;
+
             span{
                 color: #50E3C2;
             }
@@ -64,8 +65,10 @@ section{
             display: none;
             width: 600px;
             height: auto;
+
             ul{
                 list-style: none;
+                
                 li{
                     width: 100%;
                     margin: 5px 0;
@@ -105,7 +108,7 @@ section{
             font-size: 0.875rem;
             line-height: 25px;
             text-align: center;
-            font-weight: normal
+            font-weight: normal;
 
             a{
                 text-decoration: none;

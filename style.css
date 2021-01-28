@@ -221,9 +221,11 @@
     font-size: 0.875rem;
     line-height: 25px;
     text-align: center;
-    font-weight: normal a;
-    font-weight-text-decoration: none;
-    font-weight-color: #572EE5;
+    font-weight: normal;
+  }
+  section .trending p a {
+    text-decoration: none;
+    color: #572EE5;
   }
   .section2 {
     background-color: #F3F5F8;
@@ -807,11 +809,20 @@
     background-color: #572EE5;
     color: white;
   }
-  .fondo-noc {
+  .fondo-noc-first {
     background-color: #37383C;
   }
-  .words-noc {
+  .fondo-noc-second {
+    background-color: #222326;
+  }
+  .words-noc-first {
     color: #FFFFFF !important;
+  }
+  .words-noc-second {
+    color: #9CAFC3;
+  }
+  .border-noc {
+    border: 1px solid #FFFFFF !important;
   }
 }
 

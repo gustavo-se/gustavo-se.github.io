@@ -58,6 +58,7 @@ let btnVerMas = document.createElement('button')
 btnVerMas.classList.add('btn-ver-mas')
 btnVerMas.innerHTML = 'VER MÁS'
 searchGif.appendChild(btnVerMas)
+let tittle = document.querySelector('.description h2')
 
 //Gif Max
 let header = document.querySelector('header')
