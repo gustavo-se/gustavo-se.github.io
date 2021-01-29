@@ -46,19 +46,6 @@ containerSearch.addEventListener('click', e => {
     favActive(e)
 })
 
-input.addEventListener('keyup', (event) => {
-    if(input.value.length >= 1){
-        btnSearch.setAttribute('src', './img/close.svg')
-    }else{
-        btnSearch.setAttribute('src', './img/icon-search.svg')
-    }
-    if(event.keyCode === 13){
-        buscador(input.value)
-        titleSearch.style.display = 'block'
-        titleSearch.innerHTML= `<h3>${input.value}</h3>`
-        btnVerMas.style.display = 'block'
-    }})
-
 const sugerencias = term =>{
     fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${term}&limit=4`)
     .then(res => res.json())
@@ -68,16 +55,44 @@ const sugerencias = term =>{
     }}
 )}
 
-input.addEventListener('keyup', () => {
+input.addEventListener('keyup', (e) => {
     if(input.value.length >= 1){
+        if(contentSearch.classList.contains('modo-noc')){
+            btnSearch.setAttribute('src', './img/close-modo-noct.svg')
+            contentSearch.classList.add('border-noc-first')
+        }else{
+            btnSearch.setAttribute('src', './img/close.svg')
+            contentSearch.style.border = '1px solid #572EE5'
+        }
+
         sugestionsBox.style.display = 'block'
+        inputSearch.classList.remove('border-noc-first')
         inputSearch.style.border = 'none'
-        contentSearch.style.border = '1px solid #572EE5'
         contentSearch.style.borderRadius = '27px'
         btnLeft.style.visibility = 'visible'
+
     }else{
+
         sugestionsBox.style.display = 'none'
         btnLeft.style.visibility = 'hidden'
+
+        if(contentSearch.classList.contains('modo-noc')){
+            btnSearch.setAttribute('src', './img/icon-search-mod-noc.svg')
+            inputSearch.classList.add('border-noc-first')
+            contentSearch.classList.remove('border-noc-first')
+            contentSearch.style.border = 'none'
+        }else{
+            btnSearch.setAttribute('src', './img/icon-search.svg')
+            contentSearch.style.border = 'none'
+            inputSearch.style.border =  '1px solid #572EE5'
+        }
+
+    if(e.keyCode === 13){
+        buscador(input.value)
+        titleSearch.style.display = 'block'
+        titleSearch.innerHTML= `<h3>${input.value}</h3>`
+        btnVerMas.style.display = 'block'
+        }
     }
     sugerencias(input.value)
 })

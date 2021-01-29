@@ -58,20 +58,37 @@ const modoNocHeader = () =>{
 }
 
 const modoNocMain = () => {
+    contentSearch.classList.toggle('modo-noc')
     tittleBuscador.classList.toggle('words-noc-first')
     input.classList.toggle('fondo-noc-first')
     input.classList.toggle('words-noc-second')
-    inputSearch.classList.toggle('border-noc')
     trendingGifos.firstElementChild.classList.toggle('words-noc-first')
     trendingGifos.lastElementChild.classList.toggle('words-noc-first')
     
     switch (btnSearch.getAttribute('src')) {
         case './img/icon-search.svg':
             btnSearch.setAttribute('src', './img/icon-search-mod-noc.svg')
-            break;
+            inputSearch.classList.add('border-noc-first')
+            break
     
         case './img/icon-search-mod-noc.svg':
             btnSearch.setAttribute('src', './img/icon-search.svg')
+            inputSearch.classList.remove('border-noc-first')
+            inputSearch.style.border = '1px solid #572EE5'
+            break
+
+        case './img/close.svg':
+            btnSearch.setAttribute('src', './img/close-modo-noct.svg')
+            inputSearch.style.border = 'none'
+            contentSearch.classList.add('border-noc-first')
+            break
+        
+        case './img/close-modo-noct.svg':
+            btnSearch.setAttribute('src', './img/close.svg')
+            inputSearch.style.border = 'none'
+            contentSearch.classList.remove('border-noc-first')
+            contentSearch.style.border = '1px solid #572EE5'
+            break
     }
 
     for(let i = 0; i < trendingGifos.lastElementChild.children.length; i++){
