@@ -13,6 +13,7 @@ links[0].addEventListener('click', () =>{
     modoNocHeader()
     modoNocMain()
     modoNocTrending()
+    modoNocCrearGifo()
 })
 
 const modoNocHeader = () =>{
@@ -130,4 +131,54 @@ const modoNocTrending = () =>{
         } 
         
     }
+}
+
+const modoNocCrearGifo = () =>{
+
+    switch (crearGifo.getAttribute('src')) {
+        case './img/CTA-crear-gifo-active-modo-noc.svg':
+           setClassModNocCrearGifo()
+            break;
+        
+        case './img/CTA-crear-gifo-active.svg':
+            crearGifo.classList.remove('mod-noc-on')
+            crearGifo.classList.add('mod-noc-off')
+    }
+
+    if(crearGifo.classList.contains('mod-noc-off')) {
+        
+            document.querySelector('.crear-gifo-container h3').classList.remove('words-noc-first')
+            document.querySelector('.crear-gifo-container').children[1].classList.remove('words-noc-first')
+            document.querySelector('.crear-gifo-container').children[2].classList.remove('words-noc-first')
+            document.querySelector('.crear-gifo-container').classList.remove('border-noc-first')
+            let crearGifoPasos = document.querySelector('.crear-gifo-pasos').children
+            for (let i = 0; i < crearGifoPasos.length; i++) {
+                crearGifoPasos[i].classList.remove('words-noc-first')
+                crearGifoPasos[i].classList.remove('border-noc-first')    
+            }
+            document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
+            document.querySelector('.crear-gifo-button').classList.remove('words-noc-first')
+            document.querySelector('.crear-gifo-button').classList.remove('border-noc-first')
+            document.querySelector('.crear-gifo-button').classList.remove('hover-noc')
+            
+    }
+
+}
+
+const setClassModNocCrearGifo = () => {
+    crearGifo.classList.remove('mod-noc-off')
+    crearGifo.classList.add('mod-noc-on')
+    document.querySelector('.crear-gifo-container h3').classList.add('words-noc-first')
+    document.querySelector('.crear-gifo-container').children[1].classList.add('words-noc-first')
+    document.querySelector('.crear-gifo-container').children[2].classList.add('words-noc-first')
+    document.querySelector('.crear-gifo-container').classList.add('border-noc-first')
+    let crearGifoPasos = document.querySelector('.crear-gifo-pasos').children
+    for (let i = 0; i < crearGifoPasos.length; i++) {
+        crearGifoPasos[i].classList.add('words-noc-first')
+        crearGifoPasos[i].classList.add('border-noc-first')    
+    }
+    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
+    document.querySelector('.crear-gifo-button').classList.add('words-noc-first')
+    document.querySelector('.crear-gifo-button').classList.add('border-noc-first')
+    document.querySelector('.crear-gifo-button').classList.add('hover-noc')
 }

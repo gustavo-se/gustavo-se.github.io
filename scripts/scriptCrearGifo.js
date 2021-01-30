@@ -4,11 +4,12 @@ crearGifo.addEventListener('click', () =>{
     switch (crearGifo.getAttribute('src')) {
         case './img/CTA-crear-gifo-hover.svg':
             crearGifo.setAttribute('src', './img/CTA-crear-gifo-active.svg')
-            break;
+            break
     
         case './img/CTA-crear-gifo-hover-modo-noc.svg':
             crearGifo.setAttribute('src', './img/CTA-crear-gifo-active-modo-noc.svg')
             break
+        
     }
 
     searchGif.style.display = 'none'
@@ -16,19 +17,25 @@ crearGifo.addEventListener('click', () =>{
     favoritesSection.style.display = 'none'
     misGifosSection.style.display = 'none'
     crearGifosSection.style.display = 'flex'
-
+    
     crearGifosSection.innerHTML = `<div class="crear-gifo-container">
     <h3>Aqui podras crear tus propios <span>GIFOS</span></h3>
     <p>Crea tu GIFO en solo 3 pasos</p>
     <p>(solo necesitaras una camara para grabar tu video)</p>
     </div>
     <div class="crear-gifo-pasos">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
     </div>
     <div class="crear-gifo-espacio-azul"></div>
     <div class="crear-gifo-button pointer comenzar">COMENZAR</div>`
+    
+    setTimeout(() => {
+        if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+            setClassModNocCrearGifo()
+        }
+    }, 50);
 
     main.appendChild(crearGifosSection)
 })
@@ -68,9 +75,24 @@ const camaraAccess = (container, pasos, btn) => {
     <p>El acceso a tu camara será válido sólo</p>
     <p>por el tiempo en el que estés creando el GIFO.</p>`
 
-    pasos.innerHTML = `<div class="fondo-azul">1</div>
-    <div>2</div>
-    <div>3</div>`
+    switch (crearGifo.getAttribute('src')) {
+        case './img/CTA-crear-gifo-active-modo-noc.svg':
+            container.innerHTML = `<h3 class="words-noc-first">¿Nos das acceso a tu cámara?</h3>
+            <p class="words-noc-first">El acceso a tu camara será válido sólo</p>
+            <p class="words-noc-first">por el tiempo en el que estés creando el GIFO.</p>`
+
+            pasos.innerHTML = `<div class="fondo-noc-third words-noc-first border-noc-first">1</div>
+            <div class="words-noc-first border-noc-first">2</div>
+            <div class="words-noc-first border-noc-first"> 3</div>`
+            break
+    
+        case './img/CTA-crear-gifo-active.svg':
+            pasos.innerHTML = `<div class="fondo-azul">1</div>
+            <div>2</div>
+            <div>3</div>`
+            break
+    }
+   
 
     btn.style.visibility = 'hidden'
     captureCamera(container, pasos, btn)
