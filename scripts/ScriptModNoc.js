@@ -13,6 +13,7 @@ links[0].addEventListener('click', () =>{
     modoNocHeader()
     modoNocMain()
     modoNocTrending()
+    ModoNocFooter()
     modoNocCrearGifo()
 })
 
@@ -96,8 +97,7 @@ const modoNocMain = () => {
         trendingGifos.lastElementChild.children[i].classList.toggle('words-noc-first')
     }
 
-    footer.firstElementChild.classList.toggle('words-noc-first')
-    footer.lastElementChild.classList.toggle('words-noc-first')
+   
 }
 
 const modoNocTrending = () =>{
@@ -132,53 +132,110 @@ const modoNocTrending = () =>{
         
     }
 }
+const ModoNocFooter = () => {
+    footer.firstElementChild.classList.toggle('words-noc-first')
+    footer.lastElementChild.classList.toggle('words-noc-first')
 
+    if(footer.classList.contains('fondo-noc-first')){
+        footer.children[1].children[1].setAttribute('src', './img/icon-tw-normal.svg')
+    }else{
+        footer.children[1].children[1].setAttribute('src', './img/icon-twitter.svg')
+    }
+}
 const modoNocCrearGifo = () =>{
+    let btnComenzar = document.querySelector('.crear-gifo-button')
+    let crearGifoPasos = document.querySelector('.crear-gifo-pasos')
+    if(btnComenzar !== null){
+        if(btnComenzar.classList.contains('comenzar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+            setClassModNocCrearGifo(btnComenzar, crearGifoPasos)
+        }else if(btnComenzar.classList.contains('mod-noc-on')){
+            quitClassModNocCrearGifo(btnComenzar, crearGifoPasos)
+        }
 
-    switch (crearGifo.getAttribute('src')) {
-        case './img/CTA-crear-gifo-active-modo-noc.svg':
-           setClassModNocCrearGifo()
-            break;
-        
-        case './img/CTA-crear-gifo-active.svg':
-            crearGifo.classList.remove('mod-noc-on')
-            crearGifo.classList.add('mod-noc-off')
+        if(btnComenzar.classList.contains('grabar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+            setClassModNocRecord(btnComenzar,crearGifoPasos)
+        }else if(btnComenzar.classList.contains('mod-noc-on-grabar')){
+            console.log('holi')
+            quitClassModNocRecord(btnComenzar, crearGifoPasos)
+        }
     }
-
-    if(crearGifo.classList.contains('mod-noc-off')) {
-        
-            document.querySelector('.crear-gifo-container h3').classList.remove('words-noc-first')
-            document.querySelector('.crear-gifo-container').children[1].classList.remove('words-noc-first')
-            document.querySelector('.crear-gifo-container').children[2].classList.remove('words-noc-first')
-            document.querySelector('.crear-gifo-container').classList.remove('border-noc-first')
-            let crearGifoPasos = document.querySelector('.crear-gifo-pasos').children
-            for (let i = 0; i < crearGifoPasos.length; i++) {
-                crearGifoPasos[i].classList.remove('words-noc-first')
-                crearGifoPasos[i].classList.remove('border-noc-first')    
-            }
-            document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
-            document.querySelector('.crear-gifo-button').classList.remove('words-noc-first')
-            document.querySelector('.crear-gifo-button').classList.remove('border-noc-first')
-            document.querySelector('.crear-gifo-button').classList.remove('hover-noc')
-            
-    }
-
 }
 
-const setClassModNocCrearGifo = () => {
-    crearGifo.classList.remove('mod-noc-off')
-    crearGifo.classList.add('mod-noc-on')
+//Funcion setear clases para modo nocturno en primera parte de Crear Gifo
+const setClassModNocCrearGifo = (btnComenzar, crearGifoPasos) => {
+    btnComenzar.classList.add('mod-noc-on')
     document.querySelector('.crear-gifo-container h3').classList.add('words-noc-first')
     document.querySelector('.crear-gifo-container').children[1].classList.add('words-noc-first')
     document.querySelector('.crear-gifo-container').children[2].classList.add('words-noc-first')
     document.querySelector('.crear-gifo-container').classList.add('border-noc-first')
-    let crearGifoPasos = document.querySelector('.crear-gifo-pasos').children
-    for (let i = 0; i < crearGifoPasos.length; i++) {
-        crearGifoPasos[i].classList.add('words-noc-first')
-        crearGifoPasos[i].classList.add('border-noc-first')    
+    
+    for (let i = 0; i < crearGifoPasos.children.length; i++) {
+        crearGifoPasos.children[i].classList.add('words-noc-first')
+        crearGifoPasos.children[i].classList.add('border-noc-first')    
     }
+    if(crearGifoPasos.classList.contains('rechazado')){
+        crearGifoPasos.children[0].classList.remove('fondo-azul')
+        crearGifoPasos.children[0].classList.add('fondo-noc-third')
+    }
+
     document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
-    document.querySelector('.crear-gifo-button').classList.add('words-noc-first')
-    document.querySelector('.crear-gifo-button').classList.add('border-noc-first')
-    document.querySelector('.crear-gifo-button').classList.add('hover-noc')
+    btnComenzar.classList.add('words-noc-first')
+    btnComenzar.classList.add('border-noc-first')
+    btnComenzar.classList.add('hover-noc')
+}
+
+//Funcion quitar clases para modo diurno en primera parte de Crear Gifo
+const quitClassModNocCrearGifo = (btnComenzar, crearGifoPasos) =>{
+    btnComenzar.classList.remove('mod-noc-on')
+    document.querySelector('.crear-gifo-container h3').classList.remove('words-noc-first')
+    document.querySelector('.crear-gifo-container').children[1].classList.remove('words-noc-first')
+    document.querySelector('.crear-gifo-container').children[2].classList.remove('words-noc-first')
+    document.querySelector('.crear-gifo-container').classList.remove('border-noc-first')
+    
+    for (let i = 0; i < crearGifoPasos.children.length; i++) {
+        crearGifoPasos.children[i].classList.remove('words-noc-first')
+        crearGifoPasos.children[i].classList.remove('border-noc-first')    
+    }
+    crearGifoPasos.children[0].classList.remove('fondo-noc-third')
+    if(crearGifoPasos.classList.contains('rechazado')){
+        crearGifoPasos.children[0].classList.remove('fondo-noc-first')
+        crearGifoPasos.children[0].classList.add('fondo-azul')
+    }
+    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
+    btnComenzar.classList.remove('words-noc-first')
+    btnComenzar.classList.remove('border-noc-first')
+    btnComenzar.classList.remove('hover-noc')
+}
+
+//Funcion setear clases para modo nocturno antes de la grabacion de Crear Gifo
+const setClassModNocRecord = (btnGrabar, crearGifoPasos) => {
+    btnGrabar.classList.add('mod-noc-on-grabar')
+    document.querySelector('.crear-gifo-container').classList.add('border-noc-first')
+    
+    for (let i = 0; i < crearGifoPasos.children.length; i++) {
+        crearGifoPasos.children[i].classList.add('words-noc-first')
+        crearGifoPasos.children[i].classList.add('border-noc-first')    
+    }
+    crearGifoPasos.children[1].classList.add('fondo-noc-third')
+    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
+    btnGrabar.classList.add('words-noc-first')
+    btnGrabar.classList.add('border-noc-first')
+    btnGrabar.classList.add('hover-noc')
+}
+
+//Funcion quitar clases para modo diurno antes de la grabacion de Crear Gifo
+const quitClassModNocRecord = (btnGrabar, crearGifoPasos) =>{
+    btnGrabar.classList.remove('mod-noc-on-grabar')
+    document.querySelector('.crear-gifo-container').classList.remove('border-noc-first')
+    
+    for (let i = 0; i < crearGifoPasos.children.length; i++) {
+        crearGifoPasos.children[i].classList.remove('words-noc-first')
+        crearGifoPasos.children[i].classList.remove('border-noc-first')    
+    }
+    crearGifoPasos.children[1].classList.remove('fondo-noc-third')
+    crearGifoPasos.children[1].classList.add('fondo-azul')
+    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
+    btnGrabar.classList.remove('words-noc-first')
+    btnGrabar.classList.remove('border-noc-first')
+    btnGrabar.classList.remove('hover-noc')
 }

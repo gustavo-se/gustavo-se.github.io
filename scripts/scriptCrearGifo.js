@@ -32,8 +32,10 @@ crearGifo.addEventListener('click', () =>{
     <div class="crear-gifo-button pointer comenzar">COMENZAR</div>`
     
     setTimeout(() => {
-        if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
-            setClassModNocCrearGifo()
+        btnComenzar = document.querySelector('.crear-gifo-button')
+        let crearGifoPasos = document.querySelector('.crear-gifo-pasos')
+        if(btnComenzar.classList.contains('comenzar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+            setClassModNocCrearGifo(btnComenzar, crearGifoPasos)
         }
     }, 50);
 
@@ -71,10 +73,6 @@ crearGifosSection.addEventListener('mouseout', (e) =>{
 
 const camaraAccess = (container, pasos, btn) => {
 
-    container.innerHTML = `<h3>¿Nos das acceso a tu cámara?</h3>
-    <p>El acceso a tu camara será válido sólo</p>
-    <p>por el tiempo en el que estés creando el GIFO.</p>`
-
     switch (crearGifo.getAttribute('src')) {
         case './img/CTA-crear-gifo-active-modo-noc.svg':
             container.innerHTML = `<h3 class="words-noc-first">¿Nos das acceso a tu cámara?</h3>
@@ -102,17 +100,32 @@ const startRecord = (pasos, btn) =>{
     let seg = 0
     cronometro = setInterval(() => {
         seg++ 
-        pasos.innerHTML = `<div>1</div>
-        <div class="fondo-azul">2</div>
-        <div>3</div>
-        <span class="temporizador">00:00:0${ seg }</span>`
-    }, 1000);
+        switch (crearGifo.getAttribute('src')) {
+            case './img/CTA-crear-gifo-active-modo-noc.svg':
+                pasos.innerHTML = `<div class="words-noc-first border-noc-first">1</div>
+                <div class="fondo-noc-third words-noc-first border-noc-first">2</div>
+                <div class="words-noc-first border-noc-first"> 3</div>
+                <span class="temporizador words-noc-first">00:00:0${ seg }</span>`
+                
+                setTimeout(() => {
+                    btn.classList ='crear-gifo-button pointer finalizar words-noc-first border-noc-first hover-noc '
+                }, 1000);
+                break
+        
+            case './img/CTA-crear-gifo-active.svg':
+                pasos.innerHTML = `<div>1</div>
+                <div class="fondo-azul">2</div>
+                <div>3</div>
+                <span class="temporizador">00:00:0${ seg }</span>`
 
+                setTimeout(() => {
+                    btn.classList ='crear-gifo-button pointer finalizar'
+                }, 1000);
+                break
+            }
+    }, 1000);
 
     btn.innerHTML = 'FINALIZAR'
-    setTimeout(() => {
-        btn.classList = 'crear-gifo-button pointer finalizar'
-    }, 1000);
     
 }
 
@@ -177,21 +190,49 @@ const captureCamera = (container, pasos, btn) => {
             container.innerHTML = `<video id="video"playsinline autoplay muted></video>`
             container.style.width = 'auto'
             container.style.height = 'auto'
-            pasos.innerHTML =`<div>1</div>
-            <div class="fondo-azul">2</div>
-            <div>3</div>`
+
+            switch (crearGifo.getAttribute('src')) {
+                case './img/CTA-crear-gifo-active-modo-noc.svg':
+                    pasos.innerHTML = `<div class="words-noc-first border-noc-first">1</div>
+                    <div class="fondo-noc-third words-noc-first border-noc-first">2</div>
+                    <div class="words-noc-first border-noc-first"> 3</div>`
+
+                    btn.classList ='crear-gifo-button pointer grabar mod-noc-on-grabar words-noc-first border-noc-first hover-noc '
+                    break
+            
+                case './img/CTA-crear-gifo-active.svg':
+                    pasos.innerHTML = `<div>1</div>
+                    <div class="fondo-azul">2</div>
+                    <div>3</div>`
+
+                    btn.classList ='crear-gifo-button pointer grabar'
+                    break
+                }
 
             btn.innerHTML = `GRABAR`
             btn.style.visibility = 'visible'
-            btn.classList ='crear-gifo-button pointer grabar'
-            
+           
             document.getElementById('video').srcObject = stream
             streamGlobal = stream
 
-
     }).catch(error => {
-        alert('No podemos grabar');
-        console.error(error);
+        alert('No podemos grabar')
+        switch (crearGifo.getAttribute('src')) {
+            case './img/CTA-crear-gifo-active-modo-noc.svg':
+                pasos.innerHTML = `<div class="fondo-noc-third words-noc-first border-noc-first">1</div>
+                <div class="words-noc-first border-noc-first">2</div>
+                <div class="words-noc-first border-noc-first"> 3</div>`
+                pasos.classList.add('rechazado')
+                break
+        
+            case './img/CTA-crear-gifo-active.svg':
+                pasos.innerHTML = `<div class="fondo-azul">1</div>
+                <div>2</div>
+                <div>3</div>`
+                pasos.classList.add('rechazado')
+                break
+        }
+        console.error(error)
     });
 }
 
