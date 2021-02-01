@@ -108,7 +108,7 @@ const startRecord = (pasos, btn) =>{
                 <span class="temporizador words-noc-first">00:00:0${ seg }</span>`
                 
                 setTimeout(() => {
-                    btn.classList ='crear-gifo-button pointer finalizar words-noc-first border-noc-first hover-noc '
+                    btn.classList ='crear-gifo-button pointer finalizar mod-noc-on-grabar words-noc-first border-noc-first hover-noc'
                 }, 1000);
                 break
         

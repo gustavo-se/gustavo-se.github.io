@@ -55,7 +55,7 @@ const sugerencias = term =>{
     }}
 )}
 
-input.addEventListener('keyup', (e) => {
+input.addEventListener('keyup', (event) => {
     if(input.value.length >= 1){
         if(contentSearch.classList.contains('modo-noc')){
             btnSearch.setAttribute('src', './img/close-modo-noct.svg')
@@ -86,14 +86,14 @@ input.addEventListener('keyup', (e) => {
             contentSearch.style.border = 'none'
             inputSearch.style.border =  '1px solid #572EE5'
         }
+    }
 
-    if(e.keyCode === 13){
+    if(event.keyCode === 13){
         buscador(input.value)
         titleSearch.style.display = 'block'
         titleSearch.innerHTML= `<h3>${input.value}</h3>`
         btnVerMas.style.display = 'block'
         }
-    }
     sugerencias(input.value)
 })
 
