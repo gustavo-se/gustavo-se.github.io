@@ -147,119 +147,79 @@ const modoNocCrearGifo = () =>{
     let crearGifoPasos = document.querySelector('.crear-gifo-pasos')
     let container = document.querySelector('.crear-gifo-container')
     if(btnComenzar !== null){
-        if(btnComenzar.classList.contains('comenzar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+        if(btnComenzar.classList.contains('comenzar')){
             setClassModNocCrearGifo(btnComenzar, crearGifoPasos,container)
-        }else if(btnComenzar.classList.contains('mod-noc-on')){
-            quitClassModNocCrearGifo(btnComenzar, crearGifoPasos, container)
-        }
-
-        if(btnComenzar.classList.contains('grabar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
-            setClassModNocRecord(btnComenzar,crearGifoPasos, container)
-            console.log('grabar')
-        }else if(btnComenzar.classList.contains('mod-noc-on-grabar')){
-            quitClassModNocRecord(btnComenzar, crearGifoPasos, container)
-            console.log('grabar-off')
-        }
-
-        if(btnComenzar.classList.contains('finalizar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+        }else{
             setClassModNocRecord(btnComenzar, crearGifoPasos, container)
-            console.log('grabando-finalizar')
-        }
-
-        if(btnComenzar.classList.contains('subir-gifo') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
-            setClassModNocRecord(btnComenzar, crearGifoPasos, container)
-            console.log('subir-gifo')
         }
     }
 }
 
 //Funcion setear clases para modo nocturno en primera parte de Crear Gifo
 const setClassModNocCrearGifo = (btnComenzar, crearGifoPasos, container) => {
-    btnComenzar.classList.add('mod-noc-on')
+    btnComenzar.classList.toggle('mod-noc-on')
     for (let i = 0; i < container.children.length; i++) {
-        container.children[i].classList.add('words-noc-first')
+        container.children[i].classList.toggle('words-noc-first')
     }
-    container.classList.add('border-noc-first')
+    container.classList.toggle('border-noc-first')
     
     for (let i = 0; i < crearGifoPasos.children.length; i++) {
-        crearGifoPasos.children[i].classList.add('words-noc-first')
-        crearGifoPasos.children[i].classList.add('border-noc-first')    
+        crearGifoPasos.children[i].classList.toggle('words-noc-first')
+        crearGifoPasos.children[i].classList.toggle('border-noc-first')    
     }
     if(crearGifoPasos.classList.contains('rechazado')){
-        crearGifoPasos.children[0].classList.remove('fondo-azul')
-        crearGifoPasos.children[0].classList.add('fondo-noc-third')
+        crearGifoPasos.children[0].classList.toogle('fondo-azul')
+        crearGifoPasos.children[0].classList.toggle('fondo-noc-third')
     }
 
-    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
-    btnComenzar.classList.add('words-noc-first')
-    btnComenzar.classList.add('border-noc-first')
-    btnComenzar.classList.add('hover-noc')
+    if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
+    }else{
+        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
+    }
+
+    btnComenzar.classList.toggle('words-noc-first')
+    btnComenzar.classList.toggle('border-noc-first')
+    btnComenzar.classList.toggle('hover-noc')
 }
 
-//Funcion quitar clases para modo diurno en primera parte de Crear Gifo
-const quitClassModNocCrearGifo = (btnComenzar, crearGifoPasos, container) =>{
-    btnComenzar.classList.remove('mod-noc-on')
-    for (let i = 0; i < container.children.length; i++) {
-        container.children[i].classList.remove('words-noc-first')
-    }
-    container.classList.remove('border-noc-first')
-    
-    for (let i = 0; i < crearGifoPasos.children.length; i++) {
-        crearGifoPasos.children[i].classList.remove('words-noc-first')
-        crearGifoPasos.children[i].classList.remove('border-noc-first')    
-    }
-    crearGifoPasos.children[0].classList.remove('fondo-noc-third')
-    if(crearGifoPasos.classList.contains('rechazado')){
-        crearGifoPasos.children[0].classList.remove('fondo-noc-first')
-        crearGifoPasos.children[0].classList.add('fondo-azul')
-    }
-    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
-    btnComenzar.classList.remove('words-noc-first')
-    btnComenzar.classList.remove('border-noc-first')
-    btnComenzar.classList.remove('hover-noc')
-}
 
-//Funcion setear clases para modo nocturno despues de "comenzar"
+
+//Funcion setear clases despues de "comenzar"
 const setClassModNocRecord = (btnGrabar, crearGifoPasos, container) => {
-    btnGrabar.classList.add('mod-noc-on-grabar')
-    container.classList.add('border-noc-first')
+    btnGrabar.classList.toggle('mod-noc-on-grabar')
+    container.classList.toggle('border-noc-first')
     
     if(crearGifoPasos.children.length === 3){
         for (const hijos of crearGifoPasos.children){
-        hijos.classList.add('words-noc-first')
-        hijos.classList.add('border-noc-first')
+        hijos.classList.toggle('words-noc-first')
+        hijos.classList.toggle('border-noc-first')
          console.log(hijos)
         }
     }else{
         for (const hijos of crearGifoPasos.children) {
-            hijos.classList.add('words-noc-first')
+            hijos.classList.toggle('words-noc-first')
         }
         for (let i = 0; i < crearGifoPasos.children.length - 1 ; i++) {
-            crearGifoPasos.children[i].classList.add('border-noc-first')    
+            crearGifoPasos.children[i].classList.toggle('border-noc-first')    
         }
     }
 
-    crearGifoPasos.children[1].classList.add('fondo-noc-third')
-    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
-    btnGrabar.classList.add('words-noc-first')
-    btnGrabar.classList.add('border-noc-first')
-    btnGrabar.classList.add('hover-noc')
+    if(btnGrabar.classList.contains('grabar') || btnGrabar.classList.contains('finalizar') || btnGrabar.classList.contains('subir-gifo')){
+        crearGifoPasos.children[1].classList.toggle('fondo-noc-third')
+    }else if(btnGrabar.classList.contains('subir-gifo-on')){
+        crearGifoPasos.children[2].classList.toggle('fondo-noc-third')
+    }
+
+    if(crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
+        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff'
+    }else{
+        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
+    }
+    
+    btnGrabar.classList.toggle('words-noc-first')
+    btnGrabar.classList.toggle('border-noc-first')
+    btnGrabar.classList.toggle('hover-noc')
 }
 
-//Funcion quitar clases para modo diurno despues de "comenzar"
-const quitClassModNocRecord = (btnGrabar, crearGifoPasos, container) =>{
-    btnGrabar.classList.remove('mod-noc-on-grabar')
-    container.classList.remove('border-noc-first')
-    
-    for (let i = 0; i < crearGifoPasos.children.length; i++) {
-        crearGifoPasos.children[i].classList.remove('words-noc-first')
-        crearGifoPasos.children[i].classList.remove('border-noc-first')    
-    }
-    crearGifoPasos.children[1].classList.remove('fondo-noc-third')
-    crearGifoPasos.children[1].classList.add('fondo-azul')
-    document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5'
-    btnGrabar.classList.remove('words-noc-first')
-    btnGrabar.classList.remove('border-noc-first')
-    btnGrabar.classList.remove('hover-noc')
-}
 

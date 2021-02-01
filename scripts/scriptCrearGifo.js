@@ -34,8 +34,9 @@ crearGifo.addEventListener('click', () =>{
     setTimeout(() => {
         btnComenzar = document.querySelector('.crear-gifo-button')
         let crearGifoPasos = document.querySelector('.crear-gifo-pasos')
+        let container = document.querySelector('.crear-gifo-container')
         if(btnComenzar.classList.contains('comenzar') && crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg'){
-            setClassModNocCrearGifo(btnComenzar, crearGifoPasos)
+            setClassModNocCrearGifo(btnComenzar, crearGifoPasos, container)
         }
     }, 50);
 
@@ -137,9 +138,20 @@ const endRecord = (btn, container, pasos) =>{
     temporizador.style.borderBottom = '2px solid #5ED7C6'
     temporizador.classList.add('pointer')
 
-    setTimeout(() => {
-        btn.classList = 'crear-gifo-button pointer subir-gifo'
-    }, 1000);
+    switch (crearGifo.getAttribute('src')) {
+        case './img/CTA-crear-gifo-active-modo-noc.svg':
+            setTimeout(() => {
+                btn.classList = 'crear-gifo-button pointer subir-gifo words-noc-first border-noc-first hover-noc mod-noc-on-grabar'
+            }, 1000)
+            break;
+        
+        case './img/CTA-crear-gifo-active.svg':
+            setTimeout(() => {
+                btn.classList = 'crear-gifo-button pointer subir-gifo'
+            }, 1000)
+            break
+    }
+    
 
     recordStop(container)
 
@@ -151,25 +163,51 @@ const endRecord = (btn, container, pasos) =>{
 }
 
 const uploadGif = (container, pasos, btn, url ) =>{
-    container.innerHTML = `<img class="crear-gifo-container-gif" src="${ url }">
-    <div class="crear-gifo-container-hover">
-    <div class="crear-gifo-container-hover-icons">
-        <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
-        <img src="./img/icon-link-normal.svg" class="link-icon pointer" alt="link" />
-    </div>
-    <div class="crear-gifo-container-hover-descripcion">
-        <img src="./img/loader.svg" class="icono"></img>
-        <p class="descripcion">Estamos subiendo tu GIFO</p>
-    </div>
-    </div>`
+    switch (crearGifo.getAttribute('src')) {
+        case './img/CTA-crear-gifo-active-modo-noc.svg':
+            container.classList.add('border-noc-first')
+            btn.classList = 'crear-gifo-button mod-noc-on-grabar'
+            container.innerHTML = `<img class="crear-gifo-container-gif" src="${ url }">
+            <div class="crear-gifo-container-hover">
+            <div class="crear-gifo-container-hover-icons">
+                <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
+                <img src="./img/icon-link-normal.svg" class="link-icon pointer" alt="link" />
+            </div>
+            <div class="crear-gifo-container-hover-descripcion">
+                <img src="./img/loader.svg" class="icono"></img>
+                <p class="descripcion">Estamos subiendo tu GIFO</p>
+            </div>
+            </div>`
+        
+            pasos.innerHTML = `<div class="words-noc-first border-noc-first">1</div>
+            <div class="words-noc-first border-noc-first">2</div>
+            <div class="words-noc-first border-noc-first fondo-noc-third">3</div>`
+            break;
+    
+        case './img/CTA-crear-gifo-active.svg':
+            container.innerHTML = `<img class="crear-gifo-container-gif" src="${ url }">
+            <div class="crear-gifo-container-hover">
+            <div class="crear-gifo-container-hover-icons">
+                <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
+                <img src="./img/icon-link-normal.svg" class="link-icon pointer" alt="link" />
+            </div>
+            <div class="crear-gifo-container-hover-descripcion">
+                <img src="./img/loader.svg" class="icono"></img>
+                <p class="descripcion">Estamos subiendo tu GIFO</p>
+            </div>
+            </div>`
+        
+            pasos.innerHTML = `<div>1</div>
+            <div>2</div>
+            <div class="fondo-azul">3</div>`
 
-    pasos.innerHTML = `<div>1</div>
-    <div>2</div>
-    <div class="fondo-azul">3</div>`
+            btn.classList = 'crear-gifo-button subir-gifo-on'
+            break
+    }
 
     btn.style.visibility = 'hidden'
 
-    subirGif(recorder)
+    //subirGif(recorder)
 
 }
 
