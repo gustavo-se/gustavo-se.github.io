@@ -35,9 +35,10 @@ const callMisGifos = () => {
     document.querySelector('.mis-gifos-box').style.flexDirection = 'row'
 
     save.forEach(item => {
-        boxGif.querySelector('.gif').setAttribute('src', item) 
+        boxGif.querySelector('.gif').setAttribute('src', item[0]) 
         boxGif.querySelector('.icon-fav img').setAttribute('src', trashButton)
         boxGif.querySelector('.icon-fav img').className = 'trash-icon pointer'
+        boxGif.querySelector('.titulo.gif').textContent = item[1]
         
         let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)

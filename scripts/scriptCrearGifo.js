@@ -131,6 +131,7 @@ const startRecord = (pasos, btn) =>{
 }
 
 const endRecord = (btn, container, pasos) =>{
+    clearInterval(cronometro)
     let temporizador = document.querySelector('.temporizador')
     btn.innerHTML = 'SUBIR GIFO'
     temporizador.innerHTML = 'REPETIR CAPTURA'
@@ -159,7 +160,7 @@ const endRecord = (btn, container, pasos) =>{
         captureCamera(container, pasos, btn)
     })
 
-    clearInterval(cronometro)
+    
 }
 
 const uploadGif = (container, pasos, btn, url ) =>{
@@ -188,7 +189,7 @@ const uploadGif = (container, pasos, btn, url ) =>{
             container.innerHTML = `<img class="crear-gifo-container-gif" src="${ url }">
             <div class="crear-gifo-container-hover">
             <div class="crear-gifo-container-hover-icons">
-                <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
+                <img src="./img/icon-download.svg" class="download-icon pointer" id="download-crear-gif" alt="download"/>
                 <img src="./img/icon-link-normal.svg" class="link-icon pointer" alt="link" />
             </div>
             <div class="crear-gifo-container-hover-descripcion">
@@ -207,14 +208,20 @@ const uploadGif = (container, pasos, btn, url ) =>{
 
     btn.style.visibility = 'hidden'
 
-    //subirGif(recorder)
+    subirGif(recorder)
 
 }
 
-const finUpload = ()=>{
+const finUpload = (url)=>{
     document.querySelector('.crear-gifo-container-hover-icons').style.visibility = 'visible'
-    document.querySelector('.crear-gifo-container-hover-descripcion descripcion').innerText = 'GIFO subido con éxito'
-    decument.querySelector('.crear-gifo-container-hover-descripcion img').setAttribute('src', './img/check.svg')
+    document.querySelector('.crear-gifo-container-hover-descripcion p').textContent = 'GIFO subido con éxito'
+    document.querySelector('.crear-gifo-container-hover-descripcion img').setAttribute('src', './img/check.svg')
+    document.querySelector('.link-icon').addEventListener('click', () =>{
+        
+    })
+    document.getElementById('download-crear-gif').addEventListener('click', (e) => {
+        downloadFunction(e)
+    })
 }
 
 
@@ -312,12 +319,14 @@ const crearGifLocalStorage = dataId => {
     fetch(`https://api.giphy.com/v1/gifs/${dataId}?api_key=${apiKey}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-        misGifosUrl.push(data.data.url)
+        
+        misGifosUrl.push(data.data.images.original.url)
+        misGifosUrl.push(data.username)
         let misGifosUrlArray = JSON.stringify(misGifosUrl)
         sessionStorage.setItem('misGifos', misGifosUrlArray)
 
-        finUpload()
+        console.log(data)
+        finUpload(data.data.images.original.url)
     })
 
 }
