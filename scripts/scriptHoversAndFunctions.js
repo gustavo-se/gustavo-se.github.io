@@ -148,14 +148,14 @@ const favActive = (e) => {
 
 //Funcion agregar favoritos
 const addFavorites = (gif) => {
-    favorites.push(gif.outerHTML)
+    favorites.push(gif.outerHTML)   
     let favoriteArray = JSON.stringify(favorites)
-    sessionStorage.setItem('favoritos', favoriteArray)
+    localStorage.setItem('favoritos', favoriteArray)
 }
 
 //Funcion llamar a favoritos
 const callFavorites = () =>{
-    let saveFavorites = JSON.parse(sessionStorage['favoritos'])
+    let saveFavorites = JSON.parse(localStorage['favoritos'])
     favoritosBox.style.flexDirection = 'row'
 
     let save = saveFavorites.filter(onlyUnique)
@@ -165,6 +165,7 @@ const callFavorites = () =>{
         boxGif.querySelector('.gif-box').classList.add('fav-gifs')
         boxGif.querySelector('.icon-fav img').setAttribute('src', favActiveButton)
         boxGif.querySelector('.icon-fav img').className = 'fav-icon-active pointer'
+        boxGif.querySelector('.titulo-gif').textContent = ''
         
         let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)
@@ -172,6 +173,7 @@ const callFavorites = () =>{
     })
 
     favoritosBox.appendChild(fragment)
+
 }
 
 //Funcion evitar repetidos
@@ -192,7 +194,7 @@ const sinFavoritos = () =>{
 
 //Funcion quitar de favoritos
 const quitFavorites = (gif) =>{
-    let saveFavorites = JSON.parse(sessionStorage['favoritos'])
+    let saveFavorites = JSON.parse(localStorage['favoritos'])
 
     let save = saveFavorites.filter(onlyUnique)
 
@@ -200,15 +202,13 @@ const quitFavorites = (gif) =>{
         let i = save.indexOf(gif.outerHTML)
         save.splice(i,1)
     }
-    if(favorites.indexOf(gif) >= 0){
+    if(favorites.indexOf(gif.outerHTML) >= 0){
         let i = favorites.indexOf(gif.outerHTML)
         favorites.splice(i,1)
     }
 
     let favoriteArray = JSON.stringify(save)
-    sessionStorage.setItem('favoritos', favoriteArray)
-    console.log(favorites)
-
+    localStorage.setItem('favoritos', favoriteArray)
 }
 
 //Funcion volver a pagina principal
@@ -263,6 +263,8 @@ const activeSection = (link) => {
 const callTrendings = wordKey =>{
     wordKey.addEventListener('click', () => {
         buscador(wordKey.textContent)
+        titleSearch.style.display = 'block'
+        titleSearch.innerHTML= `<h3>${wordKey.textContent}</h3>`
     })
 }
 
@@ -293,3 +295,32 @@ window.addEventListener('resize', ()=>{
         logoGifos.setAttribute('src', './img/logo-mobile-modo-noct.svg')
     }
 })
+
+//Funcion copiar a portapapeles url de mis gifos
+function updateClipboard(urlGif) {
+    navigator.clipboard.writeText(urlGif).then(function () {
+        alert('URL copiada en el portapapeles');
+    }, function () {
+        alert('no se a podido copiar');
+    });
+}
+
+//Funcion trash de seccion mis gifos
+const trash = e => {
+    let saveMisGifos = JSON.parse(localStorage['misGifos'])
+
+    let save = saveMisGifos.filter(onlyUnique)
+    let img = e.target.parentElement.parentElement.parentElement.previousElementSibling
+ 
+    if(save.indexOf(img.getAttribute('src') >= 0)){
+        let i = save.indexOf(img.getAttribute('src'))
+        save.splice(i,1)
+    }
+    if(misGifosUrl.indexOf(img.getAttribute('src') >= 0)){
+        let i = favorites.indexOf(img.getAttribute('src'))
+        misGifosUrl.splice(i,1)
+    }
+
+    let misGifosArray = JSON.stringify(save)
+    localStorage.setItem('misGifos', misGifosArray)
+}

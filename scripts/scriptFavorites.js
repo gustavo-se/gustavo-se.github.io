@@ -4,7 +4,7 @@ links[1].addEventListener('click', () => {
 
     displaySections(favoritesSection, misGifosSection)
 
-    if(sessionStorage.getItem('favoritos') === null){
+    if(JSON.parse(localStorage['favoritos']).length === 0){
         sinFavoritos()
     }else{
 

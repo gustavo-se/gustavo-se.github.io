@@ -217,7 +217,7 @@ const finUpload = (url)=>{
     document.querySelector('.crear-gifo-container-hover-descripcion p').textContent = 'GIFO subido con éxito'
     document.querySelector('.crear-gifo-container-hover-descripcion img').setAttribute('src', './img/check.svg')
     document.querySelector('.link-icon').addEventListener('click', () =>{
-        
+        updateClipboard(url)
     })
     document.getElementById('download-crear-gif').addEventListener('click', (e) => {
         downloadFunction(e)
@@ -321,9 +321,8 @@ const crearGifLocalStorage = dataId => {
     .then(data => {
         
         misGifosUrl.push(data.data.images.original.url)
-        misGifosUrl.push(data.username)
         let misGifosUrlArray = JSON.stringify(misGifosUrl)
-        sessionStorage.setItem('misGifos', misGifosUrlArray)
+        localStorage.setItem('misGifos', misGifosUrlArray)
 
         console.log(data)
         finUpload(data.data.images.original.url)

@@ -6,7 +6,7 @@ links[2].addEventListener('click', () => {
 
     displaySections(misGifosSection, favoritesSection)
 
-    if(sessionStorage.getItem('misGifos') === null){
+    if(JSON.parse(localStorage['misGifos']).length === 0){
         misGifosSection.innerHTML = `<img src="./img/icon-mis-gifos.svg" alt="-mis-gifos">
         <div class="mis-gifos-titulo"><h3>Mis GIFOS</h3></div>
         <div class="mis-gifos-box">
@@ -16,33 +16,33 @@ links[2].addEventListener('click', () => {
 
     }else{
 
-    while(favoritosBox.firstChild){
-        favoritosBox.removeChild(favoritosBox.firstChild)
-    }
-
      misGifosSection.innerHTML = `<img src="./img/icon-mis-gifos.svg" alt="mis-gifos">
     <div class="mis-gifos-titulo"><h3>Mis GIFOS</h3></div>
     <div class="mis-gifos-box"></div>`
-    
+
+    let misGifosBox = document.querySelector('.mis-gifos-box')
+
+     while(misGifosBox.firstChild){
+        misGifosBox.removeChild(misGifosBox.firstChild)
+    }
     callMisGifos()   
     }
 })
 
 const callMisGifos = () => {
-    let saveMisGifos = JSON.parse(sessionStorage['misGifos'])
+    let saveMisGifos = JSON.parse(localStorage['misGifos'])
     let save = saveMisGifos.filter(onlyUnique)
 
     document.querySelector('.mis-gifos-box').style.flexDirection = 'row'
 
     save.forEach(item => {
-        boxGif.querySelector('.gif').setAttribute('src', item[0]) 
+        boxGif.querySelector('.gif').setAttribute('src', item) 
         boxGif.querySelector('.icon-fav img').setAttribute('src', trashButton)
         boxGif.querySelector('.icon-fav img').className = 'trash-icon pointer'
-        boxGif.querySelector('.titulo.gif').textContent = item[1]
-        
+        boxGif.querySelector('.titulo-gif').innerHTML = 'Mi gifo'
+
         let clone = boxGif.cloneNode(true)
-        fragment.appendChild(clone)
-        
+        fragment.appendChild(clone)   
     })
 
     document.querySelector('.mis-gifos-box').appendChild(fragment)
@@ -65,5 +65,5 @@ misGifosSection.addEventListener('mouseout', e => {
 misGifosSection.addEventListener('click', (e)=>{
     maxGif(e)
     downloadFunction(e)
+    trash(e)
 })
-

@@ -7,7 +7,7 @@ const buscador = (key) => {
     callGif(0, key)
 }
 
-//Funcion llamar gifs
+//Funcion render gif de search
 const callGif = (offset, key) => {
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`)
     .then(res => res.json())
