@@ -6,7 +6,7 @@ links[2].addEventListener('click', () => {
 
     displaySections(misGifosSection, favoritesSection)
 
-    if(JSON.parse(localStorage['misGifos']).length === 0){
+    if(localStorage.getItem('misGifos') === null || localStorage.getItem('misGifos') === '[]'){
         misGifosSection.innerHTML = `<img src="./img/icon-mis-gifos.svg" alt="-mis-gifos">
         <div class="mis-gifos-titulo"><h3>Mis GIFOS</h3></div>
         <div class="mis-gifos-box">

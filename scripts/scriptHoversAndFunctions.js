@@ -137,7 +137,8 @@ const favActive = (e) => {
         e.target.classList.add('fav-icon-active')
         e.target.classList.remove('fav-icon')
         let img = e.target.parentElement.parentElement.parentElement.previousElementSibling
-        addFavorites(img)
+        let title = e.target.parentElement.parentElement.nextElementSibling.lastElementChild.textContent
+        addFavorites(img,title)
     }else if(e.target.classList.contains('fav-icon-active')){
         e.target.setAttribute('src', favButton)
         e.target.classList.remove('fav-icon-active')
@@ -147,25 +148,29 @@ const favActive = (e) => {
 }}
 
 //Funcion agregar favoritos
-const addFavorites = (gif) => {
-    favorites.push(gif.outerHTML)   
+const addFavorites = (gif, title) => {
+    let favoritesGif = {name: gif.outerHTML, title: title}
+    favorites.push(favoritesGif) 
     let favoriteArray = JSON.stringify(favorites)
     localStorage.setItem('favoritos', favoriteArray)
 }
 
 //Funcion llamar a favoritos
 const callFavorites = () =>{
-    let saveFavorites = JSON.parse(localStorage['favoritos'])
     favoritosBox.style.flexDirection = 'row'
-
-    let save = saveFavorites.filter(onlyUnique)
+    let saveFavorites = JSON.parse(localStorage['favoritos'])
+    let save =  saveFavorites.map(item=>{
+        return [item.name,item]
+    });
+    let saveMapArr = new Map(save);
+    let filter = [...saveMapArr.values()]; 
     
-    save.forEach(item => {
-        boxGif.querySelector('.gif').outerHTML = item
+    filter.forEach(item => {
+        boxGif.querySelector('.gif').outerHTML = item.name
         boxGif.querySelector('.gif-box').classList.add('fav-gifs')
         boxGif.querySelector('.icon-fav img').setAttribute('src', favActiveButton)
         boxGif.querySelector('.icon-fav img').className = 'fav-icon-active pointer'
-        boxGif.querySelector('.titulo-gif').textContent = ''
+        boxGif.querySelector('.titulo-gif').textContent = item.title
         
         let clone = boxGif.cloneNode(true)
         fragment.appendChild(clone)
@@ -181,8 +186,12 @@ const onlyUnique = (value, index, self) =>{
     return self.indexOf(value) === index
 }
 
+
 //Funcion sin favoritos aun
 const sinFavoritos = () =>{
+    while(favoritosBox.firstChild){
+        favoritosBox.removeChild(favoritosBox.firstChild)
+    }
     
     iconFavSinContenido.setAttribute('src', './img/icon-fav-sin-contenido.svg')
     mensaje.textContent = '¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!'
@@ -196,19 +205,27 @@ const sinFavoritos = () =>{
 const quitFavorites = (gif) =>{
     let saveFavorites = JSON.parse(localStorage['favoritos'])
 
-    let save = saveFavorites.filter(onlyUnique)
+    let save = saveFavorites.map(item=>{
+        return [item.name,item]
+    });
+    let saveMapArr = new Map(save);
+    let filter = [...saveMapArr.values()]; 
 
-    if(save.indexOf(gif.outerHTML) >= 0){
-        let i = save.indexOf(gif.outerHTML)
-        save.splice(i,1)
+    let indice = filter.findIndex((elemento) => {
+        if (elemento.name === gif.outerHTML) {
+          return true;
+        }
+      });
+
+    if(indice >= 0){
+        filter.splice(indice,1)
     }
-    if(favorites.indexOf(gif.outerHTML) >= 0){
-        let i = favorites.indexOf(gif.outerHTML)
-        favorites.splice(i,1)
+    if(indice >= 0){
+        favorites.splice(indice,1)
     }
 
-    let favoriteArray = JSON.stringify(save)
-    localStorage.setItem('favoritos', favoriteArray)
+     let favoriteArray = JSON.stringify(filter)
+     localStorage.setItem('favoritos', favoriteArray)
 }
 
 //Funcion volver a pagina principal

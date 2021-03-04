@@ -324,7 +324,6 @@ const crearGifLocalStorage = dataId => {
         let misGifosUrlArray = JSON.stringify(misGifosUrl)
         localStorage.setItem('misGifos', misGifosUrlArray)
 
-        console.log(data)
         finUpload(data.data.images.original.url)
     })
 
