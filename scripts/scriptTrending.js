@@ -16,7 +16,14 @@ window.addEventListener('load',() => {
         })
         carrousel.appendChild(fragment)
     })
-    })
+
+    if(localStorage.getItem('favoritos') === null || localStorage.getItem('favoritos') === '[]'){
+        favorites = []
+    }else{
+        let datosLocal = JSON.parse(localStorage['favoritos'])
+        favorites = datosLocal
+    }
+})
 
 carrousel.addEventListener('mouseover', (e) =>{
     boxHoverFlex(e)

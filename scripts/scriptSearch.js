@@ -1,5 +1,4 @@
 const buscador = (key) => {
-    trendingGifos.style.display = "none"
     contador = 0
     while (containerSearch.firstChild) {
         containerSearch.removeChild(containerSearch.firstChild);
@@ -16,6 +15,7 @@ const callGif = (offset, key) => {
 
             boxGif.querySelector('.gif').setAttribute('src', item.images.original.url)
             boxGif.querySelector('.gif').dataset.id = item.id
+            boxGif.querySelector('.icon-fav img').setAttribute('src', favButton)
             boxGif.querySelector('.gif-box').classList.add('search-gifs')
             boxGif.querySelector('.titulo-gif').textContent = item.title
     
