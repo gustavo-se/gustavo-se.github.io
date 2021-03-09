@@ -186,8 +186,6 @@ const addFavorites = (gif, title, id) => {
     favorites.push(favoritesGif);
   }
 
-  console.log("indice", indice);
-  console.log("favoritos agreagar", favorites);
   let favoriteArray = JSON.stringify(favorites);
   localStorage.setItem("favoritos", favoriteArray);
 };

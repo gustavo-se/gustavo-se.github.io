@@ -95,6 +95,10 @@ input.addEventListener('keyup', (event) => {
         titleSearch.style.display = 'block'
         titleSearch.innerHTML= `<h3>${input.value}</h3>`
         btnVerMas.style.display = 'block'
+        input.value = ''
+        sugestionsBox.style.display = 'none'
+        btnLeft.style.visibility = 'hidden'
+        btnSearch.setAttribute('src', './img/icon-search.svg')
         }
     sugerencias(input.value)
 })
@@ -109,14 +113,8 @@ for(let i = 0; i < 4; i++ ){
     titleSearch.innerHTML= `<h3>${input.value}</h3>`
     })}
 
-btnSearch.addEventListener('click', () => {
-    input.value = ''
-    sugestionsBox.style.display = 'none'
-    btnLeft.style.visibility = 'hidden'
-    btnSearch.setAttribute('src', './img/icon-search.svg')
-})
 
 btnVerMas.addEventListener('click',() =>{
     contador= contador + 12
-    callGif(contador, input.value)
+    callGif(contador, titleSearch.innerHTML)
 })
