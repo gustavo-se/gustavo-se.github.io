@@ -8,4 +8,3 @@ close.addEventListener("click", () => {
   close.classList.toggle("burger-close");
   hamburguesa.classList.toggle("close-burger");
 });
-console.log(hola);

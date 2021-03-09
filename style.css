@@ -896,6 +896,7 @@
   }
   header .logo-menu .menu .ul-desplegado {
     position: absolute;
+    z-index: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -947,11 +948,12 @@
     margin-top: 7px;
   }
   section .description h2 {
-    font-family: Montserrat;
+    font-size: 25px;
     color: #572EE5;
-    font-size: 1.5625rem;
     text-align: center;
-    line-height: 2.0625rem;
+    line-height: 33px;
+    font-family: Montserrat;
+    font-weight: bold;
   }
   section .description h2 span {
     color: #50E3C2;
@@ -975,7 +977,6 @@
     height: 8.125rem;
   }
   section .main-search .imput-search {
-    width: 20.8075rem;
     height: 3.125rem;
     border: 1px solid #572EE5;
     border-radius: 27px;
@@ -994,12 +995,13 @@
     width: 13.4375rem;
     height: 1.375rem;
     line-height: 19px;
-    padding-left: 1.5625rem;
+    padding-left: 1rem;
   }
   section .main-search .imput-search .fa-search {
     font-size: 1.2rem;
     color: #9CAFC3;
     visibility: hidden;
+    margin-left: 10px;
   }
   section .main-search .imput-search #btn-search {
     padding-right: 20px;
@@ -1007,7 +1009,6 @@
   }
   section .main-search .lista-sugerencias {
     display: none;
-    width: 600px;
     height: auto;
   }
   section .main-search .lista-sugerencias ul {
@@ -1023,12 +1024,10 @@
   section .main-search .lista-sugerencias .fa-search {
     font-size: 1.2rem;
     color: #9CAFC3;
-    margin: 0 10px 0 48px;
+    margin: 0 10px 0 15px;
   }
   section .trending {
-    width: 14.75rem;
     margin-top: 31px;
-    margin-bottom: 45px;
   }
   section .trending h3 {
     text-align: center;
@@ -1086,7 +1085,6 @@
   }
   .titulo-search {
     display: none;
-    width: 550px;
     height: 30;
     margin: 50px 0;
   }
@@ -1165,7 +1163,6 @@
     position: relative;
     width: 100%;
     margin-top: 56px;
-    margin-bottom: 182px;
   }
   .galeria {
     margin-top: 2rem;
@@ -1223,7 +1220,7 @@
   .search-gifs {
     width: 156px;
     height: 120px;
-    margin: 14.5px;
+    margin: 10px;
   }
   .btn-ver-mas {
     display: none;
