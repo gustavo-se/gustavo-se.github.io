@@ -49,4 +49,3 @@ footer.addEventListener("mouseout", (e) => {
     btnHover(e, "instagram", "./img/icon_instagram.svg");
   }
 });
-console.log("Creado Desde SandoboxSandbox");

@@ -3,6 +3,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+
     p:first-child{
         margin-top: 2.9375rem;
         font-family: roboto;
@@ -11,6 +12,7 @@ footer{
         letter-spacing: 0;
         font-weight: 400;
     }
+
     .redes-sociales{
         width: 5.6875rem;
         display: flex;
@@ -18,6 +20,7 @@ footer{
         margin-top: 1.5rem;
         margin-bottom: 3rem;
     }
+    
     .copyright{
         margin-bottom: 1.4375rem;
         font-family: roboto;

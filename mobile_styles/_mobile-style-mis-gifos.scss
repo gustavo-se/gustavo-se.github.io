@@ -1,4 +1,4 @@
-.favoritos{
+.mis-gifos{
     width: 100%;
     display: none;
     flex-wrap: wrap;
@@ -25,6 +25,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        flex-direction: column;
 
         h2{
             font-family: Montserrat;
@@ -32,19 +33,7 @@
             font-size: 22px;
             color: #50E3C2;
             text-align: center;
-            line-height: 33px;
+            line-height: 25px;
         }
     }
 }
-
-.fav-gifs{
-    width: 260px;
-    height: 200px;
-    margin: 14.5px;
-}
-
-.fav-gif{
-    width: 260px;
-    height: 200px;
-}
-

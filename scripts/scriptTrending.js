@@ -23,6 +23,7 @@ window.addEventListener('load',() => {
         let datosLocal = JSON.parse(localStorage['favoritos'])
         favorites = datosLocal
     }
+    console.log(favorites)
 })
 
 carrousel.addEventListener('mouseover', (e) =>{
@@ -46,7 +47,11 @@ carrousel.addEventListener('click', (e) =>{
 let counter = 1
 const size = 357
 
-carrousel.style.transform = 'translateX(' + (-size * counter) + 'px)'
+window.addEventListener('resize', ()=>{
+    if(window.innerWidth < 901){
+        carrousel.style.transform = 'translateX(0px)'
+    }
+})
 
 sliderRigthCarrousel.addEventListener('click', () => {
     if(counter >= gifOfTrendings.length - 1 ) return
