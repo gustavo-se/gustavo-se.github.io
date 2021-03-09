@@ -15,11 +15,10 @@ section{
         margin-top: 7px;
 
         h2{
-            font-family: Montserrat;
-            color:#572EE5;
-            font-size: 1.5625rem;
+            font-size: 25px;
+            color: #572EE5;
             text-align: center;
-            line-height: 2.0625rem;
+            line-height: 33px;
 
             span{
                 color: #50E3C2;
@@ -40,7 +39,6 @@ section{
         }
 
         .imput-search{
-            width: 20.8075rem;
             height: 3.125rem;
             border: 1px solid #572EE5;
             border-radius: 27px;
@@ -53,13 +51,14 @@ section{
                 width: 13.4375rem;
                 height: 1.375rem;
                 line-height: 19px;
-                padding-left: 1.5625rem;
+                padding-left: 1rem;
             }
 
             .fa-search{
                 font-size: 1.2rem;
                 color: #9CAFC3;
                 visibility: hidden;
+                margin-left: 10px;
             }
 
             #btn-search{
@@ -71,7 +70,6 @@ section{
 
         .lista-sugerencias{
             display: none;
-            width: 600px;
             height: auto;
 
             ul{
@@ -89,15 +87,14 @@ section{
             .fa-search{
                 font-size: 1.2rem;
                 color: #9CAFC3;
-                margin: 0 10px 0 48px;
+                margin: 0 10px 0 15px;
+            
             }
         }
     }
 
     .trending{
-        width: 14.75rem;
         margin-top: 31px;
-        margin-bottom: 45px;
 
         h3{
             text-align: center;
@@ -156,7 +153,6 @@ section{
 
 .titulo-search{
     display: none;
-    width: 550px;
     height: 30;
     margin: 50px 0;
 
