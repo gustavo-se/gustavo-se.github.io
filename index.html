@@ -1,146 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.1/RecordRTC.min.js" integrity="sha512-JdnCTTJRivaH4nStpZnsHO5Fm6TmgWHwwyPfhTPMgHGOz4GRzynCnm1T28C7Ees55ERL+t+gqg/DQro9oROd0w==" crossorigin="anonymous"></script>
-    <title>Gifos</title>
-</head>
-<body>
-<header>
-    <div class="espacio-azul"></div>
-    <div class="logo-menu">
-        <div class="logo-gifos">
-            <img src="" alt="GIFOS" class="pointer">
-        </div>
-        <div class="menu">
-            <img src="img/burger.svg" alt="menu" class="burger" id="hamburguesa">
-            <img src="./img/button-crear-gifo.svg" alt="agregar-gif" class= "botonmas" id="boton-crear-gifo">
-            <img src="./img/close.svg" alt="close" class="close burger-close">
-            <ul id="menu-desplegado">
-                <li><a href="#" class="links">Modo Nocturno</a></li>
-                <li><a href="#" class="links">Favoritos</a></li>
-                <li><a href="#" class="links">Mis Gifos</a></li>
-            </ul>
-        </div>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+   rel="stylesheet"
+   href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+   integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+   crossorigin="anonymous"
+  />
+  <script
+   src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.1/RecordRTC.min.js"
+   integrity="sha512-JdnCTTJRivaH4nStpZnsHO5Fm6TmgWHwwyPfhTPMgHGOz4GRzynCnm1T28C7Ees55ERL+t+gqg/DQro9oROd0w=="
+   crossorigin="anonymous"
+  ></script>
+  <title>Gifos</title>
+ </head>
+ <body>
+  <header>
+   <div class="espacio-azul"></div>
+   <div class="logo-menu">
+    <div class="logo-gifos">
+     <img src="" alt="GIFOS" class="pointer" />
     </div>
-</header>
-<main>
-    <section class="buscador-de-gifs">
-        <div class="description">
-            <h2>Inspirate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
-        </div>
-        <div class="main-search">
-            <img src="./img/ilustra_header.svg" alt="GIFOS" class="main-image">
-            <div class="container-buscador">
-                <div class="imput-search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Busca GIFOS y más">
-                    <img src="./img/icon-search.svg" id="btn-search" alt="search">
-                </div>
-                <div class="lista-sugerencias">
-                    <ul>
-                        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
-                        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
-                        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
-                        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="titulo-search"></div>
-            <div class="trending">
-                <h3>Trending</h3>
-                <p><a href="#" id="reactions">Reactions</a>,
-                <a href="#" id="entertainment">Entertainment</a>,
-                <a href="#" id="sports">Sports</a>,
-                <a href="#" id="stickers">Stickers</a>,
-                <a href="#" id="artists">Artists</a></p>
-            </div>
-        </div>
-    </section>
-    <section class="section2" id="seccion-trending">
-        <div class="trending-gifos">
-            <h2>Trending GIFOS</h2>
-            <h4>Mira los últimos</h4>
-            <h4>GIFOS de nuestra comunidad</h4>
-        </div>
-        <div class="carrousel-container">
-        <img class='slider-left' id="slider-left-carrousel" src="./img/button-slider-left.svg" alt="">
-        <img class='slider-rigth' id="slider-rigth-carrousel" src="./img/Button-Slider-right.svg" alt="">
-        <div class="galeria">
-                <div class="carrousel"></div>
-        </div>
+    <div class="menu">
+     <img src="img/burger.svg" alt="menu" class="burger" id="hamburguesa" />
+     <img
+      src="./img/button-crear-gifo.svg"
+      alt="agregar-gif"
+      class="botonmas"
+      id="boton-crear-gifo"
+     />
+     <img src="./img/close.svg" alt="close" class="close burger-close" />
+     <ul id="menu-desplegado">
+      <li><a href="#" class="links">Modo Nocturno</a></li>
+      <li><a href="#" class="links">Favoritos</a></li>
+      <li><a href="#" class="links">Mis Gifos</a></li>
+     </ul>
     </div>
-    </section>
-</main>
-<footer>
-    <p>Compartir en:</p>
-    <div class="redes-sociales">
-        <img class="facebook" src="./img/icon_facebook.svg" alt="Facebook">
-        <img class="twitter" src="./img/icon-twitter.svg" alt="Twiter">
-        <img class="instagram" src="./img/icon_instagram.svg" alt="Instagram">
+   </div>
+  </header>
+  <main>
+   <section class="buscador-de-gifs">
+    <div class="description">
+     <h2>Inspirate, busca, guarda, y crea los mejores <span>GIFOS</span></h2>
     </div>
-    <p class="copyright"> &copy GIFOS 2020 All Rights Reserved</p>
-</footer>
-<div class="espacio-azul"></div>
-<section class="caja-expandido">
-    <div class="container-expand">
-        <div class="cerrar"> 
-            <img src="./img/close.svg" alt="close" class="pointer">
-        </div>
-        <div class="sliders-gifmax">
-            <img src="./img/button-slider-left.svg" alt="<" class="pointer slider-left">
-            <div class="gif-max">
-                <img src="" alt="gif">
-            </div>
-            <img src="./img/Button-Slider-right.svg" alt=">" class="pointer slider-rigth">
-        </div>
-        <div class="container-expand-footer">
-            <div class="datos-gif"></div>
-            <div class="acciones">
-                <div class="acciones-buttom-fav">
-                    <img src="./img/icon-fav.svg" alt="fav" class="pointer">
-                </div>
-                <img src="./img/icon-download.svg" alt="icon-download" class="pointer acciones-buttom-download" >
-            </div>   
-        </div>
+    <div class="main-search">
+     <img src="./img/ilustra_header.svg" alt="GIFOS" class="main-image" />
+     <div class="container-buscador">
+      <div class="imput-search">
+       <i class="fas fa-search"></i>
+       <input type="text" placeholder="Busca GIFOS y más" />
+       <img src="./img/icon-search.svg" id="btn-search" alt="search" />
+      </div>
+      <div class="lista-sugerencias">
+       <ul>
+        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
+        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
+        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
+        <li><i class="fas fa-search"></i><span class="resultados"></span></li>
+       </ul>
+      </div>
+     </div>
+     <div class="titulo-search"></div>
+     <div class="trending">
+      <h3>Trending</h3>
+      <p>
+       <a href="#" id="reactions">Reactions</a>,
+       <a href="#" id="entertainment">Entertainment</a>,
+       <a href="#" id="sports">Sports</a>,
+       <a href="#" id="stickers">Stickers</a>,
+       <a href="#" id="artists">Artists</a>
+      </p>
+     </div>
     </div>
-</section>
-<div class="favoritos" id="favoritos-section">
-    <img src="./img/icon-favoritos.svg" alt="">
-    <div class="favoritos-titulo"><h3>Favoritos</h3></div>
-    <div class="favoritos-box"></div>
-</div>
-<template id = "box-gifs">
-    <div class="gif-box">
-        <img class='gif' alt="GIFOS">
-        <div class="hover-box">
-            <div class="icons-box">
-                <div class="icon-fav">
-                    <img src="./img/icon-fav.svg" class="fav-icon pointer" alt="fav" />
-                </div>
-                <img src="./img/icon-download.svg" class="download-icon pointer"  alt="download"/>
-                <img src="./img/icon-max-normal.svg" class="expand-icon pointer" alt="expand" />
-            </div>
-            <div class="info">
-                <p class="titulo-gif"></p>
-            </div>
-        </div>
+   </section>
+   <section class="section2" id="seccion-trending">
+    <div class="trending-gifos">
+     <h2>Trending GIFOS</h2>
+     <h4>Mira los últimos</h4>
+     <h4>GIFOS de nuestra comunidad</h4>
     </div>
-</template>
-<script src="./scripts/variables.js"></script>
-<script src="./scripts/scriptHoversAndFunctions.js"></script>
-<script src="./scripts/scriptHeader.js"></script>
-<script src="./scripts/scriptTrending.js"></script>
-<script src="./scripts/scriptSearch.js"></script>
-<script src="./scripts/scriptOtherFunctions.js"></script>
-<script src="./scripts/scriptFavorites.js"></script>
-<script src="./scripts/scriptMisGifos.js"></script>
-<script src="./scripts/scriptCrearGifo.js"></script>
-<script src="./scripts/ScriptModNoc.js"></script>
-</body>
+    <div class="carrousel-container">
+     <img
+      class="slider-left"
+      id="slider-left-carrousel"
+      src="./img/button-slider-left.svg"
+      alt=""
+     />
+     <img
+      class="slider-rigth"
+      id="slider-rigth-carrousel"
+      src="./img/Button-Slider-right.svg"
+      alt=""
+     />
+     <div class="galeria">
+      <div class="carrousel"></div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <p>Compartir en:</p>
+   <div class="redes-sociales">
+    <img class="facebook" src="./img/icon_facebook.svg" alt="Facebook" />
+    <img class="twitter" src="./img/icon-twitter.svg" alt="Twiter" />
+    <img class="instagram" src="./img/icon_instagram.svg" alt="Instagram" />
+   </div>
+   <p class="copyright">&copy GIFOS 2020 All Rights Reserved</p>
+  </footer>
+  <div class="espacio-azul"></div>
+  <section class="caja-expandido">
+   <div class="container-expand">
+    <div class="cerrar">
+     <img src="./img/close.svg" alt="close" class="pointer" />
+    </div>
+    <div class="sliders-gifmax">
+     <img
+      src="./img/button-slider-left.svg"
+      alt="<"
+      class="pointer slider-left"
+     />
+     <div class="gif-max">
+      <img src="" alt="gif" />
+     </div>
+     <img
+      src="./img/Button-Slider-right.svg"
+      alt=">"
+      class="pointer slider-rigth"
+     />
+    </div>
+    <div class="container-expand-footer">
+     <div class="datos-gif"></div>
+     <div class="acciones">
+      <div class="acciones-buttom-fav">
+       <img src="./img/icon-fav.svg" alt="fav" class="pointer" />
+      </div>
+      <img
+       src="./img/icon-download.svg"
+       alt="icon-download"
+       class="pointer acciones-buttom-download"
+      />
+     </div>
+    </div>
+   </div>
+  </section>
+  <div class="favoritos" id="favoritos-section">
+   <img src="./img/icon-favoritos.svg" alt="" />
+   <div class="favoritos-titulo"><h3>Favoritos</h3></div>
+   <div class="favoritos-box"></div>
+  </div>
+  <template id="box-gifs">
+   <div class="gif-box">
+    <img class="gif" alt="GIFOS" />
+    <div class="hover-box">
+     <div class="icons-box">
+      <div class="icon-fav">
+       <img src="./img/icon-fav.svg" class="fav-icon pointer" alt="fav" />
+      </div>
+      <img
+       src="./img/icon-download.svg"
+       class="download-icon pointer"
+       alt="download"
+      />
+      <img
+       src="./img/icon-max-normal.svg"
+       class="expand-icon pointer"
+       alt="expand"
+      />
+     </div>
+     <div class="info">
+      <p class="titulo-gif"></p>
+     </div>
+    </div>
+   </div>
+  </template>
+  <script src="./scripts/variables.js"></script>
+  <script src="./scripts/scriptHoversAndFunctions.js"></script>
+  <script src="./scripts/scriptHeader.js"></script>
+  <script src="./scripts/scriptTrending.js"></script>
+  <script src="./scripts/scriptSearch.js"></script>
+  <script src="./scripts/scriptOtherFunctions.js"></script>
+  <script src="./scripts/scriptFavorites.js"></script>
+  <script src="./scripts/scriptMisGifos.js"></script>
+  <script src="./scripts/scriptCrearGifo.js"></script>
+  <script src="./scripts/ScriptModNoc.js"></script>
+ </body>
 </html>
