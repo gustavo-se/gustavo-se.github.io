@@ -141,14 +141,14 @@ const setClassModNocCrearGifo = (btnComenzar, crearGifoPasos, container) => {
         crearGifoPasos.children[i].classList.toggle('border-noc-first');
     }
     if (crearGifoPasos.classList.contains('rechazado')) {
-        crearGifoPasos.children[0].classList.toogle('fondo-azul');
+        crearGifoPasos.children[0].classList.toggle('fondo-azul');
         crearGifoPasos.children[0].classList.toggle('fondo-noc-third');
     }
     if (crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg') {
-        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff';
+        (document.querySelector('.crear-gifo-espacio-azul')).style.backgroundColor = '#ffffff';
     }
     else {
-        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5';
+        (document.querySelector('.crear-gifo-espacio-azul')).style.backgroundColor = '#572EE5';
     }
     btnComenzar.classList.toggle('words-noc-first');
     btnComenzar.classList.toggle('border-noc-first');
@@ -173,17 +173,19 @@ const setClassModNocRecord = (btnGrabar, crearGifoPasos, container) => {
             crearGifoPasos.children[i].classList.toggle('border-noc-first');
         }
     }
-    if (btnGrabar.classList.contains('grabar') || btnGrabar.classList.contains('finalizar') || btnGrabar.classList.contains('subir-gifo')) {
+    if (btnGrabar.classList.contains('grabar') ||
+        btnGrabar.classList.contains('finalizar') ||
+        btnGrabar.classList.contains('subir-gifo')) {
         crearGifoPasos.children[1].classList.toggle('fondo-noc-third');
     }
     else if (btnGrabar.classList.contains('subir-gifo-on')) {
         crearGifoPasos.children[2].classList.toggle('fondo-noc-third');
     }
     if (crearGifo.getAttribute('src') === './img/CTA-crear-gifo-active-modo-noc.svg') {
-        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#ffffff';
+        (document.querySelector('.crear-gifo-espacio-azul')).style.backgroundColor = '#ffffff';
     }
     else {
-        document.querySelector('.crear-gifo-espacio-azul').style.backgroundColor = '#572EE5';
+        (document.querySelector('.crear-gifo-espacio-azul')).style.backgroundColor = '#572EE5';
     }
     btnGrabar.classList.toggle('words-noc-first');
     btnGrabar.classList.toggle('border-noc-first');
