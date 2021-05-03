@@ -82,6 +82,12 @@ let maxButtomDownload = document.querySelector(
 ) as HTMLImageElement;
 
 //Trending
+let gifOfTrendings: HTMLCollectionOf<Element> = document.getElementsByClassName(
+  'trending-gif'
+);
+let boxGifTrendings: HTMLCollectionOf<Element> = document.getElementsByClassName(
+  'trendings-gif'
+);
 let sliderLeftCarrousel = document.getElementById(
   'slider-left-carrousel'
 ) as HTMLImageElement;

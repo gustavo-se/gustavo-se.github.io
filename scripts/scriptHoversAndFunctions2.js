@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { buscador } from './scriptSearch2';
 for (let i = 0; i < slidersLeft.length; i++) {
     slidersLeft[i].addEventListener('mouseover', () => {
         slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg');
@@ -263,7 +264,7 @@ export const activeSection = (link) => {
     link.classList.add('link-active');
 };
 //Funcion llamar a los trendings
-const callTrendings = (wordKey) => {
+export const callTrendings = (wordKey) => {
     wordKey.addEventListener('click', () => {
         buscador(wordKey.textContent);
         titleSearch.style.display = 'block';

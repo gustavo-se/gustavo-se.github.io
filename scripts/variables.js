@@ -57,6 +57,8 @@ let dataGif = document.querySelector('.datos-gif');
 let maxButtomFav = document.querySelector('.acciones img');
 let maxButtomDownload = document.querySelector('.acciones-buttom-download');
 //Trending
+let gifOfTrendings = document.getElementsByClassName('trending-gif');
+let boxGifTrendings = document.getElementsByClassName('trendings-gif');
 let sliderLeftCarrousel = document.getElementById('slider-left-carrousel');
 let sliderRigthCarrousel = document.getElementById('slider-rigth-carrousel');
 let carrousel = document.querySelector('.carrousel');

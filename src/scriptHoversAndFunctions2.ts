@@ -1,5 +1,6 @@
 //Hover left y rigth sliders
 import { Gif } from './interfaces';
+import { buscador } from './scriptSearch2';
 for (let i = 0; i < slidersLeft.length; i++) {
   slidersLeft[i].addEventListener('mouseover', () => {
     slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg');
@@ -322,7 +323,7 @@ export const activeSection = (link: HTMLAnchorElement) => {
 };
 
 //Funcion llamar a los trendings
-const callTrendings = (wordKey: HTMLAnchorElement) => {
+export const callTrendings = (wordKey: HTMLAnchorElement) => {
   wordKey.addEventListener('click', () => {
     buscador(wordKey.textContent!);
     titleSearch.style.display = 'block';

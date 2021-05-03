@@ -8,7 +8,7 @@ import {
   quitBtnHover,
 } from './scriptHoversAndFunctions2';
 
-const buscador = (key: string) => {
+export const buscador = (key: string) => {
   trendingGifos.style.display = 'none';
   contador = 0;
   while (containerSearch.firstChild) {

@@ -1,5 +1,5 @@
 import { boxHoverFlex, boxHoverNone, btnHover, downloadFunction, favActive, maxGif, quitBtnHover, } from './scriptHoversAndFunctions2';
-const buscador = (key) => {
+export const buscador = (key) => {
     trendingGifos.style.display = 'none';
     contador = 0;
     while (containerSearch.firstChild) {
