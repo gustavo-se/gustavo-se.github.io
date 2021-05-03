@@ -74,7 +74,7 @@ crearGifo.addEventListener('mouseout', () => {
 });
 
 //Funcion de display flex a la caja hover de los gifs
-const boxHoverFlex = (e: MouseEvent) => {
+export const boxHoverFlex = (e: MouseEvent) => {
   if (e.target && (<Element>e.target).classList.contains('gif')) {
     (<HTMLDivElement>(
       (<HTMLDivElement>e.target).nextElementSibling
@@ -83,28 +83,28 @@ const boxHoverFlex = (e: MouseEvent) => {
 };
 
 //Funcion quitar el hover box de los gif
-const boxHoverNone = (e: MouseEvent) => {
+export const boxHoverNone = (e: MouseEvent) => {
   if (e.target && (<Element>e.target).classList.contains('hover-box')) {
     (<HTMLDivElement>e.target).style.display = 'none';
   }
 };
 
 //Funcion hover de los botones de los Gif
-const btnHover = (e: MouseEvent, clase: string, btn: string) => {
+export const btnHover = (e: MouseEvent, clase: string, btn: string) => {
   if (e.target && (<Element>e.target).classList.contains(clase)) {
     (<Element>e.target).setAttribute('src', btn);
   }
 };
 
 //Funcion quitar hover
-const quitBtnHover = (e: MouseEvent, clase: string, btn: string) => {
+export const quitBtnHover = (e: MouseEvent, clase: string, btn: string) => {
   if (e.target && (<Element>e.target).classList.contains(clase)) {
     (<Element>e.target).setAttribute('src', btn);
   }
 };
 
 //Funcion de boton expandir gif
-const maxGif = (e: MouseEvent) => {
+export const maxGif = (e: MouseEvent) => {
   if (e.target && (<Element>e.target).classList.contains('expand-icon')) {
     header.style.display = 'none';
     main.style.display = 'none';
@@ -144,7 +144,7 @@ async function download(imgTrend: HTMLImageElement) {
 }
 
 //Llamando a la funcion download
-const downloadFunction = (e: MouseEvent) => {
+export const downloadFunction = (e: MouseEvent) => {
   if (e.target && (<Element>e.target).classList.contains('download-icon')) {
     let img: HTMLImageElement = <HTMLImageElement>(
       (<Element>e.target).parentElement!.parentElement!.previousElementSibling!
@@ -154,7 +154,7 @@ const downloadFunction = (e: MouseEvent) => {
 };
 
 //Funcion favorito activado/desactivado
-const favActive = (e: MouseEvent) => {
+export const favActive = (e: MouseEvent) => {
   if (e.target && (<Element>e.target).classList.contains('fav-icon')) {
     (<Element>e.target).setAttribute('src', favActiveButton);
     (<Element>e.target).classList.add('fav-icon-active');
@@ -204,7 +204,7 @@ const addFavorites = (gif: string, title: string, id: string) => {
 };
 
 //Funcion llamar a favoritos
-const callFavorites = () => {
+export const callFavorites = () => {
   favoritosBox.style.flexDirection = 'row';
   let saveFavorites: Gif[] = JSON.parse(localStorage['favoritos']);
 
@@ -235,7 +235,7 @@ const onlyUnique = (value: never, index: number, self: []) => {
 };
 
 //Funcion sin favoritos aun
-const sinFavoritos = () => {
+export const sinFavoritos = () => {
   while (favoritosBox.firstChild) {
     favoritosBox.removeChild(favoritosBox.firstChild);
   }
@@ -302,7 +302,10 @@ const linksColorBlue = () => {
 };
 
 //Funcion mostrar las secciones fav y mis gifos
-const displaySections = (section: HTMLElement, otherSection: HTMLElement) => {
+export const displaySections = (
+  section: HTMLElement,
+  otherSection: HTMLElement
+) => {
   searchSection.style.display = 'none';
   crearGifosSection.style.display = 'none';
   otherSection.style.display = 'none';
@@ -312,7 +315,7 @@ const displaySections = (section: HTMLElement, otherSection: HTMLElement) => {
 };
 
 //Funcion de los links activados (color)
-const activeSection = (link: HTMLAnchorElement) => {
+export const activeSection = (link: HTMLAnchorElement) => {
   link.style.color = '#9CAFC3';
   linksColorBlue();
   link.classList.add('link-active');
@@ -380,7 +383,7 @@ window.addEventListener('resize', () => {
 });
 
 //Funcion copiar a portapapeles url de mis gifos
-function updateClipboard(urlGif: string) {
+export function updateClipboard(urlGif: string) {
   navigator.clipboard.writeText(urlGif).then(
     function () {
       alert('URL copiada en el portapapeles');
