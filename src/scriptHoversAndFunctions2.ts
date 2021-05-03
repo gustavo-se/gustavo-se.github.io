@@ -230,7 +230,7 @@ export const callFavorites = () => {
 };
 
 //Funcion evitar repetidos
-const onlyUnique = (value: never, index: number, self: []) => {
+export const onlyUnique = (value: never, index: number, self: []) => {
   return self.indexOf(value) === index;
 };
 
@@ -395,7 +395,7 @@ export function updateClipboard(urlGif: string) {
 }
 
 //Funcion trash de seccion mis gifos
-const trash = (e: MouseEvent) => {
+export const trash = (e: MouseEvent) => {
   let saveMisGifos = JSON.parse(localStorage['misGifos']);
 
   let save = saveMisGifos.filter(<never>onlyUnique);

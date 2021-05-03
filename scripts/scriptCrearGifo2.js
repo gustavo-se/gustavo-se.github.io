@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,8 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const scriptHoversAndFunctions2_1 = require("./scriptHoversAndFunctions2");
+import { btnHover, quitBtnHover, updateClipboard, downloadFunction } from "./scriptHoversAndFunctions2";
 crearGifo.addEventListener('click', () => {
     crearGifosSection.classList.add('crear-gifo');
     switch (crearGifo.getAttribute('src')) {
@@ -68,12 +66,12 @@ crearGifosSection.addEventListener('click', e => {
     }
 });
 crearGifosSection.addEventListener('mouseover', e => {
-    scriptHoversAndFunctions2_1.btnHover(e, 'download-icon', downloadHoverButton);
-    scriptHoversAndFunctions2_1.btnHover(e, 'link-icon', linkHoverButton);
+    btnHover(e, 'download-icon', downloadHoverButton);
+    btnHover(e, 'link-icon', linkHoverButton);
 });
 crearGifosSection.addEventListener('mouseout', e => {
-    scriptHoversAndFunctions2_1.quitBtnHover(e, 'download-icon', downloadButton);
-    scriptHoversAndFunctions2_1.quitBtnHover(e, 'link-icon', linkButton);
+    quitBtnHover(e, 'download-icon', downloadButton);
+    quitBtnHover(e, 'link-icon', linkButton);
 });
 const camaraAccess = (container, pasos, btn) => {
     switch (crearGifo.getAttribute('src')) {
@@ -194,10 +192,10 @@ const finUpload = (url) => {
     document.querySelector('.crear-gifo-container-hover-descripcion p').textContent = 'GIFO subido con éxito';
     (document.querySelector('.crear-gifo-container-hover-descripcion img')).setAttribute('src', './img/check.svg');
     document.querySelector('.link-icon').addEventListener('click', () => {
-        scriptHoversAndFunctions2_1.updateClipboard(url);
+        updateClipboard(url);
     });
     (document.getElementById('download-crear-gif')).addEventListener('click', e => {
-        scriptHoversAndFunctions2_1.downloadFunction(e);
+        downloadFunction(e);
     });
 };
 const captureCamera = (container, pasos, btn) => {

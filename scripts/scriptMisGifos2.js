@@ -1,10 +1,11 @@
-"use strict";
+import { activeSection, boxHoverFlex, boxHoverNone, btnHover, displaySections, downloadFunction, maxGif, onlyUnique, quitBtnHover, trash, } from './scriptHoversAndFunctions2';
 links[2].addEventListener('click', () => {
     misGifosSection.classList.add('mis-gifos');
     misGifosSection.id = 'mis-gifos-section';
     activeSection(links[2]);
     displaySections(misGifosSection, favoritesSection);
-    if (localStorage.getItem('misGifos') === null || localStorage.getItem('misGifos') === '[]') {
+    if (localStorage.getItem('misGifos') === null ||
+        localStorage.getItem('misGifos') === '[]') {
         misGifosSection.innerHTML = `<img src="./img/icon-mis-gifos.svg" alt="-mis-gifos">
      <div class="mis-gifos-titulo"><h3>Mis GIFOS</h3></div>
      <div class="mis-gifos-box">
@@ -26,11 +27,14 @@ links[2].addEventListener('click', () => {
 const callMisGifos = () => {
     let saveMisGifos = JSON.parse(localStorage['misGifos']);
     let save = saveMisGifos.filter(onlyUnique);
-    document.querySelector('.mis-gifos-box').style.flexDirection = 'row';
+    (document.querySelector('.mis-gifos-box')).style.flexDirection = 'row';
     save.forEach(item => {
-        boxGif.querySelector('.gif').setAttribute('src', item);
-        boxGif.querySelector('.icon-fav img').setAttribute('src', trashButton);
-        boxGif.querySelector('.icon-fav img').className = 'trash-icon pointer';
+        boxGif.querySelector('.gif').setAttribute('src', item.gif);
+        boxGif
+            .querySelector('.icon-fav img')
+            .setAttribute('src', trashButton);
+        boxGif.querySelector('.icon-fav img').className =
+            'trash-icon pointer';
         boxGif.querySelector('.titulo-gif').innerHTML = 'Mi gifo';
         let clone = boxGif.cloneNode(true);
         fragment.appendChild(clone);
@@ -49,7 +53,7 @@ misGifosSection.addEventListener('mouseout', e => {
     quitBtnHover(e, 'download-icon', downloadButton);
     quitBtnHover(e, 'expand-icon', maxButton);
 });
-misGifosSection.addEventListener('click', (e) => {
+misGifosSection.addEventListener('click', e => {
     maxGif(e);
     downloadFunction(e);
     trash(e);

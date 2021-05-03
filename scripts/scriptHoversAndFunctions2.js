@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,8 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateClipboard = exports.activeSection = exports.displaySections = exports.sinFavoritos = exports.callFavorites = exports.favActive = exports.downloadFunction = exports.maxGif = exports.quitBtnHover = exports.btnHover = exports.boxHoverNone = exports.boxHoverFlex = void 0;
 for (let i = 0; i < slidersLeft.length; i++) {
     slidersLeft[i].addEventListener('mouseover', () => {
         slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg');
@@ -70,35 +67,31 @@ crearGifo.addEventListener('mouseout', () => {
     }
 });
 //Funcion de display flex a la caja hover de los gifs
-const boxHoverFlex = (e) => {
+export const boxHoverFlex = (e) => {
     if (e.target && e.target.classList.contains('gif')) {
         (e.target.nextElementSibling).style.display = 'flex';
     }
 };
-exports.boxHoverFlex = boxHoverFlex;
 //Funcion quitar el hover box de los gif
-const boxHoverNone = (e) => {
+export const boxHoverNone = (e) => {
     if (e.target && e.target.classList.contains('hover-box')) {
         e.target.style.display = 'none';
     }
 };
-exports.boxHoverNone = boxHoverNone;
 //Funcion hover de los botones de los Gif
-const btnHover = (e, clase, btn) => {
+export const btnHover = (e, clase, btn) => {
     if (e.target && e.target.classList.contains(clase)) {
         e.target.setAttribute('src', btn);
     }
 };
-exports.btnHover = btnHover;
 //Funcion quitar hover
-const quitBtnHover = (e, clase, btn) => {
+export const quitBtnHover = (e, clase, btn) => {
     if (e.target && e.target.classList.contains(clase)) {
         e.target.setAttribute('src', btn);
     }
 };
-exports.quitBtnHover = quitBtnHover;
 //Funcion de boton expandir gif
-const maxGif = (e) => {
+export const maxGif = (e) => {
     if (e.target && e.target.classList.contains('expand-icon')) {
         header.style.display = 'none';
         main.style.display = 'none';
@@ -110,7 +103,6 @@ const maxGif = (e) => {
         dataGif.innerHTML = info.lastElementChild.innerHTML;
     }
 };
-exports.maxGif = maxGif;
 //Funcion cerrar expandir gif
 const maxGifClose = () => {
     boxExpand.style.display = 'none';
@@ -131,15 +123,14 @@ function download(imgTrend) {
     });
 }
 //Llamando a la funcion download
-const downloadFunction = (e) => {
+export const downloadFunction = (e) => {
     if (e.target && e.target.classList.contains('download-icon')) {
         let img = (e.target.parentElement.parentElement.previousElementSibling);
         return download(img);
     }
 };
-exports.downloadFunction = downloadFunction;
 //Funcion favorito activado/desactivado
-const favActive = (e) => {
+export const favActive = (e) => {
     if (e.target && e.target.classList.contains('fav-icon')) {
         e.target.setAttribute('src', favActiveButton);
         e.target.classList.add('fav-icon-active');
@@ -161,7 +152,6 @@ const favActive = (e) => {
         quitFavorites(id);
     }
 };
-exports.favActive = favActive;
 //Funcion agregar favoritos
 const addFavorites = (gif, title, id) => {
     let indice = favorites.findIndex((elemento) => {
@@ -177,7 +167,7 @@ const addFavorites = (gif, title, id) => {
     localStorage.setItem('favoritos', favoriteArray);
 };
 //Funcion llamar a favoritos
-const callFavorites = () => {
+export const callFavorites = () => {
     favoritosBox.style.flexDirection = 'row';
     let saveFavorites = JSON.parse(localStorage['favoritos']);
     saveFavorites.forEach(item => {
@@ -198,13 +188,12 @@ const callFavorites = () => {
     });
     favoritosBox.appendChild(fragment);
 };
-exports.callFavorites = callFavorites;
 //Funcion evitar repetidos
-const onlyUnique = (value, index, self) => {
+export const onlyUnique = (value, index, self) => {
     return self.indexOf(value) === index;
 };
 //Funcion sin favoritos aun
-const sinFavoritos = () => {
+export const sinFavoritos = () => {
     while (favoritosBox.firstChild) {
         favoritosBox.removeChild(favoritosBox.firstChild);
     }
@@ -215,7 +204,6 @@ const sinFavoritos = () => {
     favoritosBox.appendChild(iconFavSinContenido);
     favoritosBox.appendChild(mensaje);
 };
-exports.sinFavoritos = sinFavoritos;
 //Funcion quitar de favoritos
 const quitFavorites = (id) => {
     let saveFavorites = JSON.parse(localStorage['favoritos']);
@@ -260,7 +248,7 @@ const linksColorBlue = () => {
     }
 };
 //Funcion mostrar las secciones fav y mis gifos
-const displaySections = (section, otherSection) => {
+export const displaySections = (section, otherSection) => {
     searchSection.style.display = 'none';
     crearGifosSection.style.display = 'none';
     otherSection.style.display = 'none';
@@ -268,14 +256,12 @@ const displaySections = (section, otherSection) => {
     section.after(trendingSection);
     section.style.display = 'flex';
 };
-exports.displaySections = displaySections;
 //Funcion de los links activados (color)
-const activeSection = (link) => {
+export const activeSection = (link) => {
     link.style.color = '#9CAFC3';
     linksColorBlue();
     link.classList.add('link-active');
 };
-exports.activeSection = activeSection;
 //Funcion llamar a los trendings
 const callTrendings = (wordKey) => {
     wordKey.addEventListener('click', () => {
@@ -328,16 +314,15 @@ window.addEventListener('resize', () => {
     }
 });
 //Funcion copiar a portapapeles url de mis gifos
-function updateClipboard(urlGif) {
+export function updateClipboard(urlGif) {
     navigator.clipboard.writeText(urlGif).then(function () {
         alert('URL copiada en el portapapeles');
     }, function () {
         alert('no se a podido copiar');
     });
 }
-exports.updateClipboard = updateClipboard;
 //Funcion trash de seccion mis gifos
-const trash = (e) => {
+export const trash = (e) => {
     let saveMisGifos = JSON.parse(localStorage['misGifos']);
     let save = saveMisGifos.filter(onlyUnique);
     let img = (e.target.parentElement.parentElement.parentElement
