@@ -4,7 +4,8 @@ let apiKey = 'bdrONB5N1ZSySk8VvFBXF18Yut13R6tX';
 //Fragment
 let fragment = document.createDocumentFragment();
 //Templates
-let boxGif = document.getElementById('box-gifs').content;
+let boxGif = document.getElementById('box-gifs')
+    .content;
 //Logo gifos
 let logoGifos = document.querySelector('.logo-gifos img');
 //Seccion buscador de gif

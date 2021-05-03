@@ -5,7 +5,8 @@ let apiKey: string = 'bdrONB5N1ZSySk8VvFBXF18Yut13R6tX';
 let fragment: DocumentFragment = document.createDocumentFragment();
 
 //Templates
-let boxGif = (<HTMLMetaElement>document.getElementById('box-gifs')).content;
+let boxGif: unknown = (<HTMLMetaElement>document.getElementById('box-gifs'))
+  .content;
 
 //Logo gifos
 let logoGifos = document.querySelector('.logo-gifos img') as HTMLImageElement;
