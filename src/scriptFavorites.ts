@@ -10,7 +10,7 @@ import {
   maxGif,
   quitBtnHover,
   sinFavoritos,
-} from './scriptHoversAndFunctions2';
+} from './scriptHoversAndFunctions';
 
 links[1].addEventListener('click', () => {
   activeSection(<HTMLAnchorElement>links[1]);

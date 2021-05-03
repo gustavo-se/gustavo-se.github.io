@@ -6,7 +6,7 @@ import {
   favActive,
   maxGif,
   quitBtnHover,
-} from './scriptHoversAndFunctions2';
+} from './scriptHoversAndFunctions';
 
 export const buscador = (key: string) => {
   trendingGifos.style.display = 'none';

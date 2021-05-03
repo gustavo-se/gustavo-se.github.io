@@ -10,7 +10,7 @@ import {
   onlyUnique,
   quitBtnHover,
   trash,
-} from './scriptHoversAndFunctions2';
+} from './scriptHoversAndFunctions';
 
 links[2].addEventListener('click', () => {
   misGifosSection.classList.add('mis-gifos');

@@ -5,7 +5,7 @@ import {
   download,
   maxGifClose,
   principalPage,
-} from './scriptHoversAndFunctions2';
+} from './scriptHoversAndFunctions';
 
 //Fav button
 maxButtomFav.addEventListener('click', () => {

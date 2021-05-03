@@ -1,6 +1,6 @@
 //Hover left y rigth sliders
 import { Gif } from './interfaces';
-import { buscador } from './scriptSearch2';
+import { buscador } from './scriptSearch';
 for (let i = 0; i < slidersLeft.length; i++) {
   slidersLeft[i].addEventListener('mouseover', () => {
     slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg');

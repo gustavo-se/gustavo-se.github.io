@@ -7,7 +7,7 @@ import {
   favActive,
   maxGif,
   quitBtnHover,
-} from './scriptHoversAndFunctions2';
+} from './scriptHoversAndFunctions';
 
 window.addEventListener('load', () => {
   fetch(

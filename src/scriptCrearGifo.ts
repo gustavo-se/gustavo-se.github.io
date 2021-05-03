@@ -1,4 +1,9 @@
-import {btnHover, quitBtnHover, updateClipboard, downloadFunction} from "./scriptHoversAndFunctions2"
+import {
+  btnHover,
+  quitBtnHover,
+  updateClipboard,
+  downloadFunction,
+} from './scriptHoversAndFunctions';
 
 crearGifo.addEventListener('click', () => {
   crearGifosSection.classList.add('crear-gifo');
