@@ -104,14 +104,14 @@ export const maxGif = (e) => {
     }
 };
 //Funcion cerrar expandir gif
-const maxGifClose = () => {
+export const maxGifClose = () => {
     boxExpand.style.display = 'none';
     header.style.display = 'block';
     main.style.display = 'block';
     footer.style.display = 'flex';
 };
 //Funcion download
-function download(imgTrend) {
+export function download(imgTrend) {
     return __awaiter(this, void 0, void 0, function* () {
         let a = document.createElement('a');
         let response = yield fetch(imgTrend.src);
@@ -222,7 +222,7 @@ const quitFavorites = (id) => {
     localStorage.setItem('favoritos', favoriteArray);
 };
 //Funcion volver a pagina principal
-const principalPage = () => {
+export const principalPage = () => {
     favoritesSection.style.display = 'none';
     misGifosSection.style.display = 'none';
     crearGifosSection.style.display = 'none';

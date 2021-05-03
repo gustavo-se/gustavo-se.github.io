@@ -1,24 +1,31 @@
-"use strict";
+import { boxHoverFlex, boxHoverNone, btnHover, downloadFunction, favActive, maxGif, quitBtnHover, } from './scriptHoversAndFunctions2';
 const buscador = (key) => {
     trendingGifos.style.display = 'none';
     contador = 0;
     while (containerSearch.firstChild) {
         containerSearch.removeChild(containerSearch.firstChild);
     }
-    callGif(0, key);
+    callGif('0', key);
 };
 //Funcion render gif de search
 const callGif = (offset, key) => {
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`)
         .then(res => res.json())
         .then(res => {
-        res.data.forEach(item => {
-            boxGif.querySelector('.gif').setAttribute('src', item.images.original.url);
-            boxGif.querySelector('.gif').dataset.id = item.id;
-            boxGif.querySelector('.gif').classList = 'gif searched-gifs';
-            boxGif.querySelector('.icon-fav img').setAttribute('src', favButton);
-            boxGif.querySelector('.gif-box').classList = 'gif-box search-gifs';
-            boxGif.querySelector('.titulo-gif').textContent = item.title;
+        res.data.forEach((item) => {
+            boxGif
+                .querySelector('.gif')
+                .setAttribute('src', item.images.original.url);
+            (boxGif.querySelector('.gif')).dataset.id = item.id;
+            boxGif.querySelector('.gif').classList.value =
+                'gif searched-gifs';
+            boxGif
+                .querySelector('.icon-fav img')
+                .setAttribute('src', favButton);
+            boxGif.querySelector('.gif-box').classList.value =
+                'gif-box search-gifs';
+            boxGif.querySelector('.titulo-gif').textContent =
+                item.title;
             let clone = boxGif.cloneNode(true);
             fragment.appendChild(clone);
         });
@@ -42,7 +49,7 @@ containerSearch.addEventListener('click', e => {
     downloadFunction(e);
     favActive(e);
 });
-const sugerencias = term => {
+const sugerencias = (term) => {
     fetch(`http://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${term}&limit=4`)
         .then(res => res.json())
         .then(res => {
@@ -51,7 +58,7 @@ const sugerencias = term => {
         }
     });
 };
-input.addEventListener('keyup', (event) => {
+input.addEventListener('keyup', event => {
     if (input.value.length >= 1) {
         if (contentSearch.classList.contains('modo-noc')) {
             btnSearch.setAttribute('src', './img/close-modo-noct.svg');

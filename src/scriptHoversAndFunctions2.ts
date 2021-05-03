@@ -123,7 +123,7 @@ export const maxGif = (e: MouseEvent) => {
 };
 
 //Funcion cerrar expandir gif
-const maxGifClose = () => {
+export const maxGifClose = () => {
   boxExpand.style.display = 'none';
   header.style.display = 'block';
   main.style.display = 'block';
@@ -131,7 +131,7 @@ const maxGifClose = () => {
 };
 
 //Funcion download
-async function download(imgTrend: HTMLImageElement) {
+export async function download(imgTrend: HTMLImageElement) {
   let a = document.createElement('a');
   let response = await fetch(imgTrend.src);
   let file = await response.blob();
@@ -271,7 +271,7 @@ const quitFavorites = (id: string) => {
 };
 
 //Funcion volver a pagina principal
-const principalPage = () => {
+export const principalPage = () => {
   favoritesSection.style.display = 'none';
   misGifosSection.style.display = 'none';
   crearGifosSection.style.display = 'none';
@@ -324,7 +324,7 @@ export const activeSection = (link: HTMLAnchorElement) => {
 //Funcion llamar a los trendings
 const callTrendings = (wordKey: HTMLAnchorElement) => {
   wordKey.addEventListener('click', () => {
-    buscador(wordKey.textContent);
+    buscador(wordKey.textContent!);
     titleSearch.style.display = 'block';
     titleSearch.innerHTML = `<h3>${wordKey.textContent}</h3>`;
   });
