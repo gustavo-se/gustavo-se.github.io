@@ -1,4 +1,5 @@
-import { activeSection, boxHoverFlex, boxHoverNone, btnHover, displaySections, downloadFunction, maxGif, onlyUnique, quitBtnHover, trash, } from './scriptHoversAndFunctions';
+import { activeSection, boxHoverFlex, boxHoverNone, btnHover, displaySections, downloadFunction, maxGif, onlyUnique, quitBtnHover, trash, } from './scriptHoversAndFunctions.js';
+import { boxGif, downloadButton, downloadHoverButton, favoritesSection, fragment, links, maxButton, maxHoverButton, misGifosSection, trashButton, trashHoverButton, } from './variables.js';
 links[2].addEventListener('click', () => {
     misGifosSection.classList.add('mis-gifos');
     misGifosSection.id = 'mis-gifos-section';

@@ -1,4 +1,4 @@
-"use strict";
+import { btnSearch, contentSearch, crearGifo, espacioAzul, footer, header, input, inputSearch, links, logoGifos, main, slidersLeft, slidersRight, tittleBuscador, tittleTrending, trendingGifos, trendingSection, } from './variables.js';
 links[0].addEventListener('click', () => {
     header.classList.toggle('fondo-noc-first');
     main.classList.toggle('fondo-noc-first');
@@ -130,7 +130,7 @@ const modoNocCrearGifo = () => {
     }
 };
 //Funcion setear clases para modo nocturno en primera parte de Crear Gifo
-const setClassModNocCrearGifo = (btnComenzar, crearGifoPasos, container) => {
+export const setClassModNocCrearGifo = (btnComenzar, crearGifoPasos, container) => {
     btnComenzar.classList.toggle('mod-noc-on');
     for (let i = 0; i < container.children.length; i++) {
         container.children[i].classList.toggle('words-noc-first');

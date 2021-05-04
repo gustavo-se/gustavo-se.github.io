@@ -1,3 +1,4 @@
+let contador: number = 1;
 import {
   boxHoverFlex,
   boxHoverNone,
@@ -6,7 +7,29 @@ import {
   favActive,
   maxGif,
   quitBtnHover,
-} from './scriptHoversAndFunctions';
+} from './scriptHoversAndFunctions.js';
+import {
+  apiKey,
+  boxGif,
+  btnLeft,
+  btnSearch,
+  btnVerMas,
+  containerSearch,
+  contentSearch,
+  downloadButton,
+  downloadHoverButton,
+  favButton,
+  favHoverButton,
+  fragment,
+  input,
+  inputSearch,
+  maxButton,
+  maxHoverButton,
+  results,
+  sugestionsBox,
+  titleSearch,
+  trendingGifos,
+} from './variables.js';
 
 export const buscador = (key: string) => {
   trendingGifos.style.display = 'none';

@@ -7,7 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { buscador } from './scriptSearch';
+import { favorites } from './loader.js';
+import { buscador } from './scriptSearch.js';
+import { boxExpand, boxGif, crearGifo, crearGifosSection, dataGif, favActiveButton, favButton, favoritesSection, favoritosBox, footer, fragment, gifMax, header, iconFavSinContenido, links, logoGifos, main, mensaje, misGifosSection, misGifosUrl, searchSection, slidersLeft, slidersRight, titleSearch, trendingSection, } from './variables.js';
 for (let i = 0; i < slidersLeft.length; i++) {
     slidersLeft[i].addEventListener('mouseover', () => {
         slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg');

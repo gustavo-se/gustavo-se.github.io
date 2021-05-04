@@ -1,10 +1,29 @@
+let cronometro: number;
+let streamGlobal: MediaStream;
+let recorder: any;
+let url: string;
 import {
   btnHover,
   quitBtnHover,
   updateClipboard,
   downloadFunction,
-} from './scriptHoversAndFunctions';
-
+} from './scriptHoversAndFunctions.js';
+import { setClassModNocCrearGifo } from './scriptModNoc.js';
+import {
+  crearGifo,
+  crearGifosSection,
+  sectionSearch,
+  trendingSection,
+  favoritesSection,
+  misGifosSection,
+  main,
+  downloadHoverButton,
+  linkHoverButton,
+  downloadButton,
+  linkButton,
+  apiKey,
+  misGifosUrl,
+} from './variables.js';
 crearGifo.addEventListener('click', () => {
   crearGifosSection.classList.add('crear-gifo');
 

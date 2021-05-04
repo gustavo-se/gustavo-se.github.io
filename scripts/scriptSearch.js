@@ -1,4 +1,6 @@
-import { boxHoverFlex, boxHoverNone, btnHover, downloadFunction, favActive, maxGif, quitBtnHover, } from './scriptHoversAndFunctions';
+let contador = 1;
+import { boxHoverFlex, boxHoverNone, btnHover, downloadFunction, favActive, maxGif, quitBtnHover, } from './scriptHoversAndFunctions.js';
+import { apiKey, boxGif, btnLeft, btnSearch, btnVerMas, containerSearch, contentSearch, downloadButton, downloadHoverButton, favButton, favHoverButton, fragment, input, inputSearch, maxButton, maxHoverButton, results, sugestionsBox, titleSearch, trendingGifos, } from './variables.js';
 export const buscador = (key) => {
     trendingGifos.style.display = 'none';
     contador = 0;

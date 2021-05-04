@@ -7,7 +7,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { btnHover, quitBtnHover, updateClipboard, downloadFunction, } from './scriptHoversAndFunctions';
+let cronometro;
+let streamGlobal;
+let recorder;
+let url;
+import { btnHover, quitBtnHover, updateClipboard, downloadFunction, } from './scriptHoversAndFunctions.js';
+import { setClassModNocCrearGifo } from './scriptModNoc.js';
+import { crearGifo, crearGifosSection, sectionSearch, trendingSection, favoritesSection, misGifosSection, main, downloadHoverButton, linkHoverButton, downloadButton, linkButton, apiKey, misGifosUrl, } from './variables.js';
 crearGifo.addEventListener('click', () => {
     crearGifosSection.classList.add('crear-gifo');
     switch (crearGifo.getAttribute('src')) {

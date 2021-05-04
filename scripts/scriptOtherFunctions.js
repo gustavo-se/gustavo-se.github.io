@@ -1,5 +1,6 @@
 //Eventos en botones del gif maximizado
-import { btnHover, download, maxGifClose, principalPage, } from './scriptHoversAndFunctions';
+import { btnHover, download, maxGifClose, principalPage, } from './scriptHoversAndFunctions.js';
+import { closeExpand, favActiveButton, favButton, footer, gifMax, logoGifos, maxButtomDownload, maxButtomFav, } from './variables.js';
 //Fav button
 maxButtomFav.addEventListener('click', () => {
     if (maxButtomFav.getAttribute('src') === favButton) {

@@ -1,6 +1,34 @@
 //Hover left y rigth sliders
-import { Gif } from './interfaces';
-import { buscador } from './scriptSearch';
+import { Gif } from './interfaces.js';
+import { favorites } from './loader.js';
+import { buscador } from './scriptSearch.js';
+import {
+  boxExpand,
+  boxGif,
+  crearGifo,
+  crearGifosSection,
+  dataGif,
+  favActiveButton,
+  favButton,
+  favoritesSection,
+  favoritosBox,
+  footer,
+  fragment,
+  gifMax,
+  header,
+  iconFavSinContenido,
+  links,
+  logoGifos,
+  main,
+  mensaje,
+  misGifosSection,
+  misGifosUrl,
+  searchSection,
+  slidersLeft,
+  slidersRight,
+  titleSearch,
+  trendingSection,
+} from './variables.js';
 for (let i = 0; i < slidersLeft.length; i++) {
   slidersLeft[i].addEventListener('mouseover', () => {
     slidersLeft[i].setAttribute('src', './img/button-slider-left-hover.svg');

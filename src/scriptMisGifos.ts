@@ -1,4 +1,4 @@
-import { Gif } from './interfaces';
+import { Gif } from './interfaces.js';
 import {
   activeSection,
   boxHoverFlex,
@@ -10,7 +10,20 @@ import {
   onlyUnique,
   quitBtnHover,
   trash,
-} from './scriptHoversAndFunctions';
+} from './scriptHoversAndFunctions.js';
+import {
+  boxGif,
+  downloadButton,
+  downloadHoverButton,
+  favoritesSection,
+  fragment,
+  links,
+  maxButton,
+  maxHoverButton,
+  misGifosSection,
+  trashButton,
+  trashHoverButton,
+} from './variables.js';
 
 links[2].addEventListener('click', () => {
   misGifosSection.classList.add('mis-gifos');

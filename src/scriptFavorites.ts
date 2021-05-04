@@ -10,7 +10,19 @@ import {
   maxGif,
   quitBtnHover,
   sinFavoritos,
-} from './scriptHoversAndFunctions';
+} from './scriptHoversAndFunctions.js';
+import {
+  downloadButton,
+  downloadHoverButton,
+  favButton,
+  favHoverButton,
+  favoritesSection,
+  favoritosBox,
+  links,
+  maxButton,
+  maxHoverButton,
+  misGifosSection,
+} from './variables.js';
 
 links[1].addEventListener('click', () => {
   activeSection(<HTMLAnchorElement>links[1]);
