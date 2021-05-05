@@ -82,8 +82,7 @@ export let btnLeft: Element = document.querySelector(".imput-search i")!;
 export let titleSearch = document.querySelector(
   ".titulo-search"
 ) as HTMLDivElement;
-export let containerSearch: HTMLDivElement = document.createElement("div");
-export let btnVerMas: HTMLButtonElement = document.createElement("button");
+
 export let tittleBuscador = document.querySelector(
   ".description h2"
 ) as HTMLHeadingElement;
@@ -123,15 +122,13 @@ export let trendingGifos = document.querySelector(
 export let trendingSection: HTMLElement = document.getElementById(
   "seccion-trending"
 )!;
-export let reactions = document.getElementById(
-  "reactions"
-) as HTMLAnchorElement;
+export let reactions = document.getElementById("reactions") as HTMLSpanElement;
 export let entertainment = document.getElementById(
   "entertainment"
-) as HTMLAnchorElement;
-export let sports = document.getElementById("sports") as HTMLAnchorElement;
-export let stickers = document.getElementById("stickers") as HTMLAnchorElement;
-export let artists = document.getElementById("artists") as HTMLAnchorElement;
+) as HTMLSpanElement;
+export let sports = document.getElementById("sports") as HTMLSpanElement;
+export let stickers = document.getElementById("stickers") as HTMLSpanElement;
+export let artists = document.getElementById("artists") as HTMLSpanElement;
 export let tittleTrending = document.querySelector(
   ".trending-gifos"
 ) as HTMLDivElement;
@@ -166,10 +163,3 @@ export let misGifosUrl: string[] = [];
 export let espacioAzul: HTMLCollectionOf<Element> = document.getElementsByClassName(
   "espacio-azul"
 );
-containerSearch.classList.add("container-search");
-sectionSearch.appendChild(containerSearch);
-containerSearch.before(mainSearch);
-btnVerMas.classList.add("btn-ver-mas");
-btnVerMas.innerHTML = "VER MÁS";
-sectionSearch.appendChild(btnVerMas);
-console.log(links);

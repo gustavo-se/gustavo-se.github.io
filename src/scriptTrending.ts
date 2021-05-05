@@ -2,11 +2,13 @@ import {
   boxHoverFlex,
   boxHoverNone,
   btnHover,
+  quitBtnHover,
+} from "./listeners.js";
+import {
   callTrendings,
   downloadFunction,
   favActive,
   maxGif,
-  quitBtnHover,
 } from "./scriptHoversAndFunctions.js";
 import {
   artists,

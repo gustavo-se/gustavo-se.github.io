@@ -1,4 +1,5 @@
-import { boxHoverFlex, boxHoverNone, btnHover, callTrendings, downloadFunction, favActive, maxGif, quitBtnHover, } from "./scriptHoversAndFunctions.js";
+import { boxHoverFlex, boxHoverNone, btnHover, quitBtnHover, } from "./listeners.js";
+import { callTrendings, downloadFunction, favActive, maxGif, } from "./scriptHoversAndFunctions.js";
 import { artists, carrousel, downloadButton, downloadHoverButton, entertainment, gifOfTrendings, maxButton, maxHoverButton, reactions, sliderLeftCarrousel, sliderRigthCarrousel, sports, stickers, } from "./variables.js";
 carrousel.addEventListener("mouseover", e => {
     boxHoverFlex(e);

@@ -1,14 +1,16 @@
 import {
-  activeSection,
   boxHoverFlex,
   boxHoverNone,
   btnHover,
+  quitBtnHover,
+} from "./listeners.js";
+import {
+  activeSection,
   callFavorites,
   displaySections,
   downloadFunction,
   favActive,
   maxGif,
-  quitBtnHover,
   sinFavoritos,
 } from "./scriptHoversAndFunctions.js";
 import {

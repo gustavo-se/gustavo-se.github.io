@@ -3,7 +3,7 @@ export let apiKey = "bdrONB5N1ZSySk8VvFBXF18Yut13R6tX";
 //Fragment
 export let fragment = document.createDocumentFragment();
 //Templates
-export let boxGif = document.getElementById("box-gifs").content;
+export let boxGif = (document.getElementById("box-gifs")).content;
 //Logo gifos
 export let logoGifos = document.querySelector(".logo-gifos img");
 //Seccion buscador de gif
@@ -40,8 +40,6 @@ export let contentSearch = document.querySelector(".container-buscador");
 export let results = document.getElementsByClassName("resultados");
 export let btnLeft = document.querySelector(".imput-search i");
 export let titleSearch = document.querySelector(".titulo-search");
-export let containerSearch = document.createElement("div");
-export let btnVerMas = document.createElement("button");
 export let tittleBuscador = document.querySelector(".description h2");
 //Gif Max
 export let header = document.querySelector("header");
@@ -52,18 +50,12 @@ export let closeExpand = document.querySelector(".cerrar");
 export let gifMax = document.querySelector(".gif-max");
 export let dataGif = document.querySelector(".datos-gif");
 export let maxButtomFav = document.querySelector(".acciones img");
-export let maxButtomDownload = document.querySelector(
-  ".acciones-buttom-download"
-);
+export let maxButtomDownload = document.querySelector(".acciones-buttom-download");
 //Trending
 export let gifOfTrendings = document.getElementsByClassName("trending-gif");
 export let boxGifTrendings = document.getElementsByClassName("trendings-gif");
-export let sliderLeftCarrousel = document.getElementById(
-  "slider-left-carrousel"
-);
-export let sliderRigthCarrousel = document.getElementById(
-  "slider-rigth-carrousel"
-);
+export let sliderLeftCarrousel = document.getElementById("slider-left-carrousel");
+export let sliderRigthCarrousel = document.getElementById("slider-rigth-carrousel");
 export let carrousel = document.querySelector(".carrousel");
 export let trendingGifos = document.querySelector(".trending");
 export let trendingSection = document.getElementById("seccion-trending");
@@ -87,9 +79,3 @@ export let crearGifo = document.getElementById("boton-crear-gifo");
 export let misGifosUrl = [];
 //otros
 export let espacioAzul = document.getElementsByClassName("espacio-azul");
-containerSearch.classList.add("container-search");
-sectionSearch.appendChild(containerSearch);
-containerSearch.before(mainSearch);
-btnVerMas.classList.add("btn-ver-mas");
-btnVerMas.innerHTML = "VER MÁS";
-sectionSearch.appendChild(btnVerMas);

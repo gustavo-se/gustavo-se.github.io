@@ -1,4 +1,5 @@
-import { activeSection, boxHoverFlex, boxHoverNone, btnHover, callFavorites, displaySections, downloadFunction, favActive, maxGif, quitBtnHover, sinFavoritos, } from "./scriptHoversAndFunctions.js";
+import { boxHoverFlex, boxHoverNone, btnHover, quitBtnHover, } from "./listeners.js";
+import { activeSection, callFavorites, displaySections, downloadFunction, favActive, maxGif, sinFavoritos, } from "./scriptHoversAndFunctions.js";
 import { downloadButton, downloadHoverButton, favButton, favHoverButton, favoritesSection, favoritosBox, links, maxButton, maxHoverButton, misGifosSection, } from "./variables.js";
 links[1].addEventListener("click", () => {
     activeSection(links[1]);

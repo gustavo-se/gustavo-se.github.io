@@ -9,90 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { favorites } from "./loader.js";
 import { buscador } from "./scriptSearch.js";
-import { header, boxExpand, boxGif, crearGifo, crearGifosSection, dataGif, favActiveButton, favButton, favoritesSection, favoritosBox, footer, fragment, gifMax, iconFavSinContenido, links, logoGifos, main, mensaje, misGifosSection, misGifosUrl, searchSection, slidersLeft, slidersRight, titleSearch, trendingSection, } from "./variables.js";
-for (let i = 0; i < slidersLeft.length; i++) {
-    slidersLeft[i].addEventListener("mouseover", () => {
-        slidersLeft[i].setAttribute("src", "./img/button-slider-left-hover.svg");
-    });
-    slidersLeft[i].addEventListener("mouseout", () => {
-        if (slidersLeft[i].classList.contains("mod-noc")) {
-            slidersLeft[i].setAttribute("src", "./img/button-slider-left-md-noct.svg");
-        }
-        else {
-            slidersLeft[i].setAttribute("src", "./img/button-slider-left.svg");
-        }
-    });
-}
-for (let i = 0; i < slidersRight.length; i++) {
-    slidersRight[i].addEventListener("mouseover", () => {
-        slidersRight[i].setAttribute("src", "./img/Button-Slider-right-hover.svg");
-    });
-    slidersRight[i].addEventListener("mouseout", () => {
-        if (slidersRight[i].classList.contains("mod-noc")) {
-            slidersRight[i].setAttribute("src", "./img/button-slider-right-md-noct.svg");
-        }
-        else {
-            slidersRight[i].setAttribute("src", "./img/Button-Slider-right.svg");
-        }
-    });
-}
-//Hover boton crear gifos
-crearGifo.addEventListener("mouseover", () => {
-    switch (crearGifo.getAttribute("src")) {
-        case "./img/button-crear-gifo.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crear-gifo-hover.svg");
-            break;
-        case "./img/CTA-crar-gifo-modo-noc.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crear-gifo-hover-modo-noc.svg");
-            break;
-        case "./img/CTA-crear-gifo-active.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active.svg");
-            break;
-        case "./img/CTA-crear-gifo-active-modo-noc.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active-modo-noc.svg");
-            break;
-    }
-});
-crearGifo.addEventListener("mouseout", () => {
-    switch (crearGifo.getAttribute("src")) {
-        case "./img/CTA-crear-gifo-hover.svg":
-            crearGifo.setAttribute("src", "./img/button-crear-gifo.svg");
-            break;
-        case "./img/CTA-crear-gifo-hover-modo-noc.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crar-gifo-modo-noc.svg");
-            break;
-        case "./img/CTA-crear-gifo-active.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active.svg");
-            break;
-        case "./img/CTA-crear-gifo-active-modo-noc.svg":
-            crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active-modo-noc.svg");
-            break;
-    }
-});
-//Funcion de display flex a la caja hover de los gifs
-export const boxHoverFlex = (e) => {
-    if (e.target && e.target.classList.contains("gif")) {
-        (e.target.nextElementSibling).style.display = "flex";
-    }
-};
-//Funcion quitar el hover box de los gif
-export const boxHoverNone = (e) => {
-    if (e.target && e.target.classList.contains("hover-box")) {
-        e.target.style.display = "none";
-    }
-};
-//Funcion hover de los botones de los Gif
-export const btnHover = (e, clase, btn) => {
-    if (e.target && e.target.classList.contains(clase)) {
-        e.target.setAttribute("src", btn);
-    }
-};
-//Funcion quitar hover
-export const quitBtnHover = (e, clase, btn) => {
-    if (e.target && e.target.classList.contains(clase)) {
-        e.target.setAttribute("src", btn);
-    }
-};
+import { header, boxExpand, boxGif, crearGifo, crearGifosSection, dataGif, favActiveButton, favButton, favoritesSection, favoritosBox, footer, fragment, gifMax, iconFavSinContenido, links, logoGifos, main, mensaje, misGifosSection, misGifosUrl, searchSection, titleSearch, trendingSection, } from "./variables.js";
 //Funcion de boton expandir gif
 export const maxGif = (e) => {
     if (e.target && e.target.classList.contains("expand-icon")) {
@@ -125,7 +42,7 @@ export function download(imgTrend) {
         a.click();
     });
 }
-//Llamando a la funcion download
+//Funcion llamar a download
 export const downloadFunction = (e) => {
     if (e.target && e.target.classList.contains("download-icon")) {
         let img = (e.target.parentElement.parentElement.previousElementSibling);
@@ -273,47 +190,13 @@ export const callTrendings = (wordKey) => {
         titleSearch.innerHTML = `<h3>${wordKey.textContent}</h3>`;
     });
 };
-//Cambiar el logo
+//Funcion insertar logo segun resolucion
 window.addEventListener("load", () => {
     if (window.innerWidth > 901) {
         logoGifos.setAttribute("src", "./img/logo-desktop.svg");
     }
     else {
         logoGifos.setAttribute("src", "./img/logo-mobile.svg");
-    }
-});
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 901 &&
-        logoGifos.getAttribute("src") === "./img/logo-desktop.svg") {
-        logoGifos.setAttribute("src", "./img/logo-desktop.svg");
-    }
-    else if (window.innerWidth > 901 &&
-        logoGifos.getAttribute("src") === "./img/Logo-modo-noc.svg") {
-        logoGifos.setAttribute("src", "./img/Logo-modo-noc.svg");
-    }
-    else if (window.innerWidth > 901 &&
-        logoGifos.getAttribute("src") === "./img/logo-mobile.svg") {
-        logoGifos.setAttribute("src", "./img/logo-desktop.svg");
-    }
-    else if (window.innerWidth > 901 &&
-        logoGifos.getAttribute("src") === "./img/logo-mobile-modo-noct.svg") {
-        logoGifos.setAttribute("src", "./img/Logo-modo-noc.svg");
-    }
-    else if (window.innerWidth < 901 &&
-        logoGifos.getAttribute("src") === "./img/logo-desktop.svg") {
-        logoGifos.setAttribute("src", "./img/logo-mobile.svg");
-    }
-    else if (window.innerWidth < 901 &&
-        logoGifos.getAttribute("src") === "./img/logo-mobile.svg") {
-        logoGifos.setAttribute("src", "./img/logo-mobile.svg");
-    }
-    else if (window.innerWidth < 901 &&
-        logoGifos.getAttribute("src") === "./img/logo-mobile-modo-noct.svg") {
-        logoGifos.setAttribute("src", "./img/logo-mobile-modo-noct.svg");
-    }
-    else if (window.innerWidth < 901 &&
-        logoGifos.getAttribute("src") === "./img/Logo-modo-noc.svg") {
-        logoGifos.setAttribute("src", "./img/logo-mobile-modo-noct.svg");
     }
 });
 //Funcion copiar a portapapeles url de mis gifos

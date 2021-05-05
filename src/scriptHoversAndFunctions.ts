@@ -30,108 +30,6 @@ import {
   titleSearch,
   trendingSection,
 } from "./variables.js";
-for (let i = 0; i < slidersLeft.length; i++) {
-  slidersLeft[i].addEventListener("mouseover", () => {
-    slidersLeft[i].setAttribute("src", "./img/button-slider-left-hover.svg");
-  });
-  slidersLeft[i].addEventListener("mouseout", () => {
-    if (slidersLeft[i].classList.contains("mod-noc")) {
-      slidersLeft[i].setAttribute(
-        "src",
-        "./img/button-slider-left-md-noct.svg"
-      );
-    } else {
-      slidersLeft[i].setAttribute("src", "./img/button-slider-left.svg");
-    }
-  });
-}
-
-for (let i = 0; i < slidersRight.length; i++) {
-  slidersRight[i].addEventListener("mouseover", () => {
-    slidersRight[i].setAttribute("src", "./img/Button-Slider-right-hover.svg");
-  });
-  slidersRight[i].addEventListener("mouseout", () => {
-    if (slidersRight[i].classList.contains("mod-noc")) {
-      slidersRight[i].setAttribute(
-        "src",
-        "./img/button-slider-right-md-noct.svg"
-      );
-    } else {
-      slidersRight[i].setAttribute("src", "./img/Button-Slider-right.svg");
-    }
-  });
-}
-
-//Hover boton crear gifos
-crearGifo.addEventListener("mouseover", () => {
-  switch (crearGifo.getAttribute("src")) {
-    case "./img/button-crear-gifo.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crear-gifo-hover.svg");
-      break;
-
-    case "./img/CTA-crar-gifo-modo-noc.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crear-gifo-hover-modo-noc.svg");
-      break;
-
-    case "./img/CTA-crear-gifo-active.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active.svg");
-      break;
-
-    case "./img/CTA-crear-gifo-active-modo-noc.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active-modo-noc.svg");
-      break;
-  }
-});
-
-crearGifo.addEventListener("mouseout", () => {
-  switch (crearGifo.getAttribute("src")) {
-    case "./img/CTA-crear-gifo-hover.svg":
-      crearGifo.setAttribute("src", "./img/button-crear-gifo.svg");
-      break;
-
-    case "./img/CTA-crear-gifo-hover-modo-noc.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crar-gifo-modo-noc.svg");
-      break;
-
-    case "./img/CTA-crear-gifo-active.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active.svg");
-      break;
-
-    case "./img/CTA-crear-gifo-active-modo-noc.svg":
-      crearGifo.setAttribute("src", "./img/CTA-crear-gifo-active-modo-noc.svg");
-      break;
-  }
-});
-
-//Funcion de display flex a la caja hover de los gifs
-export const boxHoverFlex = (e: MouseEvent) => {
-  if (e.target && (<Element>e.target).classList.contains("gif")) {
-    (<HTMLDivElement>(
-      (<HTMLDivElement>e.target).nextElementSibling
-    ))!.style.display = "flex";
-  }
-};
-
-//Funcion quitar el hover box de los gif
-export const boxHoverNone = (e: MouseEvent) => {
-  if (e.target && (<Element>e.target).classList.contains("hover-box")) {
-    (<HTMLDivElement>e.target).style.display = "none";
-  }
-};
-
-//Funcion hover de los botones de los Gif
-export const btnHover = (e: MouseEvent, clase: string, btn: string) => {
-  if (e.target && (<Element>e.target).classList.contains(clase)) {
-    (<Element>e.target).setAttribute("src", btn);
-  }
-};
-
-//Funcion quitar hover
-export const quitBtnHover = (e: MouseEvent, clase: string, btn: string) => {
-  if (e.target && (<Element>e.target).classList.contains(clase)) {
-    (<Element>e.target).setAttribute("src", btn);
-  }
-};
 
 //Funcion de boton expandir gif
 export const maxGif = (e: MouseEvent) => {
@@ -173,7 +71,7 @@ export async function download(imgTrend: HTMLImageElement) {
   a.click();
 }
 
-//Llamando a la funcion download
+//Funcion llamar a download
 export const downloadFunction = (e: MouseEvent) => {
   if (e.target && (<Element>e.target).classList.contains("download-icon")) {
     let img: HTMLImageElement = <HTMLImageElement>(
@@ -352,7 +250,7 @@ export const activeSection = (link: HTMLAnchorElement) => {
 };
 
 //Funcion llamar a los trendings
-export const callTrendings = (wordKey: HTMLAnchorElement) => {
+export const callTrendings = (wordKey: HTMLSpanElement) => {
   wordKey.addEventListener("click", () => {
     buscador(wordKey.textContent!);
     titleSearch.style.display = "block";
@@ -360,55 +258,12 @@ export const callTrendings = (wordKey: HTMLAnchorElement) => {
   });
 };
 
-//Cambiar el logo
+//Funcion insertar logo segun resolucion
 window.addEventListener("load", () => {
   if (window.innerWidth > 901) {
     logoGifos.setAttribute("src", "./img/logo-desktop.svg");
   } else {
     logoGifos.setAttribute("src", "./img/logo-mobile.svg");
-  }
-});
-window.addEventListener("resize", () => {
-  if (
-    window.innerWidth > 901 &&
-    logoGifos.getAttribute("src") === "./img/logo-desktop.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/logo-desktop.svg");
-  } else if (
-    window.innerWidth > 901 &&
-    logoGifos.getAttribute("src") === "./img/Logo-modo-noc.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/Logo-modo-noc.svg");
-  } else if (
-    window.innerWidth > 901 &&
-    logoGifos.getAttribute("src") === "./img/logo-mobile.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/logo-desktop.svg");
-  } else if (
-    window.innerWidth > 901 &&
-    logoGifos.getAttribute("src") === "./img/logo-mobile-modo-noct.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/Logo-modo-noc.svg");
-  } else if (
-    window.innerWidth < 901 &&
-    logoGifos.getAttribute("src") === "./img/logo-desktop.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/logo-mobile.svg");
-  } else if (
-    window.innerWidth < 901 &&
-    logoGifos.getAttribute("src") === "./img/logo-mobile.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/logo-mobile.svg");
-  } else if (
-    window.innerWidth < 901 &&
-    logoGifos.getAttribute("src") === "./img/logo-mobile-modo-noct.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/logo-mobile-modo-noct.svg");
-  } else if (
-    window.innerWidth < 901 &&
-    logoGifos.getAttribute("src") === "./img/Logo-modo-noc.svg"
-  ) {
-    logoGifos.setAttribute("src", "./img/logo-mobile-modo-noct.svg");
   }
 });
 
