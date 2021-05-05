@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { favorites } from "./loader.js";
-import { buscador } from "./scriptSearch.js";
+import { searcher } from "./scriptSearch.js";
 import { header, boxExpand, boxGif, crearGifo, crearGifosSection, dataGif, favActiveButton, favButton, favoritesSection, favoritosBox, footer, fragment, gifMax, iconFavSinContenido, links, logoGifos, main, mensaje, misGifosSection, misGifosUrl, searchSection, titleSearch, trendingSection, } from "./variables.js";
 //Funcion de boton expandir gif
 export const maxGif = (e) => {
@@ -185,7 +185,7 @@ export const activeSection = (link) => {
 //Funcion llamar a los trendings
 export const callTrendings = (wordKey) => {
     wordKey.addEventListener("click", () => {
-        buscador(wordKey.textContent);
+        searcher(wordKey.textContent);
         titleSearch.style.display = "block";
         titleSearch.innerHTML = `<h3>${wordKey.textContent}</h3>`;
     });
