@@ -7,7 +7,7 @@ import {
   favActive,
   maxGif,
   quitBtnHover,
-} from './scriptHoversAndFunctions.js';
+} from "./scriptHoversAndFunctions.js";
 import {
   artists,
   carrousel,
@@ -22,21 +22,21 @@ import {
   sliderRigthCarrousel,
   sports,
   stickers,
-} from './variables.js';
+} from "./variables.js";
 
-carrousel.addEventListener('mouseover', e => {
+carrousel.addEventListener("mouseover", e => {
   boxHoverFlex(e);
-  btnHover(e, 'download-icon', downloadHoverButton);
-  btnHover(e, 'expand-icon', maxHoverButton);
+  btnHover(e, "download-icon", downloadHoverButton);
+  btnHover(e, "expand-icon", maxHoverButton);
 });
 
-carrousel.addEventListener('mouseout', e => {
+carrousel.addEventListener("mouseout", e => {
   boxHoverNone(e);
-  quitBtnHover(e, 'download-icon', downloadButton);
-  quitBtnHover(e, 'expand-icon', maxButton);
+  quitBtnHover(e, "download-icon", downloadButton);
+  quitBtnHover(e, "expand-icon", maxButton);
 });
 
-carrousel.addEventListener('click', e => {
+carrousel.addEventListener("click", e => {
   maxGif(e);
   downloadFunction(e);
   favActive(e);
@@ -45,36 +45,36 @@ carrousel.addEventListener('click', e => {
 let counter: number = 1;
 const size: number = 357;
 
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   if (window.innerWidth < 901) {
-    carrousel.style.transform = 'translateX(0px)';
+    carrousel.style.transform = "translateX(0px)";
   }
 });
 
-sliderRigthCarrousel.addEventListener('click', () => {
+sliderRigthCarrousel.addEventListener("click", () => {
   if (counter >= gifOfTrendings.length - 1) return;
-  carrousel.style.transition = 'transform 0.4s ease-in-out';
+  carrousel.style.transition = "transform 0.4s ease-in-out";
   counter++;
-  carrousel.style.transform = 'translateX(' + -size * counter + 'px)';
+  carrousel.style.transform = "translateX(" + -size * counter + "px)";
 });
 
-sliderLeftCarrousel.addEventListener('click', () => {
+sliderLeftCarrousel.addEventListener("click", () => {
   if (counter <= 0) return;
-  carrousel.style.transition = 'transform 0.4s ease-in-out';
+  carrousel.style.transition = "transform 0.4s ease-in-out";
   counter--;
-  carrousel.style.transform = 'translateX(' + -size * counter + 'px)';
+  carrousel.style.transform = "translateX(" + -size * counter + "px)";
 });
 
-carrousel.addEventListener('transitionend', () => {
-  if (gifOfTrendings[counter].id === 'last-clone') {
-    carrousel.style.transition = 'none';
+carrousel.addEventListener("transitionend", () => {
+  if (gifOfTrendings[counter].id === "last-clone") {
+    carrousel.style.transition = "none";
     counter = gifOfTrendings.length - 2;
-    carrousel.style.transform = 'translateX(' + -size * counter + 'px)';
+    carrousel.style.transform = "translateX(" + -size * counter + "px)";
   }
-  if (gifOfTrendings[counter].id === 'first-clone') {
-    carrousel.style.transition = 'none';
+  if (gifOfTrendings[counter].id === "first-clone") {
+    carrousel.style.transition = "none";
     counter = gifOfTrendings.length - counter;
-    carrousel.style.transform = 'translateX(' + -size * counter + 'px)';
+    carrousel.style.transform = "translateX(" + -size * counter + "px)";
   }
 });
 

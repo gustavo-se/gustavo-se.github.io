@@ -10,7 +10,7 @@ import {
   maxGif,
   quitBtnHover,
   sinFavoritos,
-} from './scriptHoversAndFunctions.js';
+} from "./scriptHoversAndFunctions.js";
 import {
   downloadButton,
   downloadHoverButton,
@@ -22,16 +22,16 @@ import {
   maxButton,
   maxHoverButton,
   misGifosSection,
-} from './variables.js';
+} from "./variables.js";
 
-links[1].addEventListener('click', () => {
+links[1].addEventListener("click", () => {
   activeSection(<HTMLAnchorElement>links[1]);
 
   displaySections(favoritesSection, misGifosSection);
 
   if (
-    localStorage.getItem('favoritos') === null ||
-    localStorage.getItem('favoritos') === '[]'
+    localStorage.getItem("favoritos") === null ||
+    localStorage.getItem("favoritos") === "[]"
   ) {
     sinFavoritos();
   } else {
@@ -42,21 +42,21 @@ links[1].addEventListener('click', () => {
   }
 });
 
-favoritosBox.addEventListener('mouseover', e => {
+favoritosBox.addEventListener("mouseover", e => {
   boxHoverFlex(e);
-  btnHover(e, 'fav-icon', favHoverButton);
-  btnHover(e, 'download-icon', downloadHoverButton);
-  btnHover(e, 'expand-icon', maxHoverButton);
+  btnHover(e, "fav-icon", favHoverButton);
+  btnHover(e, "download-icon", downloadHoverButton);
+  btnHover(e, "expand-icon", maxHoverButton);
 });
 
-favoritosBox.addEventListener('mouseout', e => {
+favoritosBox.addEventListener("mouseout", e => {
   boxHoverNone(e);
-  quitBtnHover(e, 'fav-icon', favButton);
-  quitBtnHover(e, 'download-icon', downloadButton);
-  quitBtnHover(e, 'expand-icon', maxButton);
+  quitBtnHover(e, "fav-icon", favButton);
+  quitBtnHover(e, "download-icon", downloadButton);
+  quitBtnHover(e, "expand-icon", maxButton);
 });
 
-favoritosBox.addEventListener('click', e => {
+favoritosBox.addEventListener("click", e => {
   maxGif(e);
   downloadFunction(e);
   favActive(e);
