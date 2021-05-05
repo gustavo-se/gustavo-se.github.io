@@ -1,4 +1,5 @@
-import { menu, ulDesplegado, closeMenu, hamburguesa, crearGifosSection, downloadHoverButton, linkHoverButton, linkButton, downloadButton, crearGifo, slidersLeft, slidersRight, } from "./variables.js";
+import { download, maxGifClose, principalPage, } from "./scriptHoversAndFunctions.js";
+import { menu, ulDesplegado, closeMenu, hamburguesa, crearGifosSection, downloadHoverButton, linkHoverButton, linkButton, downloadButton, crearGifo, slidersLeft, slidersRight, maxButtomFav, favButton, favActiveButton, closeExpand, maxButtomDownload, gifMax, footer, logoGifos, } from "./variables.js";
 //Listener del menu Hamburguesa
 menu.addEventListener("click", () => {
     ulDesplegado.classList.toggle("ul-desplegado");
@@ -90,6 +91,9 @@ export const boxHoverNone = (e) => {
     if (e.target && e.target.classList.contains("hover-box")) {
         e.target.style.display = "none";
     }
+    if (e.target && e.target.classList.contains("icons-box")) {
+        e.target.parentElement.style.display = "none";
+    }
 };
 //Funcion colocar hover en los botones de los gif
 export const btnHover = (e, clase, btn) => {
@@ -103,3 +107,52 @@ export const quitBtnHover = (e, clase, btn) => {
         e.target.setAttribute("src", btn);
     }
 };
+//Eventos en botones del gif maximizado
+//Fav button
+maxButtomFav.addEventListener("click", () => {
+    if (maxButtomFav.getAttribute("src") === favButton) {
+        maxButtomFav.setAttribute("src", favActiveButton);
+        maxButtomFav.classList.add("fav-icon-active");
+    }
+    else {
+        maxButtomFav.setAttribute("src", favButton);
+        maxButtomFav.classList.remove("fav-icon-active");
+    }
+});
+//Download button
+maxButtomDownload.addEventListener("click", () => {
+    download(gifMax.firstElementChild);
+});
+//Close button
+closeExpand.addEventListener("click", () => {
+    maxGifClose();
+});
+//Pagina principal al hacer click al logo gifos
+logoGifos.addEventListener("click", () => {
+    principalPage();
+});
+//Hovers de Redes Sociales
+footer.addEventListener("mouseover", e => {
+    if (footer.classList.contains("fondo-noc-first")) {
+        btnHover(e, "facebook", "./img/icon_facebook_noc.svg");
+        btnHover(e, "twitter", "./img/icon_twitter_noc.svg");
+        btnHover(e, "instagram", "./img/icon_instagram_noc.svg");
+    }
+    else {
+        btnHover(e, "facebook", "./img/icon_facebook_hover.svg");
+        btnHover(e, "twitter", "./img/icon-twitter-hover.svg");
+        btnHover(e, "instagram", "./img/icon_instagram-hover.svg");
+    }
+});
+footer.addEventListener("mouseout", e => {
+    if (footer.classList.contains("fondo-noc-first")) {
+        btnHover(e, "facebook", "./img/icon_facebook.svg");
+        btnHover(e, "twitter", "./img/icon-tw-normal.svg");
+        btnHover(e, "instagram", "./img/icon_instagram.svg");
+    }
+    else {
+        btnHover(e, "facebook", "./img/icon_facebook.svg");
+        btnHover(e, "twitter", "./img/icon-twitter.svg");
+        btnHover(e, "instagram", "./img/icon_instagram.svg");
+    }
+});

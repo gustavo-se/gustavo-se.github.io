@@ -2,7 +2,7 @@
 import { Gif } from "./interfaces.js";
 import { favorites } from "./loader.js";
 
-import { buscador } from "./scriptSearch.js";
+import { searcher } from "./scriptSearch.js";
 import {
   header,
   boxExpand,
@@ -252,7 +252,7 @@ export const activeSection = (link: HTMLAnchorElement) => {
 //Funcion llamar a los trendings
 export const callTrendings = (wordKey: HTMLSpanElement) => {
   wordKey.addEventListener("click", () => {
-    buscador(wordKey.textContent!);
+    searcher(wordKey.textContent!);
     titleSearch.style.display = "block";
     titleSearch.innerHTML = `<h3>${wordKey.textContent}</h3>`;
   });

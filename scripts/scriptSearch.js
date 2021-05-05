@@ -3,7 +3,7 @@ import { boxHoverFlex, boxHoverNone, btnHover, quitBtnHover, } from "./listeners
 import { btnVerMas, containerSearch } from "./loader.js";
 import { downloadFunction, favActive, maxGif, } from "./scriptHoversAndFunctions.js";
 import { apiKey, boxGif, btnLeft, btnSearch, contentSearch, downloadButton, downloadHoverButton, favButton, favHoverButton, fragment, input, inputSearch, maxButton, maxHoverButton, results, sugestionsBox, titleSearch, trendingGifos, } from "./variables.js";
-export const buscador = (key) => {
+export const searcher = (key) => {
     trendingGifos.style.display = "none";
     contador = 0;
     while (containerSearch.firstChild) {
@@ -94,7 +94,7 @@ input.addEventListener("keyup", event => {
         }
     }
     if (event.keyCode === 13) {
-        buscador(input.value);
+        searcher(input.value);
         titleSearch.style.display = "block";
         titleSearch.innerHTML = `<h3>${input.value}</h3>`;
         btnVerMas.style.display = "block";
@@ -107,7 +107,7 @@ input.addEventListener("keyup", event => {
 });
 for (let i = 0; i < 4; i++) {
     results[i].addEventListener("click", () => {
-        buscador(results[i].innerHTML);
+        searcher(results[i].innerHTML);
         input.value = results[i].innerHTML;
         sugestionsBox.style.display = "none";
         titleSearch.style.display = "block";

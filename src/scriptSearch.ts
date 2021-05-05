@@ -33,7 +33,7 @@ import {
   trendingGifos,
 } from "./variables.js";
 
-export const buscador = (key: string) => {
+export const searcher = (key: string) => {
   trendingGifos.style.display = "none";
   contador = 0;
   while (containerSearch.firstChild) {
@@ -137,7 +137,7 @@ input.addEventListener("keyup", event => {
   }
 
   if (event.keyCode === 13) {
-    buscador(input.value);
+    searcher(input.value);
     titleSearch.style.display = "block";
     titleSearch.innerHTML = `<h3>${input.value}</h3>`;
     btnVerMas.style.display = "block";
@@ -151,7 +151,7 @@ input.addEventListener("keyup", event => {
 
 for (let i = 0; i < 4; i++) {
   results[i].addEventListener("click", () => {
-    buscador(results[i].innerHTML);
+    searcher(results[i].innerHTML);
     input.value = results[i].innerHTML;
     sugestionsBox.style.display = "none";
     titleSearch.style.display = "block";
