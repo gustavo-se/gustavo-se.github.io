@@ -1,8 +1,8 @@
-import { boxGif, carrousel, fragment, sectionSearch } from "./variables.js";
+import { apiKey, boxGif, carrousel, fragment, sectionSearch, } from "./variables.js";
 export let favorites = [];
 //Llamado a los gifs de trending y verificacion de local storage
 window.addEventListener("load", () => {
-    fetch("https://api.giphy.com/v1/gifs/trending?api_key=bdrONB5N1ZSySk8VvFBXF18Yut13R6tX&limit=11&rating=g")
+    fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=11&rating=g`)
         .then(res => res.json())
         .then(res => {
         res.data.forEach((item) => {

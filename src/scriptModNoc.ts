@@ -239,7 +239,6 @@ const setClassModNocRecord = (
     for (const hijos of crearGifoPasos.children) {
       hijos.classList.toggle("words-noc-first");
       hijos.classList.toggle("border-noc-first");
-      console.log(hijos);
     }
   } else {
     for (const hijos of crearGifoPasos.children) {

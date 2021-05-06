@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 let contador = 1;
 import { boxHoverFlex, boxHoverNone, btnHover, quitBtnHover, } from "./listeners.js";
 import { btnVerMas, containerSearch } from "./loader.js";
@@ -9,32 +18,38 @@ export const searcher = (key) => {
     while (containerSearch.firstChild) {
         containerSearch.removeChild(containerSearch.firstChild);
     }
-    callGif("0", key);
+    callGifs("0", key);
 };
 //Funcion render gif de search
-const callGif = (offset, key) => {
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`)
-        .then(res => res.json())
-        .then(res => {
-        res.data.forEach((item) => {
-            boxGif
-                .querySelector(".gif")
-                .setAttribute("src", item.images.original.url);
-            (boxGif.querySelector(".gif")).dataset.id = item.id;
-            boxGif.querySelector(".gif").classList.value =
-                "gif searched-gifs";
-            boxGif
-                .querySelector(".icon-fav img")
-                .setAttribute("src", favButton);
-            boxGif.querySelector(".gif-box").classList.value =
-                "gif-box search-gifs";
-            boxGif.querySelector(".titulo-gif").textContent =
-                item.title;
-            let clone = boxGif.cloneNode(true);
-            fragment.appendChild(clone);
-        });
-        containerSearch.appendChild(fragment);
+const callGifs = (offset, key) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const response = yield fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`);
+        const gifos = yield response.json();
+        renderGifSearch(gifos.data);
+    }
+    catch (e) {
+        console.error(e);
+    }
+});
+const renderGifSearch = (gifos) => {
+    gifos.forEach((item) => {
+        boxGif
+            .querySelector(".gif")
+            .setAttribute("src", item.images.original.url);
+        boxGif.querySelector(".gif").dataset.id =
+            item.id;
+        boxGif.querySelector(".gif").classList.value =
+            "gif searched-gifs";
+        boxGif
+            .querySelector(".icon-fav img")
+            .setAttribute("src", favButton);
+        boxGif.querySelector(".gif-box").classList.value =
+            "gif-box search-gifs";
+        boxGif.querySelector(".titulo-gif").textContent = item.title;
+        let clone = boxGif.cloneNode(true);
+        fragment.appendChild(clone);
     });
+    containerSearch.appendChild(fragment);
 };
 containerSearch.addEventListener("mouseover", e => {
     boxHoverFlex(e);
@@ -105,10 +120,10 @@ input.addEventListener("keyup", event => {
     }
     sugerencias(input.value);
 });
-for (let i = 0; i < 4; i++) {
-    results[i].addEventListener("click", () => {
-        searcher(results[i].innerHTML);
-        input.value = results[i].innerHTML;
+for (const result of results) {
+    result.addEventListener("click", () => {
+        searcher(result.innerHTML);
+        input.value = result.innerHTML;
         sugestionsBox.style.display = "none";
         titleSearch.style.display = "block";
         btnVerMas.style.display = "block";
@@ -117,5 +132,5 @@ for (let i = 0; i < 4; i++) {
 }
 btnVerMas.addEventListener("click", () => {
     contador = contador + 12;
-    callGif(contador, titleSearch.innerHTML);
+    callGifs(contador, titleSearch.innerHTML);
 });

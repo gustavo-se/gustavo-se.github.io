@@ -16,4 +16,5 @@ export interface GifFetch {
   images: Original;
   id: string;
   title: string;
+  data: [];
 }

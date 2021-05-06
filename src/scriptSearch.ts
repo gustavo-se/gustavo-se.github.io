@@ -39,38 +39,42 @@ export const searcher = (key: string) => {
   while (containerSearch.firstChild) {
     containerSearch.removeChild(containerSearch.firstChild);
   }
-  callGif("0", key);
+  callGifs("0", key);
 };
 
 //Funcion render gif de search
-const callGif = (offset: string | number, key: string) => {
-  fetch(
-    `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`
-  )
-    .then(res => res.json())
-    .then(res => {
-      res.data.forEach((item: GifFetch) => {
-        (<Element>boxGif)
-          .querySelector(".gif")!
-          .setAttribute("src", item.images.original.url);
-        (<HTMLImageElement>(
-          (<Element>boxGif).querySelector(".gif")
-        ))!.dataset.id = item.id;
-        (<Element>boxGif).querySelector(".gif")!.classList.value =
-          "gif searched-gifs";
-        (<Element>boxGif)
-          .querySelector(".icon-fav img")!
-          .setAttribute("src", favButton);
-        (<Element>boxGif).querySelector(".gif-box")!.classList.value =
-          "gif-box search-gifs";
-        (<Element>boxGif).querySelector(".titulo-gif")!.textContent =
-          item.title;
+const callGifs = async (offset: string | number, key: string) => {
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${key}&limit=12&offset=${offset}&rating=g`
+    );
+    const gifos: GifFetch = await response.json();
+    renderGifSearch(gifos.data);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
-        let clone = (<Element>boxGif).cloneNode(true);
-        fragment.appendChild(clone);
-      });
-      containerSearch.appendChild(fragment);
-    });
+const renderGifSearch = (gifos: GifFetch[]) => {
+  gifos.forEach((item: GifFetch) => {
+    (<Element>boxGif)
+      .querySelector(".gif")!
+      .setAttribute("src", item.images.original.url);
+    (<HTMLImageElement>(<Element>boxGif).querySelector(".gif"))!.dataset.id =
+      item.id;
+    (<Element>boxGif).querySelector(".gif")!.classList.value =
+      "gif searched-gifs";
+    (<Element>boxGif)
+      .querySelector(".icon-fav img")!
+      .setAttribute("src", favButton);
+    (<Element>boxGif).querySelector(".gif-box")!.classList.value =
+      "gif-box search-gifs";
+    (<Element>boxGif).querySelector(".titulo-gif")!.textContent = item.title;
+
+    let clone = (<Element>boxGif).cloneNode(true);
+    fragment.appendChild(clone);
+  });
+  containerSearch.appendChild(fragment);
 };
 
 containerSearch.addEventListener("mouseover", e => {
@@ -149,10 +153,10 @@ input.addEventListener("keyup", event => {
   sugerencias(input.value);
 });
 
-for (let i = 0; i < 4; i++) {
-  results[i].addEventListener("click", () => {
-    searcher(results[i].innerHTML);
-    input.value = results[i].innerHTML;
+for (const result of results) {
+  result.addEventListener("click", () => {
+    searcher(result.innerHTML);
+    input.value = result.innerHTML;
     sugestionsBox.style.display = "none";
     titleSearch.style.display = "block";
     btnVerMas.style.display = "block";
@@ -162,5 +166,5 @@ for (let i = 0; i < 4; i++) {
 
 btnVerMas.addEventListener("click", () => {
   contador = contador + 12;
-  callGif(contador, titleSearch.innerHTML);
+  callGifs(contador, titleSearch.innerHTML);
 });
